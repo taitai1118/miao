@@ -8,17 +8,15 @@
      body > :nth-child(1){
        color: red;
      }
-
-      [tabindex="1"]:hover {
-        color: red;
-      }
       [tabindex="1"]:focus{
         color: blue;
+      }
+      [tabindex="1"]:hover {
+        color: red;
       }
       [tabindex="1"]:active{
         color: green;
       }
-
       body p > :first-child {
         color: red;
       }
@@ -28,22 +26,19 @@
       span:nth-child(2){
         color: blue;
       }
-      [href*="mi"]{
+      a:visited{
         color:orange;
       }
-      [href*="jd"]{
-        color: orange;
-      }
-      [href*="lksdjfwief"]{
+      a:link{
         color: pink;
       }
-      [href$="a@b.com"]{
+      a[href$="a@b.com"]{
         color: blue;
       }
-      [href^="tel"]{
+      a[href^="tel"]{
         color:yellow;
       }
-      [href^="aaa"]{
+      a[href^="aaa"]{
         font-size: 30px;
       }
       div[class="a"] li:nth-child(n+4):nth-child(-n+7){
