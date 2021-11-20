@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+<style>
+  body{
+   background:rgb(143, 138, 138) url(https://meyerweb.com/eric/css/edge/complexspiral/glassy-bg.jpg) 0 0 no-repeat fixed;
+  }
+  div{
+    background: url(https://meyerweb.com/eric/css/edge/complexspiral/glassy-gray.jpg) 0 0 no-repeat fixed;
+  }
+.main{
+  margin: 5em 5em 10em 5em;
+  padding: 10px;
+  border: 3px solid rgb(98, 2, 2);
+
+}
+.main h1{
+  background: rgb(122, 6, 6) url(https://meyerweb.com/eric/css/edge/complexspiral/glassy-gray.jpg) 0 0 no-repeat fixed;
+  border: 1px solid rgb(41, 18, 0);
+  padding: 0.5em 1em 0.25em;
+
+}
+h2{
+  background: rgb(114, 5, 5) url(https://meyerweb.com/eric/css/edge/complexspiral/glassy-gray.jpg) 0 0 no-repeat fixed;
+  border: 1px solid rgb(41, 18, 0);
+  padding: 0.5em 1em 0.25em;
+}
+p{
+  margin: 0 1em 1em;
+  padding: 0;
+  line-height: 1.3;
+}
+</style>
+<div class="main">
+  <h1>complexspiral distorted</h1>
+  <p>
+    The page you are viewing right now exists to show off what can be accomplished with pure CSS1, and that's all. This variant on complexspiral doesn't even use any CSS2 to accomplish its magic. Remember: as you look this demo over, there is no Javascript here, nor are any PNGs being used, nor do I employ any proprietary extensions to CSS or any other language. It's all done using straight W3C-recommended markup and styling, all validated, plus a total of four (4) images.
+
+  </p>
+  <p>Unfortunately, not every browser supports all of CSS1, and only those browsers which fully and completely support CSS1 will get this right. Despite some claims to the contrary, IE6/Win's rendering of this page is not correct, as it (as well as some other browsers) doesn't correctly support background-attachment: fixed for any element other than the body. That makes it impossible to pull off the intended effect. Other browsers may or may not get the effect right.
+
+  </p>
+  <h2>Hands-on: Things to Examine</h2>
+  <p>Before you start, make sure you're viewing this page in one of the browsers mentioned above. Otherwise the descriptions to follow won't match what you see.</p>
+  <p>The first, easiest thing to do is scroll the page vertically. Make sure you scroll all the way to the very end of the page and back. Notice how the various areas with colored backgrounds also appear to distort the background image as if through mottled glass. Try changing the text size and notice how the compositing effect remains consistent. Then make your browser window really narrow and scroll horizontally. Again, everything should remain seamless and consistent.
+    </p>
+    <p>The demonstrated effect, that of having various elements backed with translucent rippled glass of varying hues, is only possible using fixed-attachment backgrounds in CSS. (Okay, maybe it could be done in Flash; I don't know.) I don't think it's even possible with IE's proprietary filters, but even if this effect is possible with filters, I could easily enough devise one that isn't.
+
+    </p>
+    <h2>I missed the original complexspiral demo-- how does this work?!?</h2>
+    <p>Glad you asked. The effect demonstrated here is achieved by using fixed background images, nothing more. For example, the main-content area (the blue part here) uses the following styles for the default spiral-shell background:
+
+    </p>
+</div>
+
+  </head>
+  <body>
+
+
+  </body>
+</html>
