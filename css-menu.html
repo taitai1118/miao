@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .down{
+      display: flex;
+      flex-wrap: nowrap;
+    }
+    body {
+      background-color: rgba(0, 0, 0, 0.897);
+    }
+
+    body>ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      height: 50px;
+      width: 100%;
+      border: 3px solid rgb(63, 117, 167);
+      background-color: #cac1c1;
+    }
+
+    ul.down>li {
+      display: inline-block;
+    }
+
+    li {
+      list-style: none;
+      position: relative;
+      top: 10px;
+      left: 0px;
+      xwhite-space: nowrap;
+      color: white;
+      height: 30px;
+      width: 80px;
+      background-color: #cac1c1;
+      text-align: center;
+
+
+    }
+
+    li:hover {
+      background-color: rgb(255, 162, 162);
+    }
+
+    ul ul {
+      display: none;
+      position: absolute;
+    }
+
+    li:hover>ul {
+      display: block;
+    }
+
+
+    .wenjian{
+      position: absolute;
+      left: -10px;
+    }
+  </style>
+</head>
+
+<body>
+  <ul class="down">
+    <li>文件
+      <ul class="wenjian">
+        <li>新建文件</li>
+        <li>新建窗口</li>
+        <li>打开文件
+          <ul>
+            <li>文件一</li>
+            <li>文件二</li>
+            <li>文件三</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li>编辑</li>
+    <li>选择</li>
+    <li>查看</li>
+    <li>转到</li>
+    <li>运行</li>
+    <li>终端</li>
+    <li>帮助</li>
+  </ul>
+
+</body>
+
+</html>
