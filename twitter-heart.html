@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    div {
+      width: 100px;
+      height: 100px;
+      border: 2px solid black;
+      background: url(img/web_heart_animation.png) no-repeat;
+      background-color: black;
+      margin-bottom: 20px;
+    }
+
+    .a:hover {
+      background-position: -2800px 0;
+      /*指定元素背景图片的位置 把图片像左移动2800px*/
+      transition: 1s steps(28);
+    }
+    .a {
+      position: relative;
+      left: 20px;
+    }
+
+    input {
+      display: none;
+    }
+
+    label {
+      background-image: url(img/web_heart_animation.png);
+      width: 100px;
+      height: 100px;
+      border: 1px solid;
+      display: inline-block;
+      position: relative;
+      left: 20px;
+      background-color: rgb(163, 0, 0);
+    }
+
+    input:checked+label {
+      background-position: -2800px 0;
+      transition: steps(28) 1s;
+    }
+  </style>
+
+
+</head>
+
+<body>
+  <div class="a"></div>
+  <mian>
+    <input type="checkbox" id="heart">
+    <label for="heart"></label>
+  </mian>
+
+
+</body>
+
+</html>
