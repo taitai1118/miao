@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    main {
+      position: relative;
+    }
+
+    section {
+      width: 300px;
+      height: 150px;
+      border-radius: 200px;
+      background: rgb(255, 255, 255);
+      position: absolute;
+      box-shadow: 0 0 10px rgb(165, 165, 165);
+    }
+
+    div {
+      width: 130px;
+      height: 130px;
+      background: rgb(255, 255, 255);
+      border-radius: 50%;
+      position: absolute;
+      left: 10px;
+      bottom: 10px;
+      box-shadow: 0 0 10px rgb(173, 173, 173);
+
+    }
+
+    input {
+      display: none;
+    }
+
+    input:checked+label div {
+      position: absolute;
+      left: 160px;
+      transition: left 1s;
+    }
+
+    input:checked+label section {
+      background-color: rgb(93, 255, 93);
+      transition: 1s;
+      box-shadow: inset 0 0 0 50px rgb(47, 250, 57);
+    }
+
+    input:not(:checked)+label section {
+      transition: 1s;
+    }
+
+    input:not(:checked)+label div {
+      transition: 1s;
+    }
+  </style>
+
+</head>
+
+<body>
+  <main>
+
+
+    <input type="checkbox" id="ios">
+    <label for="ios">
+      <section>
+        <div class="circle"></div>
+      </section>
+    </label>
+  </main>
+</body>
+
+</html>
