@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      * {
+      box-sizing: border-box;
+    }
+
+    html {
+      zoom: 2;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+        table {
+            border-collapse: collapse;
+        }
+
+        td {
+            width: 50px;
+            height: 50px;
+            border: 5px solid blue;
+            text-align: center;
+            vertical-align: middle;
+            position: relative;
+        }
+
+
+        td:hover::before {
+            position: absolute;
+            content: '';
+            top: -5px;
+            right: -5px;
+            bottom: -5px;
+            left: -5px;
+            border: 5px solid red;
+        }
+
+
+
+
+    .fatherBox1 {
+      width: 150px;
+      height: 150px;
+    }
+
+    .fatherBox1>div {
+      width: 50px;
+      height: 50px;
+      border: 4px solid blue;
+      float: left;
+      line-height: 50px;
+      text-align: center;
+      position: relative;
+    }
+
+    .fatherBox1>div:hover {
+      border-color: red;
+      z-index: 1;
+    }
+
+    .fatherBox>div:nth-child(3n + 2),
+    .fatherBox>div:nth-child(3n) {
+      margin-left: -4px;
+    }
+
+    .fatherBox>div:nth-child(n + 4) {
+      margin-top: -4px;
+    }
+
+    .fatherBox2 {
+      width: 142px;
+      height: 142px;
+      background-color: blue;
+    }
+
+    .fatherBox2>div {
+      width: 50px;
+      height: 50px;
+      background-color: white;
+      float: left;
+      text-align: center;
+      line-height: 50px;
+      border: 4px solid transparent;
+      position: relative;
+      background-clip: padding-box;
+
+    }
+    .fatherBox2>div:hover {
+      border-color: red;
+    }
+
+    </style>
+  </head>
+  <body>
+    <table>
+      <tbody>
+        <tr>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td>8</td>
+        <td>9</td>
+      </tr>
+      </tbody>
+    </table>
+    <br>
+    <div class="fatherBox1 fatherBox">
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+      <div>4</div>
+      <div>5</div>
+      <div>6</div>
+      <div>7</div>
+      <div>8</div>
+      <div>9</div>
+    </div>
+    <br>
+    <div class="fatherBox2 fatherBox">
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+      <div>4</div>
+      <div>5</div>
+      <div>6</div>
+      <div>7</div>
+      <div>8</div>
+      <div>9</div>
+    </div>
+
+    </body>
+    </html>
+
+

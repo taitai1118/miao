@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body{
+        margin:0;
+        padding: 0;
+        height: 100%;
+      }
+      .a{
+        width: 200px;
+        height: 100vh;
+        float: left;
+        background-color: aqua;
+      }
+      .b{
+        float: left;
+        width:calc(100% - 600px);
+        height: 100vh;
+        background-color: chartreuse;
+      }
+      .c{
+        float: left;
+        width: 200px;
+        height: 100vh;
+        background-color: chocolate;
+      }
+      .d{
+        float: right;
+        width: 200px;
+        height: 100vh;
+        background-color: darkblue;
+      }
+      header{
+        height: 100px;
+        width: 100%;
+        background-color: coral;
+      }
+      footer{
+        height: calc(100% - 100px);
+        width: 100%;
+        background-color: rgb(202, 152, 152);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="a"></div>
+    <div class="b">
+      <header></header>
+      <footer></footer>
+    </div>
+    <div class="c"></div>
+    <div class="d"></div>
+  </body>
+</html>
