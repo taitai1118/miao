@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>abs-center</title>
+    <style>
+      .parent{
+        height: 200px;
+        width: 200px;
+        background-color: aqua;
+        position: relative;
+      }
+      .son{
+        height: 50px;
+        width: 50px;
+        background-color: beige;
+      }
+      .a{
+       position: relative;
+      }
+      .aa{
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+      }
+      .b{
+        overflow: hidden;
+      }
+      .bb{
+        margin: 50%;
+        transform: translate(-50%,-50%);
+      }
+
+      .c{
+        display: table-cell;
+        vertical-align: middle;
+        text-align: center;
+      }
+      .cc{
+        display: inline-block;
+      }
+      .d{
+        position: relative;
+
+      }
+      .dd{
+        position: absolute;
+       top: 0;
+       bottom: 0;
+       left: 0;
+       right: 0;
+       margin: auto;
+       display: block;
+       max-width: 100%;
+       max-height: 100%;
+      }
+
+    </style>
+  </head>
+  <body>
+    <h3>定位</h3>
+    <div class="parent a">
+      <div class="son aa"></div>
+    </div>
+    <h3>margin</h3>
+    <div class="parent b">
+      <div class="son bb"></div>
+    </div>
+    <h3>table-cell</h3>
+    <div class="parent c">
+      <div class="son cc"></div>
+    </div>
+    <h3>定位+margin</h3>
+    <div class="parent d">
+      <div class="son dd"></div>
+    </div>
+
+  </body>
+</html>
