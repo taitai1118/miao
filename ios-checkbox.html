@@ -10,10 +10,16 @@
     section {
       width: 300px;
       height: 150px;
+      border: 2px solid #C7C7C7;
       border-radius: 200px;
       background: rgb(255, 255, 255);
       position: absolute;
-      box-shadow: 0 0 10px rgb(165, 165, 165);
+      box-shadow:inset 0 0 0px 0px white;
+      transition: 0.6s;
+    }
+    label{
+
+
     }
 
     div {
@@ -24,8 +30,10 @@
       position: absolute;
       left: 10px;
       bottom: 10px;
+      xdisplay: inline-block;
       box-shadow: 0 0 10px rgb(173, 173, 173);
-
+      padding-left: 0;
+      transition: 0.6s , padding-left 0.6s 0.05s;
     }
 
     input {
@@ -33,22 +41,26 @@
     }
 
     input:checked+label div {
-      position: absolute;
+      xposition: absolute;
       left: 160px;
-      transition: left 1s;
+      xwidth: 200px;
+      width: 0;
+      padding-left: 130px;
+      transition:  0.6s, width 0.6s 0.05s;
+
     }
 
     input:checked+label section {
-      background-color: rgb(93, 255, 93);
-      transition: 1s;
-      box-shadow: inset 0 0 0 50px rgb(47, 250, 57);
+      xbackground-color: rgb(93, 255, 93);
+      box-shadow: inset 0 0 10px 80px rgb(47, 250, 57);
+      transition: 0.6s;
     }
 
-    input:not(:checked)+label section {
+    xinput:not(:checked)+label section {
       transition: 1s;
     }
 
-    input:not(:checked)+label div {
+    xinput:not(:checked)+label div {
       transition: 1s;
     }
   </style>

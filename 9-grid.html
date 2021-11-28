@@ -1,147 +1,102 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <style>
-      * {
-      box-sizing: border-box;
+
+<head>
+  <title></title>
+  <style>
+    table {
+      border-collapse: collapse;
     }
 
-    html {
-      zoom: 2;
-    }
-
-    body {
-      margin: 0;
+    td {
+      height: 50px;
+      width: 50px;
+      text-align: center;
       padding: 0;
     }
 
-        table {
-            border-collapse: collapse;
-        }
-
-        td {
-            width: 50px;
-            height: 50px;
-            border: 5px solid blue;
-            text-align: center;
-            vertical-align: middle;
-            position: relative;
-        }
-
-
-        td:hover::before {
-            position: absolute;
-            content: '';
-            top: -5px;
-            right: -5px;
-            bottom: -5px;
-            left: -5px;
-            background-color: transparent;
-            border: 5px solid red;
-        }
-
-
-
-
-    .fatherBox1 {
-      width: 150px;
-      height: 150px;
+    col,
+    tr {
+      border: 5px solid blue;
     }
 
-    .fatherBox1>div {
-      width: 50px;
-      height: 50px;
-      border: 4px solid blue;
-      float: left;
-      line-height: 50px;
-      text-align: center;
-      position: relative;
+    td:hover {
+      border: 5px solid red;
     }
 
-    .fatherBox1>div:hover {
-      border-color: red;
-      z-index: 1;
-    }
 
-    .fatherBox>div:nth-child(3n + 2),
-    .fatherBox>div:nth-child(3n) {
-      margin-left: -4px;
-    }
-
-    .fatherBox>div:nth-child(n + 4) {
-      margin-top: -4px;
-    }
-
-    .fatherBox2 {
-      width: 142px;
-      height: 142px;
-      background-color: blue;
-    }
-
-    .fatherBox2>div {
-      width: 50px;
-      height: 50px;
-      background-color: white;
-      float: left;
-      text-align: center;
-      line-height: 50px;
-      border: 4px solid transparent;
-      position: relative;
-      background-clip: padding-box;
-
-    }
-    .fatherBox2>div:hover {
-      border-color: red;
-    }
-
-    </style>
-  </head>
-  <body>
-    <table>
-      <tbody>
-        <tr>
-        <td>1</td>
-        <td>2</td>
-        <td>3</td>
-      </tr>
-      <tr>
-        <td>4</td>
-        <td>5</td>
-        <td>6</td>
-      </tr>
-      <tr>
-        <td>7</td>
-        <td>8</td>
-        <td>9</td>
-      </tr>
-      </tbody>
-    </table>
-    <br>
-    <div class="fatherBox1 fatherBox">
-      <div>1</div>
-      <div>2</div>
-      <div>3</div>
-      <div>4</div>
-      <div>5</div>
-      <div>6</div>
-      <div>7</div>
-      <div>8</div>
-      <div>9</div>
-    </div>
-    <br>
-    <div class="fatherBox2 fatherBox">
-      <div>1</div>
-      <div>2</div>
-      <div>3</div>
-      <div>4</div>
-      <div>5</div>
-      <div>6</div>
-      <div>7</div>
-      <div>8</div>
-      <div>9</div>
-    </div>
-
-    </body>
-    </html>
+      body{
+        margin: 0;
+      }
+      ul{
+        padding: 0;
+        margin: 0;
+        width: 170px;
+        margin-left: 0;
+        xoverflow: hidden;
+        display: flow-root;
+        xpadding-left: 5px;
+        padding-bottom: 5px;
+      }
+      li{
+        list-style: none;
+        width: 50px;
+        height: 50px;
+        border: 5px solid blue;
+        float: left;
+        margin-right: -5px;
+        margin-bottom: -5px;
+        text-align: center;
+        line-height: 50px;
+      }
+      li:hover{
+        border-color: red;
+        position: relative;/*定位的元素盖住浮动的元素*/
+      }
 
 
+  </style>
+</head>
+
+<body>
+
+  <ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>6</li>
+    <li>7</li>
+    <li>8</li>
+    <li>9</li>
+  </ul>
+<br>
+  <table>
+    <col>
+    <col>
+    <col>
+    <tr>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>5</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>8</td>
+      <td>9</td>
+    </tr>
+  </table>
+  <br>
+
+
+
+
+</body>
+
+</html>
