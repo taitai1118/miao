@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+/* 把我们所有标签的内外边距清零 */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* em 和 i 斜体的文字不倾斜 */
+
+em,
+i {
+    font-style: normal
+}
+
+/* 去掉li 的小圆点 */
+
+li {
+    list-style: none
+}
+
+img {
+    /* border 0 照顾低版本浏览器 如果 图片外面包含了链接会有边框的问题 */
+    border: 0;
+    /* 取消图片底侧有空白缝隙的问题 */
+    vertical-align: middle
+}
+
+button {
+    /* 当我们鼠标经过button 按钮的时候，鼠标变成小手 */
+    cursor: pointer
+}
+
+a {
+    cursor: pointer;
+    /* 把所有的a标签下划线 取消*/
+    text-decoration: none
+}
+
+button,
+input {
+    /* "\5B8B\4F53" 就是宋体的意思 这样浏览器兼容性比较好 */
+    font-family: Microsoft YaHei, Heiti SC, tahoma, arial, Hiragino Sans GB, "\5B8B\4F53", sans-serif;
+    border: 0;
+    outline: none;
+}
+
+body {
+    /* CSS3 抗锯齿形 让文字显示的更加清晰 */
+    -webkit-font-smoothing: antialiased;
+    background-color: #fff;
+    font: 12px/1.5 Microsoft YaHei, Heiti SC, tahoma, arial, Hiragino Sans GB, "\5B8B\4F53", sans-serif;
+    color: #666
+}
+
+.hide,
+.none {
+    display: none
+}
+
+/* 清除浮动 */
+
+.clearfix:after {
+    visibility: hidden;
+    clear: both;
+    display: block;
+    content: ".";
+    height: 0
+}
+
+.clearfix {
+    *zoom: 1
+}
+/* 内容样式 */
+
+@font-face {
+    font-family: 'icomoon';
+    src: url('../fonts/icomoon.eot?3gaw45');
+    src: url('../fonts/icomoon.eot?3gaw45#iefix') format('embedded-opentype'), url('../fonts/icomoon.ttf?3gaw45') format('truetype'), url('../fonts/icomoon.woff?3gaw45') format('woff'), url('../fonts/icomoon.svg?3gaw45#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+
+.w {
+    width: 1226px;
+    margin: 0 auto;
+}
+
+
+/*导航栏*/
+
+.topBar {
+    height: 40px;
+    line-height: 40px;
+    background: #333;
+}
+
+
+/* 左边 */
+
+.topBar-left {
+    /* background-color: skyblue; */
+    height: 40px;
+    float: left;
+    text-align: center;
+}
+
+.topBar-left a {
+    font-size: 14px;
+    font-weight: 400px;
+    color: #b0b0b0;
+    padding: 0 5px;
+    text-decoration: none;
+}
+
+.topBar-left a:hover {
+    color: #fff;
+}
+
+
+/* 左边结束----------- */
+
+
+/* 右边 */
+
+.topBar .topBar-right {
+    /* background-color: skyblue; */
+    float: right;
+    position: relative;
+}
+
+.topBar .topBar-right ul li {
+    float: left;
+}
+
+.topBar .topBar-right ul li a {
+    padding: 0 8px;
+    color: #b0b0b0;
+}
+
+.topBar .topBar-right ul li a:hover {
+    color: #fff;
+}
+
+
+/* 右边结束--------------------- */
+
+/* 购物车 */
+
+.topBar .topBar-right .sp-cart {
+    display: inline-block;
+    width: 120px;
+    color: #b0b0b0;
+    height: 40px;
+    text-align: center;
+    background-color: #424242;
+    margin-left: 10px;
+}
+
+.topBar .topBar-right .sp-cart::before {
+    font-family: 'icomoon';
+    content: "\e93a";
+    margin-right: 5px;
+}
+
+.topBar .topBar-right ul li .sp-cart:hover {
+    /* overflow: visible; */
+    color: #ff6700;
+    background-color: #fff;
+    /* display: block; */
+}
+
+.topbar-cart-menu {
+    width: 316px;
+    /*相对于.topBar-right进行布局*/
+    position: absolute;
+    top: 40px;
+    right: 0;
+    /*显示的等级*/
+    z-index: 10;
+}
+
+.topbar-cart-txt {
+    /*height: 100px；*/
+    background-color: #fff;
+    text-align: center;
+    line-height: 100px;
+    box-shadow: 0 3px 5px -3px rgba(0, 0, 0, 0.7);
+    /*没有高度，作为清浮动操作*/
+    /*存在高度，overflow只隐藏超出高度*/
+    height: 0;
+    overflow: hidden;
+    /*设置过渡动画*/
+    transition: .4s;
+}
+
+.topBar .topBar-right ul li:hover .topbar-cart-menu .topbar-cart-txt {
+    overflow: visible;
+    /* display: block; */
+    height: 100px;
+}
+
+.topbar-cart-menu .topbar-cart-txt :hover .topBar .topBar-right ul li .sp-cart {
+    color: #ff6700;
+    background-color: #fff;
+}
+
+
+/* 购物车结束------------------------- */
+
+
+/*导航栏结束---------------------------*/
+
+
+/* 头部模块 */
+
+.header {
+    width: 100%;
+    height: 110px;
+    /* background-color: pink; */
+}
+
+.container2 {
+    /* background-color: skyblue; */
+    width: 1226px;
+    height: 110px;
+    margin: 0 auto;
+}
+
+
+/*--logo--*/
+
+.logo {
+    xbackground-color: slateblue;
+    margin-top: 20px;
+    margin-right: 24px;
+    width: 55px;
+    height: 55px;
+    float: left;
+    background:url(https://s02.mifile.cn/assets/static/image/logo-mi2.png) no-repeat;
+   background-size: 55px;
+;
+}
+
+.logo a {
+    display: block;
+    width: 171px;
+    height: 61px;
+
+    /* 文字隐藏 */
+    font-size: 0;
+}
+
+
+/*--logo结束--*/
+
+
+/* 导航菜单栏 */
+
+.nav {
+    height: 110px;
+    float: left;
+    margin-left: 100px;
+    /* background-color: red; */
+}
+
+.nav ul li {
+    float: left;
+}
+
+.nav ul li a {
+    padding: 0 14px;
+    font-size: 16px;
+    color: #000;
+    text-align: center;
+    line-height: 100px;
+}
+
+.nav ul li a:hover {
+    color: #ff6700;
+}
+
+
+/* 导航菜单栏结束--------- */
+
+
+/*搜索部分*/
+
+.search {
+    margin-top: 25px;
+    width: 300px;
+    height: 50px;
+    float: right;
+    border: 1px solid #dedede;
+    /* background-color: blue; */
+}
+
+.search #s1 {
+    width: 240px;
+    height: 48px;
+    /* text-align: right; */
+    font-weight: border;
+    padding: 0 10px;
+    outline: none;
+}
+
+.search #s2 {
+    width: 58px;
+    height: 50px;
+    float: right;
+    border: 0;
+    cursor: pointer;
+    font-family: 'icomoon';
+    content: "\e986";
+    border: 1px solid #dedede;
+    font-size: 17px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.search #s2:hover {
+    background-color: #ff6700;
+    color: #fff;
+}
+
+
+/* 头部模块结束---------------------------- */
+
+
+/*选购*/
+
+.shop {
+    width: 1226px;
+    height: 170px;
+    margin: 0 auto 30px;
+    margin-top: 20px;
+    /* background-color: pink; */
+}
+
+
+/*选购导航*/
+
+.channel {
+    width: 225px;
+    height: 170px;
+    float: left;
+    background-color: #5f5750;
+    text-align: center;
+}
+
+.channel ul li {
+    float: left;
+    width: 75px;
+    height: 85px;
+    padding: 20px 5px;
+    /* background-color: red; */
+    border: 0.1px solid;
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.channel ul li img {
+    position: relative;
+    top: -10px;
+    left: 18px;
+    display: block;
+    width: 24px;
+    height: 24px;
+}
+
+.channel ul li a {
+    color: #dedede;
+    font-weight: 700;
+}
+
+.channel ul li :hover {
+    transition: all .5s;
+    color: #fff;
+}
+
+
+/*选购导航结束*/
+
+
+/*选购商品 */
+
+.advertise {
+    float: right;
+    width: 999px;
+    height: 170px;
+}
+
+.advertise ul li {
+    width: 316px;
+    height: 170px;
+    float: right;
+    margin-left: 14px;
+}
+
+.advertise ul li a {
+    width: 316px;
+    height: 170px;
+}
+
+.advertise ul li a:hover {
+    /*上移，变大*/
+    transform: translateY(-2px) scale(4.02);
+    /*阴影*/
+    box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.7);
+}
+
+
+/*选购商品结束------------- */
+
+
+/*选购结束--------------------*/
+#big_banner_wrap {
+    width: 1226px;
+    height: 460px;
+    margin: 0 auto;
+    position: relative;
+    color: #424242;
+}
+
+#big_banner_wrap #banner_menu_wrap {
+    width: 235px;
+    height: 100%;
+    float: left;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 600;
+}
+
+#big_banner_wrap #banner_menu_wrap .active {
+    margin-top: 20px;
+}
+
+#big_banner_wrap #banner_menu_wrap li {
+    width: 100%;
+    height: 42px;
+    position: relative;
+    transition: all 3s;
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    -ms-transition: all .3s;
+    line-height: 40px;
+    cursor: pointer;
+}
+
+#big_banner_wrap #banner_menu_wrap li a {
+    font-size: 13px;
+    color: #ffffff;
+    margin-left: 30px;
+    float: left;
+    text-decoration: none;
+}
+
+#big_banner_wrap #banner_menu_wrap li .banner_menu_i {
+    float: right;
+    font-size: 20px;
+    margin-right: 20px;
+}
+
+#big_banner_wrap #banner_menu_wrap li .banner_menu_content {
+    width: 600px;
+    height: 459px;
+    display: none;
+    z-index: 610;
+    position: absolute;
+    left: 235px;
+    background: #fff;
+}
+
+#big_banner_wrap #banner_menu_wrap li .banner_menu_content .banner_menu_content_ul {
+    float: left;
+    width: 280px;
+}
+
+#big_banner_wrap #banner_menu_wrap li .banner_menu_content .banner_menu_content_ul li {
+    width: 250px;
+    height: 40px;
+    padding: 18px;
+    float: left;
+}
+
+#big_banner_wrap #banner_menu_wrap li .banner_menu_content .banner_menu_content_ul li a {
+    color: #424242;
+    margin-left: 5px;
+    font-size: 12px;
+}
+
+#big_banner_wrap #banner_menu_wrap li .banner_menu_content .banner_menu_content_ul li span {
+    width: 59px;
+    height: 25px;
+    float: right;
+    margin-top: 5px;
+    border: 1px solid #ff6700;
+    color: #FF6700;
+    font-size: 13px;
+    line-height: 24px;
+    text-align: center;
+    transition: all 3s;
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    -ms-transition: all .3s;
+}
+
+#big_banner_wrap #banner_menu_wrap li .banner_menu_content .banner_menu_content_ul li span:hover {
+    background: #ff6700;
+    color: #ffffff;
+}
+
+
+/* 轮播图 */
+
+#big_banner_wrap #big_banner_pic_wrap {
+    width: 1226px;
+    height: 460px;
+    overflow: hidden;
+    position: relative;
+}
+
+#big_banner_wrap #big_banner_pic_wrap #big_banner_pic {
+    width: 6130px;
+    height: 460px;
+    position: absolute;
+    float: left;
+}
+
+#big_banner_wrap #big_banner_pic_wrap #big_banner_pic li {
+    width: 1226px;
+    height: 460px;
+    float: left;
+    cursor: pointer;
+}
+
+#big_banner_wrap #big_banner_change_wrap {
+    width: 961px;
+    height: 460px;
+    position: absolute;
+    top: 0px;
+    left: 250px;
+    color: #ffffff;
+}
+
+#big_banner_wrap #big_banner_change_wrap div {
+    display: none;
+    transition: all 3s;
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    -ms-transition: all .3s;
+}
+
+#big_banner_wrap #big_banner_change_wrap div:hover {
+    background: #333333;
+    cursor: pointer;
+    color: #FF6700;
+}
+
+#big_banner_wrap #big_banner_change_wrap #big_banner_change_prev {
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    float: left;
+    margin-top: 205px;
+    font-size: 50px;
+    text-align: center;
+}
+
+#big_banner_wrap #big_banner_change_wrap #big_banner_change_next {
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    float: right;
+    margin-top: 205px;
+    font-size: 50px;
+    text-align: center;
+}
+
+
+
+
+    </style>
+</head>
+
+<body>
+
+    <!-- 导航栏 -->
+    <div class="topBar">
+        <div class="w">
+            <div class="topBar-left">
+
+                <a href="">小米商城</a>
+                <span class="sep">|</span>
+                <a href="">MIUI</a>
+                <span class="sep">|</span>
+                <a href="">loT</a>
+                <span class="sep">|</span>
+                <a href="">云服务</a>
+                <span class="sep">|</span>
+                <a href="">金融</a>
+                <span class="sep">|</span>
+                <a href="">有品</a>
+                <span class="sep">|</span>
+                <a href="">小爱开放平台</a>
+                <span class="sep">|</span>
+                <a href="">政企服务</a>
+                <span class="sep">|</span>
+                <a href="">下载app</a>
+                <span class="sep">|</span>
+                <a href="">select Region</a>
+
+            </div>
+            <div class="topBar-right">
+                <ul>
+                    <li> <a href="">登陆</a></li>
+                    <li> <span class="sep">|</span></li>
+                    <li> <a href="">注册</a></li>
+                    <li> <span class="sep">|</span></li>
+                    <li><a href="">消息通知</a></li>
+
+                    <li>
+                        <a href="#" class="sp-cart">
+                            购物车(0)
+                        </a>
+                        <div class="topbar-cart-menu">
+                            <div class="topbar-cart-txt">
+                                <span>购物车中还没有商品，赶紧选购吧！</span>
+                            </div>
+                        </div>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- 导航栏end -->
+
+    <!-- logo -->
+    <div class="header">
+        <div class="container2 w">
+            <div class="logo">
+                <h1>
+                    <a href="xiaomi2.html" title="小米">小米</a>
+                </h1>
+            </div>
+            <!--导航菜单栏-->
+            <div class="nav">
+                <ul>
+                    <li><a href="#">小米手机</a></li>
+                    <li><a href="#">红米</a></li>
+                    <li><a href="#">电视</a></li>
+                    <li><a href="#">笔记本</a></li>
+                    <li><a href="#">空调</a></li>
+                    <li><a href="#">新品</a></li>
+                    <li><a href="#">路由器</a></li>
+                    <li><a href="#">智能硬件</a></li>
+                    <li><a href="#">服务</a></li>
+                    <li><a href="#">社区</a></li>
+                </ul>
+            </div>
+            <!--搜索部分-->
+            <div class="search">
+                <input type="search" name="goods" placeholder="请输入商品" id="s1">
+                <button type="submit" id="s2"></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 轮播图部分 -->
+    <div id="big_banner_wrap">
+        <div class="w">
+            <ul id="banner_menu_wrap">
+                <li class="active" img>
+                    <a>手机</a>
+                    <a class="banner_menu_i">&gt;</a>
+                    <div class="banner_menu_content" style="width: 600px; top: -20px;">
+                        <ul class="banner_menu_content_ul">
+                            <li>
+                                <a><img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/a95d59ec8c9c6ae7061f314eb4901e7c.png?thumb=1&w=40&h=40&f=webp&q=90"></a><a>手机</a><span>选购</span></li>
+                            <li>
+                                <a><img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/ab345272bf9894bb8269d4901344b068.png?thumb=1&w=40&h=40&f=webp&q=90"></a><a>手机</a><span>选购</span></li>
+                            <li>
+                                <a><img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0e5aa3cab478f5eeba1c7d4cf25cba9a.png?thumb=1&w=40&h=40&f=webp&q=90"></a><a>手机</a><span>选购</span></li>
+                            <li>
+                                <a><img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/958d5b4cf1f6a755b97b797f4cec67ed.png?thumb=1&w=40&h=40&f=webp&q=90"></a><a>手机</a><span>选购</span></li>
+                            <li>
+                                <a><img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/e2c570b7cd666114a7d351a1dd10a527.png?thumb=1&w=40&h=40&f=webp&q=90"></a><a>手机</a><span>选购</span></li>
+                            <li>
+                                <a><img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/fa2bae1f43611e80a8e4877719c76bdb.png?thumb=1&w=40&h=40&f=webp&q=90"></a><a>手机<a></li>
+						</ul>
+						<ul class="banner_menu_content_ul">
+							<li>
+								<a><img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/50194366cfebbc7c82489d0094c1f944.png?thumb=1&w=40&h=40&f=webp&q=90"></a><a>手机</a></li>
+                            <li>
+                                <a><img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/b656495821144d92bd932d91eedcf659.png?thumb=1&w=40&h=40&f=webp&q=90"></a><a>手机</a></li>
+                            <li>
+                                <a><img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/50194366cfebbc7c82489d0094c1f944.png?thumb=1&w=40&h=40&f=webp&q=90"></a><a>手机</a></li>
+                            <li>
+                                <a><img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/50194366cfebbc7c82489d0094c1f944.png?thumb=1&w=40&h=40&f=webp&q=90"></a><a>手机</a></li>
+                            <li>
+                                <a><img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/50194366cfebbc7c82489d0094c1f944.png?thumb=1&w=40&h=40&f=webp&q=90"></a><a>手机</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <a>电视</a>
+                    <a class="banner_menu_i">&gt;</a>
+                    <div class="banner_menu_content" style="width: 600px; top: -62px;">
+                        <ul class="banner_menu_content_ul">
+                            <li>
+                                <a><img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/7da49e7ada2229c963c9c7353a58d49b.png?thumb=1&w=40&h=40&f=webp&q=90"></a><a>大米电视40英寸</a></li>
+                            <li>
+                                <a><img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/7da49e7ada2229c963c9c7353a58d49b.png?thumb=1&w=40&h=40&f=webp&q=90"></a><a>大米电视48英寸</a></li>
+                            <li>
+                                <a><img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/7da49e7ada2229c963c9c7353a58d49b.png?thumb=1&w=40&h=40&f=webp&q=90"></a><a>大米电视49英寸</a></li>
+                            <li>
+                                <a><img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/7da49e7ada2229c963c9c7353a58d49b.png?thumb=1&w=40&h=40&f=webp&q=90"></a><a>大米电视55英寸</a></li>
+                            <li>
+                                <a><img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/7da49e7ada2229c963c9c7353a58d49b.png?thumb=1&w=40&h=40&f=webp&q=90"></a><a>大米盒子</a></li>
+                            <li>
+                                <a><img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/7da49e7ada2229c963c9c7353a58d49b.png?thumb=1&w=40&h=40&f=webp&q=90"></a><a>大米盒子MINI</a></li>
+                        </ul>
+                        <ul class="banner_menu_content_ul">
+                            <li>
+                                <a><img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/7da49e7ada2229c963c9c7353a58d49b.png?thumb=1&w=40&h=40&f=webp&q=90"></a><a>大米电视配件</a><span>选购</span></li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <a>笔记本&nbsp;平板</a>
+                    <a class="banner_menu_i">&gt;</a>
+                    <div class="banner_menu_content" style="width: 900px; top: -104px;">
+                        <ul class="banner_menu_content_ul">
+
+                        </ul>
+                        <ul class="banner_menu_content_ul">
+
+                        </ul>
+                        <ul class="banner_menu_content_ul">
+
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <a>家电</a>
+                    <a class="banner_menu_i">&gt;</a>
+                    <div class="banner_menu_content" style="width: 300px; top: -146px;">
+                        <ul class="banner_menu_content_ul">
+
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <a>出行&nbsp;穿戴</a>
+                    <a class="banner_menu_i">&gt;</a>
+                    <div class="banner_menu_content" style="width: 300px; top: -188px;">
+                        <ul class="banner_menu_content_ul">
+
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <a>智能&nbsp;路由器</a>
+                    <a class="banner_menu_i">&gt;</a>
+                    <div class="banner_menu_content" style="width: 300px; top: -230px;">
+                        <ul class="banner_menu_content_ul">
+
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <a>电源&nbsp;配件</a>
+                    <a class="banner_menu_i">&gt;</a>
+                    <div class="banner_menu_content" style="width: 300px; top: -272px;">
+                        <ul class="banner_menu_content_ul">
+
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <a>健康&nbsp;儿童</a>
+                    <a class="banner_menu_i">&gt;</a>
+                    <div class="banner_menu_content" style="width: 600px; top: -314px;">
+                        <ul class="banner_menu_content_ul">
+                            <li>
+                                <a><img src="https://cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/15447769c461fdc71e84a7badb83f09b.jpg?thumb=1&w=40&h=40"></a><a>牙刷</a></li>
+                            <li>
+                                <a><img src="https://cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/60d7bdf307ceaba08b3275246ad3ab53.jpg?thumb=1&w=40&h=40"></a><a>剃须刀</a></li>
+                            <li>
+                                <a><img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/9e04107f99edded4a64b7e92ae25641d.png?thumb=1&w=40&h=40&f=webp&q=90"></a><a>跑步机</a></li>
+
+                        <ul class="banner_menu_content_ul">
+
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <a>耳机&nbsp;音箱</a>
+                    <a class="banner_menu_i">&gt;</a>
+                    <div class="banner_menu_content" style="width: 300px; top: -356px;">
+                        <ul class="banner_menu_content_ul">
+                            <li>
+                                <a><img src=""></a><a>小爱音箱</a></li>
+                            <li>
+                                <a><img src=""></a><a>青春版</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <a>生活&nbsp;箱包</a>
+                    <a class="banner_menu_i">&gt;</a>
+                    <div class="banner_menu_content" style="width: 300px; top: -398px;">
+                        <ul class="banner_menu_content_ul">
+                            <li>
+                                <a><img src="https://cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/d521bd58668f66c50562b8fa8949f67c.jpg?thumb=1&w=40&h=40"></a><a>眼睛</a></li>
+                            <li>
+                                <a><img src="https://cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/f628feba0f2f8253f9cc41f9984194a7.jpg?thumb=1&w=40&h=40"></a><a>旅行包</a></li>
+                            <li>
+                                <a><img src="https://cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/f628feba0f2f8253f9cc41f9984194a7.jpg?thumb=1&w=40&h=40"></a><a>双肩包</a></li>
+                            <li>
+                                <a><img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/9f26030d7d914b86daca51233a3ac5f9.jpg?thumb=1&w=40&h=40&f=webp&q=90"></a><a>小背包</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+            <!-- 轮播图 -->
+            <div id="big_banner_pic_wrap">
+                <ul id="big_banner_pic">
+                    <li><img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/fc0f553382bb5143e667b284dfcf02db.jpg?thumb=1&w=1226&h=460&f=webp&q=90" width="1226px"></li>
+                    <li><img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/918820682e4a490221cfd92b24c14b86.jpg?thumb=1&w=1226&h=460&f=webp&q=90" width="1226px"></li>
+                    <li><img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/78d0483ed36158659fcf65a19a9b249a.jpeg?w=2452&h=920" width="1226px"></li>
+                    <li><img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/fc0f553382bb5143e667b284dfcf02db.jpg?thumb=1&w=1226&h=460&f=webp&q=90" width="1226px"></li>
+
+                </ul>
+            </div>
+            <div id="big_banner_change_wrap">
+                <div id="big_banner_change_prev">&lt;</div>
+                <div id="big_banner_change_next">&gt;</div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="js/script.js"></script>
+    <!-- 轮播图部分end -->
+
+    <!-- 选购部分 -->
+    <div class="w">
+        <div class="shop">
+
+            <!--选购导航-->
+            <div class="channel">
+                <ul>
+                    <li>
+                        <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/82abdba456e8caaea5848a0cddce03db.png?w=48&h=48" alt="">
+                        <a href="">保障服务</a>
+                    </li>
+                    <li> <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/806f2dfb2d27978e33fe3815d3851fa3.png?w=48&h=48" alt=""><a href="">企业团购</a></li>
+                    <li> <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/eded6fa3b897a058163e2485532c4f10.png?w=48&h=48" alt=""><a href="">F码通道</a></li>
+                    <li> <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/43a3195efa6a3cc7662efed8e7abe8bf.png?w=48&h=48" alt=""><a href="">米粉卡</a></li>
+                    <li> <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/f4846bca6010a0deb9f85464409862af.png?w=48&h=48" alt=""><a href="">以旧换新</a></li>
+                    <li> <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/9a76d7636b08e0988efb4fc384ae497b.png?w=48&h=48" alt=""><a href="">话费充值</a></li>
+                </ul>
+            </div>
+
+            <!--商品-->
+            <div class="advertise">
+
+                <ul>
+                    <li>
+                        <a href="">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/d8a6d6d37904e22c72130e3e4ec79b41.jpg?w=632&h=340" alt="" width="316px" height="170px">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/fce474f4024b96545959ccd45b7e50f3.jpg?w=632&h=340" alt="" width="316px" height="170px">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/35b3f906861db9d6472206e6d68318d9.jpeg?w=632&h=340" alt="" width="316px" height="170px">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+    <!-- 选购部分end -->
+
+</body>
+
+</html>
