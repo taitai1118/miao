@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>轮播图</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      /* box-shadow: inset 0 0 2px red; */
+    }
+
+    body,
+    html {
+      width: 100%;
+      height: 100%
+    }
+
+    /* 将body 设为 flex 容器,撑满全页 */
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* 设定轮播图容器的样式 */
+    ul.slides {
+      list-style: none;
+      width: 400px;
+      height: 200px;
+      position: relative;
+      overflow: hidden;
+      /* 将多余的部分隐藏 */
+    }
+
+    /* 设定单张轮播图的样式 */
+    li.slide {
+      width: inherit;
+      height: inherit;
+      position: absolute;
+      left: 0;
+      top: 0;
+      /* 设定轮播图中字体样式和位置 */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-size: 60px;
+      font-family: Helvetica;
+    }
+
+    /* 对三张轮播图分别设置样式 */
+    .slide:nth-of-type(1) {
+      background-color: yellow;
+    }
+
+    .slide:nth-of-type(2) {
+      background-color: green;
+      left: 100%;
+    }
+
+    .slide:nth-of-type(3) {
+      background-color: blue;
+      left: 200%;
+    }
+
+    /* 提高三个按钮的显示层级 */
+    input[type='radio'] {
+      position: relative;
+      z-index: 100;
+      display: none;
+    }
+
+    /* 设置三个自定义按钮的样式 */
+    .controls-visible {
+      position: absolute;
+      bottom: 12px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .controls-visible label {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      margin: 0 5px;
+      border: 2px solid white;
+      background-color: white;
+    }
+
+    /* 设置自定义按钮各自的选中状态 */
+    .slides input[type="radio"]:nth-of-type(1):checked~.controls-visible label:nth-of-type(1) {
+      background-color: #333;
+    }
+
+    .slides input[type="radio"]:nth-of-type(2):checked~.controls-visible label:nth-of-type(2) {
+      background-color: #333;
+    }
+
+    .slides input[type="radio"]:nth-of-type(3):checked~.controls-visible label:nth-of-type(3) {
+      background-color: #333;
+    }
+
+    /* 当选中各自的 radio 按钮时,后面三张 .slide的样式,以及位移 */
+    .slides input[type="radio"]:nth-of-type(1):checked~.slide {
+      transform: translateX(0%);
+    }
+
+    .slides input[type="radio"]:nth-of-type(2):checked~.slide {
+      transform: translateX(-100%);
+    }
+
+    .slides input[type="radio"]:nth-of-type(3):checked~.slide {
+      transform: translateX(-200%);
+    }
+  </style>
+</head>
+<!-- 视频教学链接: https://www.bilibili.com/video/BV1Bt4y1S7kv/
+  
+    配合视频食用更佳~ (⑉･̆-･̆⑉)
+-->
+
+<body>
+  <ul class="slides">
+    <!-- 定义三个按钮 -->
+    <input type="radio" id="control-1" name="control" checked>
+    <input type="radio" id="control-2" name="control">
+    <input type="radio" id="control-3" name="control">
+
+    <li class="slide">Yang</li>
+    <li class="slide">A</li>
+    <li class="slide">Yi</li>
+
+    <!-- 定义三个自定义的小圆圈,并且与之前的 radio 绑定行为 -->
+    <div class="controls-visible">
+      <label for="control-1"></label>
+      <label for="control-2"></label>
+      <label for="control-3"></label>
+    </div>
+  </ul>
+</body>
+
+</html>
