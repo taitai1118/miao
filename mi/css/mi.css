@@ -1,4 +1,4 @@
-/* css样式开始 */
+
 .header{
 width: 100%;
 height: 40px;
@@ -257,13 +257,113 @@ color: #ff6700;
 .banner-box{
   width: 1226px;
   height: 460px;
-  xbackground-color: blue;
+  background-color: blue;
   background-image: url("../images/78d0483ed36158659fcf65a19a9b249a.jpeg");
   background-size: 100%;
   animation: banner 6s linear infinite;
+
 }
-/* 轮播图 */
-.banner-box{
+
+
+/* 轮播图*/
+
+.slider-box {
+  width: 1226px;
+  height: 460px;
+  position: relative;
+}
+.slider-box input {
+  display: none;
+}
+.slider-box input:nth-child(1):checked ~ .sliders .slider:nth-child(1) img,
+.slider-box input:nth-child(2):checked ~ .sliders .slider:nth-child(2) img,
+.slider-box input:nth-child(3):checked ~ .sliders .slider:nth-child(3) img,
+.slider-box input:nth-child(4):checked ~ .sliders .slider:nth-child(4) img {
+  opacity: 1;
+}
+.slider-box input:nth-child(1):checked ~ .sliders .slider:nth-child(1) label,
+.slider-box input:nth-child(2):checked ~ .sliders .slider:nth-child(2) label,
+.slider-box input:nth-child(3):checked ~ .sliders .slider:nth-child(3) label,
+.slider-box input:nth-child(4):checked ~ .sliders .slider:nth-child(4) label {
+  z-index: 9;
+  display: block;
+}
+.slider-box input:nth-child(1):checked ~ .indicators label:nth-child(1),
+.slider-box input:nth-child(2):checked ~ .indicators label:nth-child(2),
+.slider-box input:nth-child(3):checked ~ .indicators label:nth-child(3),
+.slider-box input:nth-child(4):checked ~ .indicators label:nth-child(4) {
+  background-color: white;
+}
+.slider-box .sliders {
+  height: 100%;
+  position: relative;
+}
+.slider-box .sliders .slider {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+.slider-box .sliders .slider label {
+  xbackground-color: violet;
+  cursor: pointer;
+  display: none;
+  position: absolute;
+  line-height: 70px;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  height: 70px;
+}
+.slider-box .sliders .slider label i{
+  font-size: 45px;
+  color: #ccc;
+  font-weight: bold;
+}
+.slider-box .sliders .slider label:hover  {
+  background-color: rgb(65, 64, 64)
+}
+.slider-box .sliders .slider label:hover i {
+  color: rgb(255, 255, 255);
+
+}
+.slider-box .sliders .slider label:first-child {
+  left: 234px;
+  border-radius: 0 5px 5px 0;
+}
+.slider-box .sliders .slider label:nth-child(2) {
+  right: 0;
+  border-radius: 5px 0 0 5px;
+}
+.slider-box .sliders .slider img {
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: 1s;
+}
+.slider-box .indicators {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+.slider-box .indicators label {
+  float: left;
+  margin: 3px;
+  width: 5px;
+  height: 5px;
+  border: 2px solid;
+  display: inline-block;
+  border-radius: 999px;
+  cursor: pointer;
+}
+.slider-box .indicators label:hover {
+  background-color: white;
+}
+/* input:nth-child(1):checked ~ ul > li:nth-child(1),
+          input:nth-child(2):checked ~ ul > li:nth-child(2),
+          input:nth-child(3):checked ~ ul > li:nth-child(3) {
+
+          } */
+/* .banner-box{
   display: flex;
 }
 .slide-box{
@@ -271,7 +371,7 @@ color: #ff6700;
   height: 100%;
   xbackground-color: blueviolet;
 }
-ul.slide-box{
+.slide-box{
   list-style: none;
   width: 1226px;
   height: 460px;
@@ -328,6 +428,7 @@ left: 100%;
 .slide-box input[type="radio"]:nth-of-type(3):checked~.controls-visible label:nth-of-type(3){
   background-color: #333;
 }
+
 .slide-box input[type="radio"]:nth-of-type(1):checked~.slide2{
   transform: translateX(0%)
 }
@@ -336,8 +437,9 @@ left: 100%;
 }
 .slide-box input[type="radio"]:nth-of-type(3):checked~.slide2{
   transform: translateX(-200%)
-}
-/* 轮播图结束 */
+} */
+
+/* 轮播图结束  */
 
 
 

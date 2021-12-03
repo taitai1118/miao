@@ -5,6 +5,7 @@
 <link rel="icon" href="images/favicon.ico">
 <link rel="stylesheet" href="css/reset.css">
 <link rel="stylesheet" href="css/mi.css">
+<link rel="stylesheet" href="css/iconfont.css">
 
   </head>
   <body>
@@ -39,8 +40,7 @@
       <li><a href="#">注册</a><span>|</span></li>
       <li><a href="#">消息通知</a></li>
       <li class="cart">
-        <a href="#"><img src="images/d7db56d1d850113f016c95e289e36efa.png">
-        购物车(0)</a>
+        <a href="#"><i class="iconfont">&#xe70b;</i>购物车(0)</a>
         <div class="cart-list">购物车中还没有商品，赶紧选购吧！</div>
       </li>
       </ul>
@@ -392,7 +392,7 @@
     </div>
     <div class="search">
       <input type="text">
-      <a href="#"></a>
+      <a href="#"><i class="iconfont">&#xe622;</i></a>
       <div class="search-list">
         <a href="#">全部商品</a>
         <a href="#">全部商品</a>
@@ -413,29 +413,46 @@
 <div class="banner">
   <div class="wrap">
     <div class="banner-box">
-      <!-- 轮播图 -->
-      <ul class="slide-box">
-        <!-- 定义三个按钮 -->
-        <input type="radio" id="control-1" name="control" checked>
-        <input type="radio" id="control-2" name="control">
-        <input type="radio" id="control-3" name="control">
-
-        <li class="slide2"><img src="images/fc0f553382bb5143e667b284dfcf02db.webp"></li>
-        <li class="slide2"><img src="images/78d0483ed36158659fcf65a19a9b249a.jpeg"></li>
-        <li class="slide2"><img src="images/61bef947ca0b863003b3e68336192a3a.webp"></li>
-
-        <!-- 定义三个自定义的小圆圈,并且与之前的 radio 绑定行为 -->
-        <div class="controls-visible">
-          <label for="control-1"></label>
-          <label for="control-2"></label>
-          <label for="control-3"></label>
+      <!-- 轮播图开始 -->
+      <div class="slider-box">
+        <input type="radio" name="slider0" id="i1" checked>
+        <input type="radio" name="slider0" id="i2">
+        <input type="radio" name="slider0" id="i3">
+        <input type="radio" name="slider0" id="i4">
+        <div class="sliders">
+          <div class="slider">
+            <label class="aa" for="i4"><i class="iconfont">&#xe614;</i></label>
+            <label for="i2"><i class="iconfont">&#xe615;</i></label>
+            <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0ce57203f1618c7554d8a22f92e18446.jpg?w=2452&h=920" alt="">
+          </div>
+          <div class="slider">
+            <label class="aa" for="i1"><i class="iconfont">&#xe614;</i></label>
+            <label for="i3"><i class="iconfont">&#xe615;</i></label>
+            <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/61bef947ca0b863003b3e68336192a3a.jpg?thumb=1&w=1226&h=460&f=webp&q=90" alt="">
+          </div>
+          <div class="slider">
+            <label class="aa" for="i2"><i class="iconfont">&#xe614;</i></label>
+            <label for="i4"><i class="iconfont">&#xe615;</i></label>
+            <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/918820682e4a490221cfd92b24c14b86.jpg?thumb=1&w=1226&h=460&f=webp&q=90" alt="">
+          </div>
+          <div class="slider">
+            <label class="aa" for="i3"><i class="iconfont">&#xe614;</i></label>
+            <label for="i1"><i class="iconfont">&#xe615;</i></label>
+            <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/a532e33470d046b3f044d5ea49fc5e9e.png?thumb=1&w=1226&h=460&f=webp&q=90" alt="">
+          </div>
         </div>
-      </ul>
+        <div class="indicators">
+          <label for="i1"></label>
+          <label for="i2"></label>
+          <label for="i3"></label>
+          <label for="i4"></label>
+        </div>
+      </div>
     </div>
-      <!-- 轮播图结束 -->
+
       <div class="slide">
         <ul>
-          <li><a href="#">手机<span>></span></a>
+          <li><a href="#">手机<span>></i></a>
           <div class="slide-list">
             <ul>
               <li>
@@ -607,18 +624,17 @@
   </div>
 
 </div>
-<!-- banner结束 -->
 <!-- 广告开始 -->
 <div class="adv">
   <div class="wrap">
     <div class="adv-aside">
       <ul>
-        <li class="row col"><a href="#"><i class="iconfont">&#xe733;</i><p>米粉卡</p></a></li>
-        <li class="row col"><a href="#"><i class="iconfont">&#xe733;</i><p>米粉卡</p></a></li>
-        <li class="row"><a href="#"><i class="iconfont">&#xe733;</i><p>米粉卡</p></a></li>
-        <li class="col"><a href="#"><i class="iconfont">&#xe733;</i><p>米粉卡</p></a></li>
-        <li class="col"><a href="#"><a href="#"><i class="iconfont">&#xe733;</i><p>米粉卡</p></a></li>
-        <li><a href="#"><a href="#"><i class="iconfont">&#xe733;</i><p>米粉卡</p></a></li>
+        <li class="row col"><a href="#"><img src="images/82abdba456e8caaea5848a0cddce03db.png"><p>保障服务</p></a></li>
+        <li class="row col"><a href="#"><img src="images/806f2dfb2d27978e33fe3815d3851fa3.png"><p>企业团购</p></a></li>
+        <li class="row"><a href="#"><img src="images/eded6fa3b897a058163e2485532c4f10.png"><p>F码通道</p></a></li>
+        <li class="col"><a href="#"><img src="images/43a3195efa6a3cc7662efed8e7abe8bf.png"><p>米粉卡</p></a></li>
+        <li class="col"><a href="#"><img src="images/f4846bca6010a0deb9f85464409862af.png"><p>以旧换新</p></a></li>
+        <li><a href="#"><a href="#"><img src="images/9a76d7636b08e0988efb4fc384ae497b.png"><p>话费充值</p></a></li>
       </ul>
     </div>
     <div class="adv-img"><img src="images/d8a6d6d37904e22c72130e3e4ec79b41.jpg" alt=""></div>
@@ -637,7 +653,7 @@
   </div>
   <h2 class="title">
     手机
-    <a href="#" class="more">查看更多<i class="iconfont">&#xe658;</i></a>
+    <a href="#" class="more">查看更多<i class="iconfont">&#xe615;</i></a>
   </h2>
   <div class="phone-box">
     <div class="phone-box-left">

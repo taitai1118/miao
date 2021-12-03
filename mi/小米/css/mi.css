@@ -1,4 +1,4 @@
-/* css样式开始 */
+
 .header{
 width: 100%;
 height: 40px;
@@ -257,12 +257,15 @@ color: #ff6700;
 .banner-box{
   width: 1226px;
   height: 460px;
-  xbackground-color: blue;
+  background-color: blue;
   background-image: url("../images/78d0483ed36158659fcf65a19a9b249a.jpeg");
   background-size: 100%;
   animation: banner 6s linear infinite;
+
 }
-/* 轮播图 */
+
+
+/* 轮播图*/
 .banner-box{
   display: flex;
 }
@@ -337,7 +340,7 @@ left: 100%;
 .slide-box input[type="radio"]:nth-of-type(3):checked~.slide2{
   transform: translateX(-200%)
 }
-/* 轮播图结束 */
+/* 轮播图结束  */
 
 
 
