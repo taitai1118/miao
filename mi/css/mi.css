@@ -30,7 +30,7 @@ font-size: 12px;
 }
 .header span{
   color: #424242;
-  margin: 03.6px;
+  margin: 0 3.6px;
 }
 .header a:hover{
   color: white;
@@ -257,8 +257,8 @@ color: #ff6700;
 .banner-box{
   width: 1226px;
   height: 460px;
-  background-color: blue;
-  background-image: url("../images/78d0483ed36158659fcf65a19a9b249a.jpeg");
+  xbackground-color: blue;
+  xbackground-image: url("../images/78d0483ed36158659fcf65a19a9b249a.jpeg");
   background-size: 100%;
   animation: banner 6s linear infinite;
 
@@ -278,21 +278,25 @@ color: #ff6700;
 .slider-box input:nth-child(1):checked ~ .sliders .slider:nth-child(1) img,
 .slider-box input:nth-child(2):checked ~ .sliders .slider:nth-child(2) img,
 .slider-box input:nth-child(3):checked ~ .sliders .slider:nth-child(3) img,
-.slider-box input:nth-child(4):checked ~ .sliders .slider:nth-child(4) img {
+.slider-box input:nth-child(4):checked ~ .sliders .slider:nth-child(4) img,
+.slider-box input:nth-child(5):checked ~ .sliders .slider:nth-child(5) img {
   opacity: 1;
 }
 .slider-box input:nth-child(1):checked ~ .sliders .slider:nth-child(1) label,
 .slider-box input:nth-child(2):checked ~ .sliders .slider:nth-child(2) label,
 .slider-box input:nth-child(3):checked ~ .sliders .slider:nth-child(3) label,
-.slider-box input:nth-child(4):checked ~ .sliders .slider:nth-child(4) label {
+.slider-box input:nth-child(4):checked ~ .sliders .slider:nth-child(4) label,
+.slider-box input:nth-child(5):checked ~ .sliders .slider:nth-child(5) label {
   z-index: 9;
   display: block;
 }
 .slider-box input:nth-child(1):checked ~ .indicators label:nth-child(1),
 .slider-box input:nth-child(2):checked ~ .indicators label:nth-child(2),
 .slider-box input:nth-child(3):checked ~ .indicators label:nth-child(3),
-.slider-box input:nth-child(4):checked ~ .indicators label:nth-child(4) {
-  background-color: white;
+.slider-box input:nth-child(4):checked ~ .indicators label:nth-child(4),
+.slider-box input:nth-child(5):checked ~ .indicators label:nth-child(5)  {
+  background-color:hsla(0, 0%, 100%, .3) ;
+  border-color: rgba(0, 0, 0, .4);
 }
 .slider-box .sliders {
   height: 100%;
@@ -348,15 +352,18 @@ color: #ff6700;
 .slider-box .indicators label {
   float: left;
   margin: 3px;
-  width: 5px;
-  height: 5px;
-  border: 2px solid;
+  width: 6px;
+  height: 6px;
+  border: 2px solid #fff;
+  border-color:hsla(0, 0%, 100%, .3) ;
+ background-color: rgba(0, 0, 0, .4);
   display: inline-block;
   border-radius: 999px;
   cursor: pointer;
 }
 .slider-box .indicators label:hover {
-  background-color: white;
+  background:hsla(0, 0%, 100%, .4);
+  border-color: rgba(0, 0, 0, .4);
 }
 /* input:nth-child(1):checked ~ ul > li:nth-child(1),
           input:nth-child(2):checked ~ ul > li:nth-child(2),
@@ -600,6 +607,21 @@ left: 100%;
   background-color: #665e57;
   right: 0;
   top: 6px;
+}
+.adv-aside img{
+  display: block;
+  width: 24px;
+  height: 24px;
+  margin: 0 auto 4px;
+  margin-top: 15px;
+}
+.adv-aside ul li p{
+  opacity: .6;
+  transition: all .2s;
+}
+.adv-aside ul li:hover p{
+  opacity: 1;
+  xcolor: palevioletred;
 }
 /* 广告样式结束 */
 /* 主体样式开始 */
