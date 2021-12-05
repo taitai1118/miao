@@ -20,6 +20,20 @@
       "unicode_decimal": 59147
     },
     {
+      "icon_id": "5387583",
+      "name": "箭头_向右",
+      "font_class": "jiantou_xiangyou",
+      "unicode": "eb08",
+      "unicode_decimal": 60168
+    },
+    {
+      "icon_id": "7587983",
+      "name": "右箭头",
+      "font_class": "youjiantou",
+      "unicode": "e61a",
+      "unicode_decimal": 58906
+    },
+    {
       "icon_id": "7937662",
       "name": "方向-向左",
       "font_class": "fangxiang-xiangzuo",
