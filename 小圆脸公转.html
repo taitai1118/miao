@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+ <style>
+   .smile{
+     width: 800px;
+     height:800px;
+     background: salmon;
+     border-radius: 50%;
+     margin: 150px auto;
+     transform-style: preserve-3d;
+     animation:aa 5s linear infinite;
+   }
+
+   @keyframes aa {
+      0% {
+        transform: rotateZ(0deg);
+      }
+      100% {
+        transform:rotateZ(360deg);
+      }
+    }
+
+  .a{
+    width: 150px;
+    height: 150px;
+    transition:2s;
+    border-radius: 50%;
+    xbackground: seagreen;
+    animation:bb 5s linear infinite;
+  }
+  @keyframes bb {
+      0% {
+        transform: rotateZ(360deg);
+      }
+      100% {
+        transform:rotateZ(0deg);
+      }
+    }
+  img{
+    width: 100%;
+  }
+ </style>
+</head>
+<body>
+  <div class="smile">
+    <div class="a">
+      <img src="img/IMG_2140.GIF">
+    </div>
+  </div>
+</body>
+</html>
