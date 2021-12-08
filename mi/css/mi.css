@@ -734,6 +734,9 @@ left: 100%;
   font-size: 14px;
 }
 /* 手机样式结束 */
+/* 智能穿戴开始 */
+
+/* 智能穿戴结束 */
 /* 家电样式开始 */
 
 /* 家电样式结束 */
@@ -793,15 +796,28 @@ left: 100%;
   margin-right: 40px;
   color: #ff6700;
 }
-#aabb:hover{
 
-}
 .items1-price{
   color: #ff6700;
   font-size: 12px;
 }
 .items1 div:hover{
   transform: translateY(-2px);
+  box-shadow: 0 15px 30px rgba(0,0,0,.1);
+}
+/* 智能穿戴 */
+.items-mini{
+  height: 143px;
+  float: left;
+  width: 234px;
+  background-color: #fff;
+  margin-bottom: 14px;
+  margin-left: 14px;
+  transition: all .2s initial;
+}
+.items-mini:hover{
+  transform:translateY(-2px);
+  /* 往上走两像素 */
   box-shadow: 0 15px 30px rgba(0,0,0,.1);
 }
 /* 主体样式结束 */

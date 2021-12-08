@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box{
+      margin: 100px auto;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      border: 6px solid rgb(167, 158, 158);
+      position: relative;
+    }
+    .box .line{
+      height: 300px;
+      width: 10px;
+      position: absolute;
+      background: rgb(180, 175, 174);
+      left: 50%;
+      transform:translate(-50%,0);
+    }
+    .box .line2{
+      width: 7px;
+      transform:translate(-50%,0) rotate(30deg);
+    }
+    .box .line3{
+      width: 7px;
+      transform:translate(-50%,0) rotate(60deg);
+    }
+    .box .line4{
+      width: 7px;
+      transform:translate(-50%,0) rotate(90deg);
+    }
+    .box .line5{
+      width: 7px;
+      transform:translate(-50%,0) rotate(120deg);
+    }
+    .box .line6{
+      width: 7px;
+      transform:translate(-50%,0) rotate(150deg);
+    }
+    .roundness{
+      border-radius: 50%;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform:translate(-50%,-50%);
+    }
+    .circle{
+      width: 270px;
+      height: 270px;
+      background: rgb(255, 255, 255);
+    }
+    .hour,.minute,.second{
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      margin: auto;
+    }
+    .needle{
+      position: absolute;
+      right: 0;
+      left: 0;
+      margin: 0 auto;
+    }
+    .hour{
+      animation: time 43200s steps(60,end) inherits;
+    }
+    .hou{
+      width: 10px;
+      height: 70px;
+      background: yellow;
+      border-radius: 5px 5px;
+      transform-origin: center bottom;
+      animation: hour 720s  ease-out infinite;
+      margin: 70px auto;
+    }
+    .minute{
+      animation: time 3600s steps(60,end) infinite;
+    }
+    .min{
+      width: 7px;
+      height: 90px;
+      border-radius: 3.5px 3.5px;
+      background: yellowgreen;
+     transform-origin:center bottom;
+     animation: min 60s ease-out infinite;
+     margin: 70px auto;
+
+    }
+   .second{
+     animation: time 60s steps(60,end) infinite;
+   }
+    .sec{
+      height: 150px;
+      width: 4px;
+      transform-origin: center bottom;
+      background: violet;
+      border-radius: 50% 50% 0 0/20% 20% 0 0;
+      background: yellowgreen;
+      margin: auto;
+      animation: sec 1s ease-out infinite;
+
+    }
+    .cir{
+      width: 20px;
+      height: 20px;
+      background: chartreuse;
+    }
+    @keyframes time{
+      from{
+        transform: rotate(0);
+      }
+      to{
+        transform: rotate(360deg);
+      }
+    }
+    @keyframes hour{
+      0%{
+        transform: rotate(0);
+      }
+      0.0315%{
+        transform: rotate(3deg);
+      }
+      0.0625%{
+        transform: rotate(0);
+      }
+      0.09375%{
+        transform: rotate(-1.5deg);
+      }
+      0.125%{
+        transform: rotate(0);
+      }
+      100%{
+        transform: rotate(0);
+      }
+    }
+    @keyframes min{
+      0%{
+        transform: rotate(0);
+      }
+      0.125%{
+        transform: rotate(3deg);
+      }
+      0.25%{
+        transform: rotate(0);
+      }
+      0.5%{
+        transform: rotate(0);
+      }
+      100%{
+        transform: rotate(0);
+      }
+    }
+    @keyframes sec{
+       0%{
+         transform: rotate(0);
+       }
+       5%{
+         transform: rotate(2deg);
+       }
+       10%{
+         transform: rotate(0);
+       }
+       15%{
+         transform: rotate(-1deg);
+       }
+       20%{
+         transform: rotate(0);
+       }
+       100%{
+         transform: rotate(0);
+       }
+     }
+
+  </style>
+</head>
+<body>
+<div class="box">
+  <div class="line line1"></div>
+  <div class="line line2"></div>
+  <div class="line line3"></div>
+  <div class="line line4"></div>
+  <div class="line line5"></div>
+  <div class="line line6"></div>
+  <div class="roundness circle"></div>
+  <div class=" hour">
+    <div class="needle hou"></div>
+  </div>
+  <div class=" minute">
+    <div class="needle min"></div>
+  </div>
+  <div class=" second">
+    <div class="needle sec"></div>
+
+  </div>
+
+  <div class="roundness cir"></div>
+
+</div>
+</body>
+</html>
