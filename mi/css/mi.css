@@ -738,8 +738,6 @@ left: 100%;
 
 /* 智能穿戴结束 */
 /* 家电样式开始 */
-
-/* 家电样式结束 */
 .elc-right{
   float: left;
   width: 992px;
@@ -805,6 +803,8 @@ left: 100%;
   transform: translateY(-2px);
   box-shadow: 0 15px 30px rgba(0,0,0,.1);
 }
+/* 家电样式结束 */
+
 /* 智能穿戴 */
 .items-mini{
   height: 143px;

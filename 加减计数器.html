@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <m
+  eta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+body {
+  counter-reset: sum;
+}
+label{
+  background: rgb(99, 242, 255);
+}
+input:checked+label{
+  background: red;
+}
+input {
+  position: absolute;
+  clip: rect(0 0 0 0);
+}
+
+#number1:checked { counter-increment: sum 64; }
+#number2:checked { counter-increment: sum 16; }
+#number3:checked { counter-increment: sum -32; }
+#number4:checked { counter-increment: sum 128; }
+#number5:checked { counter-increment: sum 4; }
+#number6:checked { counter-increment: sum -8; }
+
+.sum::before {
+  content: '= ' counter(sum);
+}
+
+#number1:checked ~
+#number2:checked ~
+#number3:not(:checked) ~
+#number4:not(:checked) ~
+#number5:not(:checked) ~
+#number6:checked ~
+.sum::after {
+  content: ' (bingo！)';
+}
+  </style>
+</head>
+<body>
+  <input type="checkbox" id="number1"><label for="number1">64</label>
+  <input type="checkbox" id="number2"><label for="number2">+16</label>
+  <input type="checkbox" id="number3"><label for="number3">-32</label>
+  <input type="checkbox" id="number4"><label for="number4">+128</label>
+  <input type="checkbox" id="number5"><label for="number5">+4</label>
+  <input type="checkbox" id="number6"><label for="number6">-8</label>
+  <strong class="sum"></strong>
+</body>
+</html>
