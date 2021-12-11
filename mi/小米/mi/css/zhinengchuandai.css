@@ -1,0 +1,112 @@
+.more-right > ul{
+  display: block;
+  margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+.more-right > ul > li{
+  margin-left: 20px;
+  margin-top: 20px;
+
+}
+.title-left h2{
+  color: #333;
+  font-size: 22px;
+  font-weight: 200;
+  text-align: left;
+  line-height: 58px;
+}
+.intell{
+  width: 1226px;
+  height: 614px;
+  xbackground-color: orchid;
+  position: relative;
+}
+.title-left{
+position: absolute;
+left: 0;
+}
+.more-right > ul >li{
+  float: right;
+}
+.more-right .remen ul{
+position: absolute;
+left: 234px;
+top: 58px;
+}
+.more-right .chuan ul{
+  position: absolute;
+left: 234px;
+top: 58px;
+}
+.remen1 li{
+  width: 234px;
+  height: 300px;
+  float: left;
+  background-color: rgb(255, 255, 255);
+  margin-left: 14px;
+  margin-bottom: 14px;
+}
+.chuandai1 li{
+  width: 234px;
+  height: 300px;
+  float: left;
+  background-color: rgb(255, 255, 255);
+  margin-left: 14px;
+  margin-bottom: 14px;
+}
+.images:hover,.more-right > ul > li > ul >li:hover{
+  transform:translateY(-2px);
+   box-shadow: 0 15px 30px rgba(0,0,0,.2);
+}
+.more-right > ul > li:hover{
+  color: #ff6700;
+  border-bottom: 2px solid #ff6700;
+}
+
+
+/* 切换 */
+/* .more-right .remen1,.more-right .chuandai1{
+  visibility: hidden;
+  transition: 0s 99999s;
+}
+.more-right > ul > li:hover ul{
+  visibility: visible;
+  transition: none;
+} */
+
+.more-right > ul:hover div{
+  visibility: hidden;
+  transition: none;
+}
+.more-right > ul > li:first-child div{
+  visibility: visible;
+}
+.more-right > ul > li:hover div{
+  visibility: visible;
+  transition: none;;
+}
+.more-right div{
+  visibility: hidden;
+  transition: 0s  99999s;
+}
+/* .ok-wtf:hover span div{
+  visibility: hidden;
+  transition: none;
+}
+
+.ok-wtf span:first-child div {
+  visibility: visible;
+}
+.ok-wtf span:hover div{
+  visibility: visible;
+  transition: none;;
+}
+.ok-wtf span div{
+  visibility: hidden;
+transition: 0s 99999s;
+
+}
+ */

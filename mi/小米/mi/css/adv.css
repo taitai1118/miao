@@ -1,0 +1,86 @@
+/* 广告样式开始 */
+.adv{
+  width: 100%;
+  height: 170px;
+  background-color: #fff;
+  margin: 14px 0 26px;
+  /* 上为14 左右为零 下为26 */
+}
+.adv-aside{
+  float: left;
+  width: 228px;
+  height:164px;
+  padding:3px;
+  background-color: #5f5750;
+
+}
+.adv-img{
+  float: left;
+  width: 316px;
+  height: 170px;
+ background-color: red;
+ margin-left: 14.66px;
+ transition: all .2s linear;
+}
+.adv-img:hover{
+  box-shadow: 0 15px 30px rgba(0,0,0,.1);
+
+}
+.adv-img img{
+  width: 100%;
+}
+.adv-aside li{
+  position: relative;
+  float: left;
+  width: 76px;
+  height: 82px;
+}
+.adv-aside a{
+  display: block;
+  color: #fff;
+  opacity: .7;
+  font-size: 12px;
+  transition: .2s;
+}
+.adv-aside i{
+  font-size: 23px;
+  /* 行内元素设置上下margin不生效 */
+  display: block;
+  margin-bottom: 4px;
+  margin-top: 18px;
+}
+.row::after{
+  position: absolute;
+  content:"" ;
+  width: 64px;
+  height: 1px;
+  background-color: #665e57;
+  bottom: 0;
+  left: 6px;
+  right: 0;
+}
+.col::before{
+  position: absolute;
+  content: "";
+  width: 1px;
+  height: 70px;
+  background-color: #665e57;
+  right: 0;
+  top: 6px;
+}
+.adv-aside img{
+  display: block;
+  width: 24px;
+  height: 24px;
+  margin: 0 auto 4px;
+  margin-top: 15px;
+}
+.adv-aside ul li p{
+  opacity: .6;
+  transition: all .2s;
+}
+.adv-aside ul li:hover p{
+  opacity: 1;
+  xcolor: palevioletred;
+}
+/* 广告样式结束 */

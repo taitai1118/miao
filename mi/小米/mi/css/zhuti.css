@@ -1,0 +1,8 @@
+/* 主体样式开始 */
+.container{
+  width: 100%;
+  background-color: #f5f5f5;
+  padding: 4px 0 12px;
+  overflow: hidden;
+/* 自动找高 */
+}

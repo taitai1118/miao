@@ -1,0 +1,102 @@
+/* 手机样式开始 */
+.home-banner-box{
+  width: 100%;
+  height: 120px;
+  xbackground-color: rgb(255, 60, 0);
+  margin: 22px 0;;
+}
+.title{
+  color: #333;
+  font-size: 22px;
+  font-weight: 200;
+  text-align: left;
+  line-height: 58px;
+}
+.more{
+  float: right;
+  color:#424242;
+  font-size: 16px;
+  transition: all .4s;
+}
+.more > i{
+  display: inline-block;
+  width: 20px;
+  height: 22px;
+  background-color:#b0b0b0 ;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 22px;
+  color: #fff;
+  font-size: 12px;
+  transition: all .4s;
+}
+.more:hover{
+  color: #ff6700;
+}
+.more:hover>i{
+  background-color: #ff6700;
+}
+.phone-box{
+ width: 100%;
+ height: 614px;
+ xbackground-color: red;
+}
+.phone-box-left{
+  float: left;
+  width: 234px;
+  height: 614px;
+  xbackground-color: pink;
+  transition: all .2s initial;
+}
+.phone-box-right{
+  float: left;
+  width: 992px;
+  height: 614px;
+  xbackground-color: rgb(151, 255, 241);
+}
+.items{
+  float: left;
+  width: 234px;
+  height: 300px;
+  background-color: #fff;
+  margin-bottom: 14px;
+  margin-left: 14px;
+  transition: all .2s initial;
+}
+.items:hover,.phone-box-left:hover{
+  transform:translateY(-2px);
+  /* 往上走两像素 */
+  box-shadow: 0 15px 30px rgba(0,0,0,.1);
+}
+.goods-img{
+  width: 160px;
+  margin-top: 20px;
+  margin-bottom: 18px;
+}/* 商品图 */
+.goods-name{
+  width: 214px;
+  height: 21px;
+  xbackground-color: red;
+  margin: 0 auto;
+  margin-bottom: 2px;
+  font-size: 14px;
+  white-space:nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.goods-desc{
+  width: 214px;
+  height: 18px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  font-size: 12px;
+  color: #b0b0b0;
+  white-space:nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.goods-price{
+  color: #ff6700;
+  font-size: 14px;
+}
+/* 手机样式结束 */
