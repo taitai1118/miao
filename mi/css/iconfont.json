@@ -6,6 +6,55 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "90513",
+      "name": "15天无理由退货",
+      "font_class": "15tianwuliyoutuihuo",
+      "unicode": "e606",
+      "unicode_decimal": 58886
+    },
+    {
+      "icon_id": "201525",
+      "name": "礼物 活动",
+      "font_class": "liwuhuodong",
+      "unicode": "f01da",
+      "unicode_decimal": 983514
+    },
+    {
+      "icon_id": "485856",
+      "name": "7",
+      "font_class": "7",
+      "unicode": "e633",
+      "unicode_decimal": 58931
+    },
+    {
+      "icon_id": "767023",
+      "name": "地址",
+      "font_class": "map",
+      "unicode": "e699",
+      "unicode_decimal": 59033
+    },
+    {
+      "icon_id": "838048",
+      "name": "7天无理由退货",
+      "font_class": "7tianwuliyoutuihuo",
+      "unicode": "e60e",
+      "unicode_decimal": 58894
+    },
+    {
+      "icon_id": "881589",
+      "name": "7",
+      "font_class": "71",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "1089338",
+      "name": "维修",
+      "font_class": "buoumaotubiao46",
+      "unicode": "e629",
+      "unicode_decimal": 58921
+    },
+    {
       "icon_id": "1304890",
       "name": "搜索",
       "font_class": "sousuo",
@@ -48,11 +97,25 @@
       "unicode_decimal": 58901
     },
     {
+      "icon_id": "15311733",
+      "name": "播放",
+      "font_class": "bofang",
+      "unicode": "e60a",
+      "unicode_decimal": 58890
+    },
+    {
       "icon_id": "15794122",
       "name": "三角形",
       "font_class": "sanjiaoxing",
       "unicode": "e649",
       "unicode_decimal": 58953
+    },
+    {
+      "icon_id": "20017690",
+      "name": "播放",
+      "font_class": "bofang1",
+      "unicode": "e881",
+      "unicode_decimal": 59521
     }
   ]
 }

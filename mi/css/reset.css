@@ -3,3 +3,6 @@ body{text-align: center;}
 ul,ol,li{list-style: none;}
 a{text-decoration: none;}
 input,button,img{border: none;vertical-align: middle;}
+.clear::after{
+  content: "";display: block;clear: both;
+}
