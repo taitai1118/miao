@@ -52,8 +52,9 @@
 
 <script type="" id="ch0103/08">
   var f = Number(prompt(""));
-  console.log((a * (f - 32) / 9).toFixed(5));
+  console.log((5 * (f - 32) / 9).toFixed(5));
 </script>
+
 
 <script type="" id="ch0103/09">
   var r = Number(prompt(""));
@@ -80,7 +81,7 @@
   alert(V.toFixed(2))
   </script>
 
-<script type="" id="ch0103/14">
+<script type="" id="ch0103/13">
   var r = Number(prompt(''));
   var bai = parseInt(r / 100);
   var shi = parseInt(r % 100 /10);
@@ -92,8 +93,11 @@
 <script type="" id="ch0103/14">
   var h = Number(prompt(""));
   var r = Number(prompt(""));
-  alert(parseInt((20/(3.14159*r*r*h/1000)+1)))
+  var V = 3.14159 * r * r * h;
+  var n = 20 * 1000 / V;
+  console.log(parseInt(n) + 1);
 </script>
+
 
 <script type="" id="ch0103/15">
   var n = Number(prompt(""));
