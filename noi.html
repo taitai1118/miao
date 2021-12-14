@@ -139,8 +139,67 @@
   console.log(A*B)
 </script>
 
-<script  id="ch0103/20">
+<script id="ch0103/20">
   var n = Number(prompt(""));
-  console.log(2**n)
+  console.log(2 ** n)
 </script>
+
+<script type="" id="ch0104/01">
+  var N = Number(prompt("输入一个数字",""));
+  if(N > 0)
+ alert("positive");
+  else if (N < 0)
+  alert("negative");
+  else
+  alert("zero");
+</script>
+
+<script type="" id="ch0104/02">
+  var n = Number(prompt("输入一个浮点数，其绝对值不超过10000",""));
+  alert((Math.abs(n)).toFixed(2))
+</script>
+
+<script type="" id="ch0104/03">
+  var n = Number(prompt("输入一个大于零的正整数n",""));
+  if(n%2==0)
+  alert("odd");
+  else if(n%2!==0)
+  alert("even")
+</script>
+
+<script type="" id="ch0104/04">
+  var n = Number(prompt("输入一个字符",""));
+  if(n%2==0)
+alert("YES");
+else if(n%2!==0)
+alert("NO")
+</script>
+
+<script type="" id="ch0104/05">
+  var x = Number(prompt("输入",""));
+  var y = Number(prompt("输入",""));
+  if(x > y)
+alert(">");
+else if (x < y)
+alert("<");
+else if (x = y)
+alert("=");
+</script>
+
+<script type="" id="ch0104/06">
+  var x = Number(prompt("输入一个正整数不超过1000",""));
+  var l = 0;
+while(x >= 1){
+  x=x/10;
+  l++;
+}
+alert(l);
+</script>
+
+<script type="" id="ch0104/07">
+  var a = Number(prompt("幸运瓶盖",""));
+  var b = Number(prompt("鼓励瓶盖",""));
+  console.log((a/10>=1||b/20>=1) ? 1:0)
+</script>
+
 
