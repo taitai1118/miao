@@ -435,10 +435,8 @@
   var n = Number(prompt("n"));
   for (var i = 0, x = 0, max = 0, min = 0; i < n; i++) {
     x = Number(prompt("x"));
-    if (x > max) {
-      min = max;
-      max = x;
-    }
+    max = Math.max(x, max);
+    min = Math.min(x, min);
   }
   console.log(max - min);
 </script>
@@ -494,5 +492,5 @@
   console.log(odds);
   </script>
 
-
+<script type="" id="ch0105/11"></script>
 
