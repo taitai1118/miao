@@ -383,3 +383,116 @@
   var y = Number(prompt(""));
   console.log(parseInt(n - y / x));
 </script>
+
+<script id="ch0105/01">
+  var n = Number(prompt("n"));
+  for (var i = 0, x = 0, s = 0; i < n; i++) {
+    x = Number(prompt("x"));
+    s = s + x;
+  }
+  console.log((s / n).toFixed(2));
+</script>
+
+<script type="" id="ch0105/02">
+  for (var i = 0, x = 0, s = 0; i < 12; i++) {
+    x = Number(prompt("x"));
+    s = s + x;
+  }
+  console.log("$" + (s / 12).toFixed(2));
+</script>
+
+<script type="" id="ch0105/03">
+  var n = Number(prompt("n"));
+  for (var i = 0, x = 0, s = 0; i < n; i++) {
+    x = Number(prompt("x"));
+    s = s + x;
+  }
+  console.log((s / n).toFixed(4));
+</script>
+
+<script type="" id="ch0105/04">
+  var n = Number(prompt("n"));
+  for (var i = 0, x = 0, s = 0; i < n; i++) {
+    x = Number(prompt("x"));
+    s = s + x;
+  }
+  console.log(s);
+  console.log((s / n).toFixed(5));
+</script>
+
+<script type="" id="ch0105/05">
+  var n = Number(prompt("n"));
+  for (var i = 0, x = 0, max = 0; i < n; i++) {
+    x = Number(prompt("x"));
+    if (x > max) {
+      max = x;
+    }
+  }
+  console.log(Math.max(max));
+</script>
+
+<script type="" id="ch0105/06">
+  var n = Number(prompt("n"));
+  for (var i = 0, x = 0, max = 0, min = 0; i < n; i++) {
+    x = Number(prompt("x"));
+    if (x > max) {
+      min = max;
+      max = x;
+    }
+  }
+  console.log(max - min);
+</script>
+
+<script type="" id="ch0105/07">
+  var n = Number(prompt("n"));
+  for (var i = 0, jin = 0, yin = 0, tong = 0,jins = 0,yins = 0,tongs = 0; i < n; i++) {
+   jin = Number(prompt("jin"));
+   yin = Number(prompt("yin"));
+   tong = Number(prompt("tong"));
+   jins = jins + jin;
+   yins = yins + yin;
+   tongs = tongs + tong;
+ }
+ console.log(jins);
+ console.log(yins);
+ console.log(tongs);
+ console.log(jins + yins + tongs);
+</script>
+
+<script type="" id="ch0105/08">
+  var n = Number(prompt("n"));
+  for (var i = 0, x = 0,s = 0; i < (n - 1); i++) {
+   x = Number(prompt("x"));
+   s = x + s;
+  }
+  console.log((n - 2) * 180 - s);
+</script>
+
+<script type="" id="ch0105/09">
+  var m = Number(prompt("m"));
+  var n = Number(prompt("n"));
+  for (var s = 0,odd = 0,odds =0; m <= n; m++) {
+     s = m;
+     if(s % 2 !== 0){
+       odd = s;
+       odds = odds + odd;
+     }
+  }
+  console.log(odds);
+  </script>
+
+<script type="" id="ch0105/10">
+  var m = Number(prompt("n"));
+  var n = Number(prompt("n"));
+  for (var s = 0,odd = 0,odds =0; m <= n; m++) {
+    s = m;
+    if (s % 17 == 0) {
+      odd = s;
+       odds = odds + odd;
+    }
+  }
+  console.log(odds);
+  </script>
+
+
+
