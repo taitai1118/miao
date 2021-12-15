@@ -188,7 +188,17 @@
   console.log(n % 3 === 0 && n % 5 === 0 ? "YES" : "NO");
 </script>
 
-<script type="" id="ch0104/09"></script>
+<script id="ch0104/09">
+  var N = Number(prompt("N:"));
+  if (N % 3 == 0 && N % 5 == 0 && N % 7 == 0) console.log(3, 5, 7);
+  else if (N % 3 == 0 && N % 5 == 0) console.log(3, 5);
+  else if (N % 3 == 0 && N % 7 == 0) console.log(3, 7);
+  else if (N % 5 == 0 && N % 7 == 0) console.log(5, 7);
+  else if (N % 3 == 0) console.log(3);
+  else if (N % 5 == 0) console.log(5);
+  else if (N % 7 == 0) console.log(7);
+  else console.log("n");
+</script>
 
 <script type="text/javascript" id="ch0104/10">
   let a = Number(prompt(""));
@@ -314,7 +324,6 @@
   }
 </script>
 
-
 <script type="" id="ch0104/19">
   var x = Number(prompt(""));
   var y = Number(prompt(""));
@@ -346,18 +355,26 @@
   var c = parseInt(prompt("c:"));
   var delta = b * b - 4 * a * c;
   if (delta < 0) {
-    console.log("无解");
+    var result1 = Math.abs(b ** 2 - 4 * a * c);
+    var result2 = Math.sqrt(result1);
+    var x1 = (result2 / (2 * a)).toFixed(5);
+    var x2 = (-b / (2 * a)).toFixed(5);
+    var y1 = (-result2 / (2 * a)).toFixed(5);
+    var y2 = (-b / (2 * a)).toFixed(5);
+    console.log("x1=" + x2 + "+" + x1 + "i" + ";" + "x2=" + y2 + "" + y1 + "i");
   } else if (delta == 0) {
-    var x = -b / (2 * a);
-    console.log("x1=x2=" + x);
+    var sqrtDelta = Math.sqrt(delta);
+    var x1;
+    var x2;
+    x1 = -b / (2 * a);
+    console.log("x1=x2=" + x1);
   } else {
     var sqrtDelta = Math.sqrt(delta);
-    var x1 = (-b + sqrtDelta) / (2 * a);
-    var x2 = (-b - sqrtDelta) / (2 * a);
+    var x1 = (-b + result) / (2 * a);
+    var x2 = (-b - result) / (2 * a);
     console.log("x1=" + x1);
     console.log("x2=" + x2);
   }
-  console.log("解答完毕");
 </script>
 
 <script type="" id="ch0104/21">
