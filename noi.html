@@ -1,205 +1,368 @@
 <script type="" id="ch0103/01">
   var a = Number(prompt(""));
   var b = Number(prompt(""));
-  alert(a + b)
+  alert(a + b);
 </script>
 
 <script type="" id="ch0103/02">
   var a = Number(prompt(""));
   var b = Number(prompt(""));
   var c = Number(prompt(""));
-  alert((a+b)*c)
+  alert((a + b) * c);
 </script>
 
 <script type="" id="ch0103/03">
-   var a = Number(prompt(""));
-   var b = Number(prompt(""));
-   var c = Number(prompt(""));
-   alert(parseInt((a+b)/c))
+  var a = Number(prompt(""));
+  var b = Number(prompt(""));
+  var c = Number(prompt(""));
+  alert(parseInt((a + b) / c));
 </script>
 
-
-
 <script type="" id="ch0103/04">
-   var a = Number(prompt(""));
-   var b = Number(prompt(""));
-   alert(parseInt(a/b));
-   alert(a%b)
+  var a = Number(prompt(""));
+  var b = Number(prompt(""));
+  alert(parseInt(a / b));
+  alert(a % b);
 </script>
 
 <script type="" id="ch0103/05">
-   var a = Number(prompt(""));
-   var b = Number(prompt(""));
-   c = a/b;
-   alert(c.toFixed(9))
+  var a = Number(prompt(""));
+  var b = Number(prompt(""));
+  c = a / b;
+  alert(c.toFixed(9));
 </script>
 
 <script type="" id="ch0103/06">
   var a = Number(prompt(""));
   var b = Number(prompt(""));
-  c = (b/a)*100;
-  alert(c.toFixed(3)+"%")
+  c = (b / a) * 100;
+  alert(c.toFixed(3) + "%");
 </script>
 
 <script type="" id="ch0103/07">
-   var x = Number(prompt(""));
-   var a = Number(prompt(""));
-   var b = Number(prompt(""));
-   var c = Number(prompt(""));
-   var d = Number(prompt(""));
-   console.log(((a * x ** 3) + (b * x ** 2) + (c * x) + d).toFixed(7));
+  var x = Number(prompt(""));
+  var a = Number(prompt(""));
+  var b = Number(prompt(""));
+  var c = Number(prompt(""));
+  var d = Number(prompt(""));
+  console.log((a * x ** 3 + b * x ** 2 + c * x + d).toFixed(7));
 </script>
 
 <script type="" id="ch0103/08">
   var f = Number(prompt(""));
-  console.log((5 * (f - 32) / 9).toFixed(5));
+  console.log(((5 * (f - 32)) / 9).toFixed(5));
 </script>
-
 
 <script type="" id="ch0103/09">
   var r = Number(prompt(""));
-  alert((2*r).toFixed(4));
-  alert((2*3.14159*r).toFixed(4));
-  alert((3.14159*r*r).toFixed(4));
+  alert((2 * r).toFixed(4));
+  alert((2 * 3.14159 * r).toFixed(4));
+  alert((3.14159 * r * r).toFixed(4));
 </script>
 
 <script type="" id="ch0103/10">
-   var r1 = Number(prompt(""));
-   var r2 = Number(prompt(""));
-   alert((1/(1/r1 + 1/r2)).toFixed(2));
+  var r1 = Number(prompt(""));
+  var r2 = Number(prompt(""));
+  alert((1 / (1 / r1 + 1 / r2)).toFixed(2));
 </script>
 
 <script type="" id="ch0103/11">
   var a = Number(prompt(""));
   var b = Number(prompt(""));
-  alert((a%b).toFixed(4))
+  alert((a % b).toFixed(4));
 </script>
 
 <script type="" id="ch0103/12">
   var r = Number(prompt(""));
-  var V =(4 / 3) * 3.14 * (r ** 3);
-  alert(V.toFixed(2))
-  </script>
-
-<script type="" id="ch0103/13">
-  var r = Number(prompt(''));
-  var bai = parseInt(r / 100);
-  var shi = parseInt(r % 100 /10);
-  var ge = r - bai * 100 - shi * 10;
-  console.log(ge+""+shi+""+bai);
+  var V = (4 / 3) * 3.14 * r ** 3;
+  alert(V.toFixed(2));
 </script>
 
+<script type="" id="ch0103/13">
+  var r = Number(prompt(""));
+  var bai = parseInt(r / 100);
+  var shi = parseInt((r % 100) / 10);
+  var ge = r - bai * 100 - shi * 10;
+  console.log(ge + "" + shi + "" + bai);
+</script>
 
 <script type="" id="ch0103/14">
   var h = Number(prompt(""));
   var r = Number(prompt(""));
   var V = 3.14159 * r * r * h;
-  var n = 20 * 1000 / V;
+  var n = (20 * 1000) / V;
   console.log(parseInt(n) + 1);
 </script>
-
 
 <script type="" id="ch0103/15">
   var n = Number(prompt(""));
   var x = Number(prompt(""));
   var y = Number(prompt(""));
-  console.log(parseInt(n - y/x))
+  console.log(parseInt(n - y / x));
 </script>
-
 
 <script type="" id="ch0103/16">
   var Xa = Number(prompt(""));
   var Ya = Number(prompt(""));
   var Xb = Number(prompt(""));
   var Yb = Number(prompt(""));
-  console.log(((((Xa-Xb)**2) +( (Ya - Yb)**2))**(1/2)).toFixed(3))
+  console.log((((Xa - Xb) ** 2 + (Ya - Yb) ** 2) ** (1 / 2)).toFixed(3));
 </script>
 
 <script type="" id="ch0103/17">
   var x1 = Number(prompt(""));
-  var y1= Number(prompt(""));
+  var y1 = Number(prompt(""));
   var x2 = Number(prompt(""));
   var y2 = Number(prompt(""));
   var x3 = Number(prompt(""));
   var y3 = Number(prompt(""));
-  console.log(((x1*y2-x1*y3+x2*y3-x2*y1+x3*y1-x2*y2)/2).toFixed(2))
+  console.log(
+    ((x1 * y2 - x1 * y3 + x2 * y3 - x2 * y1 + x3 * y1 - x2 * y2) / 2).toFixed(2)
+  );
 </script>
 
 <script type="" id="ch0103/18">
   var a1 = Number(prompt(""));
   var a2 = Number(prompt(""));
   var n = Number(prompt(""));
-  var d = a2-a1
-  console.log(a1+(n-1)*d)
+  var d = a2 - a1;
+  console.log(a1 + (n - 1) * d);
 </script>
 
 <script type="" id="ch0103/19">
   var A = Number(prompt(""));
   var B = Number(prompt(""));
-  console.log(A*B)
+  console.log(A * B);
 </script>
 
 <script id="ch0103/20">
   var n = Number(prompt(""));
-  console.log(2 ** n)
+  console.log(2 ** n);
 </script>
 
 <script type="" id="ch0104/01">
-  var N = Number(prompt("输入一个数字",""));
-  if(N > 0)
- alert("positive");
-  else if (N < 0)
-  alert("negative");
-  else
-  alert("zero");
+  var N = Number(prompt("输入一个数字", ""));
+  if (N > 0) alert("positive");
+  else if (N < 0) alert("negative");
+  else alert("zero");
 </script>
 
 <script type="" id="ch0104/02">
-  var n = Number(prompt("输入一个浮点数，其绝对值不超过10000",""));
-  alert((Math.abs(n)).toFixed(2))
+  var n = Number(prompt("输入一个浮点数，其绝对值不超过10000", ""));
+  alert(Math.abs(n).toFixed(2));
 </script>
 
 <script type="" id="ch0104/03">
-  var n = Number(prompt("输入一个大于零的正整数n",""));
-  if(n%2==0)
-  alert("even");
-  else if(n%2!==0)
-  alert("odd")
+  var n = Number(prompt("输入一个大于零的正整数n", ""));
+  if (n % 2 == 0) alert("even");
+  else if (n % 2 !== 0) alert("odd");
 </script>
 
-
 <script type="" id="ch0104/04">
-  var n = Number(prompt("输入一个字符",""));
-  if(n%2==0)
-alert("NO");
-else if(n%2!==0)
-alert("YES")
+  var n = Number(prompt("输入一个字符", ""));
+  if (n % 2 == 0) alert("NO");
+  else if (n % 2 !== 0) alert("YES");
 </script>
 
 <script type="" id="ch0104/05">
-  var x = Number(prompt("输入",""));
-  var y = Number(prompt("输入",""));
-  if(x > y)
-alert(">");
-else if (x < y)
-alert("<");
-else if (x = y)
-alert("=");
+  var x = Number(prompt("输入", ""));
+  var y = Number(prompt("输入", ""));
+  if (x > y) alert(">");
+  else if (x < y) alert("<");
+  else if ((x = y)) alert("=");
 </script>
 
 <script type="" id="ch0104/06">
-  var a = Number(prompt("输入一个正整数不超过1000",""));
-  console.log((a>=10||a<=99) ? "1":"0")
+  var a = Number(prompt("输入一个正整数不超过1000", ""));
+  console.log(a >= 10 || a <= 99 ? "1" : "0");
 </script>
 
-
 <script type="" id="ch0104/07">
-  var a = Number(prompt("幸运瓶盖",""));
-  var b = Number(prompt("鼓励瓶盖",""));
-  console.log((a/10>=1||b/20>=1) ? 1:0)
+  var a = Number(prompt("幸运瓶盖", ""));
+  var b = Number(prompt("鼓励瓶盖", ""));
+  console.log(a / 10 >= 1 || b / 20 >= 1 ? 1 : 0);
 </script>
 
 <script type="" id="ch0104/08">
   let n = Number(prompt(""));
-console.log(n % 3 === 0 && n % 5 === 0 ? "YES":"NO")
+  console.log(n % 3 === 0 && n % 5 === 0 ? "YES" : "NO");
+</script>
+
+<script type="" id="ch0104/09"></script>
+
+<script type="text/javascript" id="ch0104/10">
+  let a = Number(prompt(""));
+  let b = Number(prompt(""));
+  console.log(a < 60 && b > 60 ? 1 : a > 60 && b < 60 ? 1 : 0);
+</script>
+
+<script type="" id="ch0104/11">
+  let a = Number(prompt("请输入数字1到7", ""));
+  if (a == 1) {
+    console.log("NO");
+  } else if (a == 3) {
+    console.log("NO");
+  } else if (a == 5) {
+    console.log("NO");
+  } else {
+    console.log("YES");
+  }
+</script>
+
+<script type="" id="ch0104/12">
+  let m = Number(prompt("请输入距离", ""));
+  if (m / 3 + 50 > (m / 12) * 10) {
+    console.log("Bike");
+  } else if (m / 3 + 50 < m / 1.2) {
+    console.log("Bike");
+  } else {
+    console.log("All");
+  }
+</script>
+
+<script type="" id="ch0104/13">
+  let x = Number(prompt("请输入一个浮点数", ""));
+  if (x >= 0 && x < 5) {
+    console.log((-x + 2.5).toFixed(3));
+  } else if (x >= 5 && x < 10) {
+    console.log((2 - 1.5 * (x - 3) * (x - 3)).toFixed(3));
+  } else if (x >= 10 && x < 20) {
+    console.log((x / 2 - 2.5).toFixed(3));
+  }
+</script>
+
+<script id="ch0104/14">
+  var weight = Number(prompt(""));
+  var letter = prompt("");
+  // 加急
+  if (letter == "y") {
+    // console.log("加急");
+    if (weight < 1000) {
+      console.log(8 + 5);
+    } else if (weight >= 1000) {
+      console.log(8 + Math.ceil((weight - 1000) / 500) * 4 + 5);
+    }
+  }
+  // 不加急
+  if (letter == "n") {
+    // console.log("不加急加急");
+    if (weight < 1000) {
+      console.log(8);
+    } else if (weight >= 1000) {
+      console.log(8 + Math.ceil((weight - 1000) / 500) * 4);
+    }
+  }
+</script>
+
+<script type="" id="ch0104/15">
+  let a = Number(prompt("请输入一个整数", ""));
+  let b = Number(prompt("请输入一个整数", ""));
+  let c = Number(prompt("请输入一个整数", ""));
+  if (a > b && a > c) {
+    console.log(a);
+  } else if (b > a && b > c) {
+    console.log(c);
+  } else if (c > a && c > b) {
+    console.log(c);
+  }
+</script>
+
+<script type="" id="ch0104/16">
+  let a = Number(prompt("请输入一个整数", ""));
+  let b = Number(prompt("请输入一个整数", ""));
+  let c = Number(prompt("请输入一个整数", ""));
+  if (a + b > c) {
+    console.log("yes");
+  } else if (a + c > b) {
+    console.log("yes");
+  } else if (c + b > a) {
+    console.log("yes");
+  } else {
+    console.log("no");
+  }
+</script>
+
+<script type="" id="ch0104/17">
+  let a = Number(prompt("请输入一个整数", ""));
+  if (a % 4 == 0) {
+    if (a % 100 == 0) {
+      if (a % 400 !== 0) {
+        console.log("N");
+      } else {
+        console.log("Y");
+      }
+    }
+    if (a % 3200 == 0) {
+      console.log("N");
+    } else {
+      console.log("Y");
+    }
+  } else if (console.log("N"));
+</script>
+
+<script type="" id="ch0104/18">
+  let x = Number(prompt("请输入一个整数", ""));
+  let y = Number(prompt("请输入一个整数", ""));
+  if (x <= 1 && x >= -1) {
+    if (y <= 1 && y >= -1) {
+      console.log("yes");
+    } else {
+      console.log("no");
+    }
+  } else {
+    console.log("no");
+  }
+</script>
+
+
+<script type="" id="ch0104/19">
+  var x = Number(prompt(""));
+  var y = Number(prompt(""));
+  var symbol = prompt("");
+  if (symbol == "+") {
+    // console.log("+");
+    console.log(x + y);
+  }
+  if (symbol == "-") {
+    console.log(x - y);
+  }
+  if (symbol == "*") {
+    console.log(x * y);
+  }
+  if (symbol == "/") {
+    if (y == 0) {
+      console.log("Divided by zero!");
+    } else {
+      console.log(x / y);
+    }
+  } else if (symbol != "+" && symbol != "-" && symbol != "*" && symbol != "/") {
+    console.log("Invalid operator!");
+  }
+</script>
+
+<script type="" id="ch0103/20">
+  var a = parseInt(prompt("a:"));
+  var b = parseInt(prompt("b:"));
+  var c = parseInt(prompt("c:"));
+  var delta = b * b - 4 * a * c;
+  if (delta < 0) {
+    console.log("无解");
+  } else if (delta == 0) {
+    var x = -b / (2 * a);
+    console.log("x1=x2=" + x);
+  } else {
+    var sqrtDelta = Math.sqrt(delta);
+    var x1 = (-b + sqrtDelta) / (2 * a);
+    var x2 = (-b - sqrtDelta) / (2 * a);
+    console.log("x1=" + x1);
+    console.log("x2=" + x2);
+  }
+  console.log("解答完毕");
+</script>
+
+<script type="" id="ch0103/21">
+  var n = Number(prompt(""));
+  var x = Number(prompt(""));
+  var y = Number(prompt(""));
+  console.log(parseInt(n - y / x));
 </script>
