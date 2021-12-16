@@ -565,21 +565,26 @@
   var M = Number(prompt("请输入金钱"));
   var Y = Number(prompt("请输入年份"));
   for (var i = 0; i < Y; i++) {
-    M = M + M * R / 100;
+    M = M + (M * R) / 100;
   }
   console.log(parseInt(M));
 </script>
 
 <script type="" id="ch0105/16">
-  var N = Number(prompt("请输每年年薪"));//50
-  var K = Number(prompt("请输入每年增长百分之K"));//10
-  for (var i = 1,price = 200,con = 0; i * N < price; i++) {
-    price = price + price * K / 100;
+  var N = Number(prompt("请输每年年薪")); //50
+  var K = Number(prompt("请输入每年增长百分之K")); //10
+  for (var i = 1, price = 200, con = 0; i * N < price; i++) {
+    price = price + (price * K) / 100;
   }
   console.log(i);
 </script>
 
 <script type="" id="ch0105/17">
-  var k = Number(prompt("请输入"));
-
+  var k = Number(prompt("请输入一个正整数"));
+  for (var i = 1, a = 1, b = 1, num = 0, sum = 0; i < k; i++) {
+    num = a + b;
+    b = num;
+    a = num - a;
+  }
+  console.log(a);
 </script>
