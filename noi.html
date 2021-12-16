@@ -581,10 +581,38 @@
 
 <script type="" id="ch0105/17">
   var k = Number(prompt("请输入一个正整数"));
-  for (var i = 1, a = 1, b = 1, num = 0, sum = 0; i < k; i++) {
+  for (var i = 1, a = 1, b = 1, num = 0; i < k; i++) {
     num = a + b;
     b = num;
     a = num - a;
   }
   console.log(a);
+</script>
+
+
+<script type="" id="ch0105/18">
+  var n = Number(prompt("输入一个数n"));
+  var a = Number(prompt(""));
+  var b = Number(prompt(""));
+  var x = b / a;
+  for (var i = 0; i < n - 1; i++) {
+    var a = Number(prompt(""));
+    var b = Number(prompt(""));
+    y = b / a;
+    if(y - x > 5 / 100){
+      console.log("better")
+    }
+    else if (x - y > 5 /100) {
+      console.log("worse")
+    }
+    else {
+      console.log("same")
+    }
+  }
+  </script>
+
+<script type="" id="ch0105/19">
+ var n = Number(prompt("输入一个数n"));
+  var a = Number(prompt(""));
+  var b = Number(prompt(""));
 </script>
