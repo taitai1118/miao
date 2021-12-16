@@ -589,7 +589,6 @@
   console.log(a);
 </script>
 
-
 <script type="" id="ch0105/18">
   var n = Number(prompt("输入一个数n"));
   var a = Number(prompt(""));
@@ -599,20 +598,37 @@
     var a = Number(prompt(""));
     var b = Number(prompt(""));
     y = b / a;
-    if(y - x > 5 / 100){
-      console.log("better")
-    }
-    else if (x - y > 5 /100) {
-      console.log("worse")
-    }
-    else {
-      console.log("same")
+    if (y - x > 5 / 100) {
+      console.log("better");
+    } else if (x - y > 5 / 100) {
+      console.log("worse");
+    } else {
+      console.log("same");
     }
   }
-  </script>
+</script>
 
 <script type="" id="ch0105/19">
- var n = Number(prompt("输入一个数n"));
-  var a = Number(prompt(""));
-  var b = Number(prompt(""));
+  var n = Number(prompt("输入一个数n"));
+  var mins = 0;
+  for (var i = 0; i < n; i++) {
+    var a = Number(prompt(""));
+    var b = Number(prompt(""));
+    var c = Number(prompt(""));
+    var dis = (a * a + b * b) ** (1 / 2);
+    var min = (dis / 50) * 2;
+    mins = mins + min + (c * 1) / 2 + c;
+  }
+  console.log(Math.ceil(mins));
+</script>
+
+<script type="" id="ch0105/20">
+  var n = Number(prompt("输入球的初始高度"));
+  var m = n;
+  for (var i = 0; i < 10; i++) {
+    n = n / 2;
+    m = m + 2 * n;
+  }
+  console.log(m);
+  console.log(n);
 </script>
