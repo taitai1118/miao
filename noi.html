@@ -624,11 +624,11 @@
 
 <script type="" id="ch0105/20">
   var n = Number(prompt("输入球的初始高度"));
-  var m = n;
+  var m = -n;
   for (var i = 0; i < 10; i++) {
-    n = n / 2;
     m = m + 2 * n;
+    n = n / 2;
   }
-  console.log(m);
-  console.log(n);
+  console.log(m.toFixed(4));
+  console.log(n.toFixed(7));
 </script>
