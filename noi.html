@@ -624,14 +624,16 @@
 
 
 <script type="" id="ch0105/20">
-  let h = Number(prompt("输入球的初始高度"));
-  let sum = 0;
-  for (let i = 0; i < 10; i++) {
+  var h = Number(prompt("输入球的初始高度"));
+  var m = -h;
+  for (var i = 0; i < 10; i++) {
+    m = m + 2 * h;
     h = h / 2;
-    sum = sum + h * 3;
   }
-  console.log(sum - h,h);
+  console.log(m.toFixed(4));
+  console.log(h.toFixed(7));
 </script>
+
 
 <script type="" id="ch0105/21">
   var N = Number(prompt(""))
@@ -649,31 +651,3 @@
   console.log("END")
 </script>
 
-
-<script type="" id="ch0105/22">
-  var money = 300;
-  var hand = 0;
-  var all = 0;
-  var a = 0;
-  for (var i = 0; i < 12; i++) {
-    var budget = Number(prompt("输入一个小于350的非负整数"));
-    if (budget > money) {
-        a = 1;
-        console.log("-"+(i + a));
-      }
-     else {
-      if (money - budget > 100) {
-        hand = hand + 100;
-      }
-      if (money - budget > 200) {
-        hand = hand + 200;
-      }
-      if (money - budget > 300) {
-        hand = hand + 300;
-      }
-    }
-  }
-  if (a == 0) {
-    console.log(hand + hand * 20 /100)
-  }
-</script>
