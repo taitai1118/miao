@@ -441,27 +441,45 @@
   console.log(max - min);
 </script>
 
+<script type="xx" id="ch0105/06">
+  var n = Number(prompt("n"));
+  for (var i = 0, num = 0, max = 0, min = 0; i < n; i++) {
+    sum = Number(prompt("num"));
+    if (num > max) {
+      max = num;
+    }
+    if (num < min) {
+      min = num;
+    }
+  }
+  console.log(max - min);
+</script>
+
 <script type="" id="ch0105/07">
   var n = Number(prompt("n"));
-  for (var i = 0, jin = 0, yin = 0, tong = 0,jins = 0,yins = 0,tongs = 0; i < n; i++) {
-   jin = Number(prompt("jin"));
-   yin = Number(prompt("yin"));
-   tong = Number(prompt("tong"));
-   jins = jins + jin;
-   yins = yins + yin;
-   tongs = tongs + tong;
- }
- console.log(jins);
- console.log(yins);
- console.log(tongs);
- console.log(jins + yins + tongs);
+  for (
+    var i = 0, jin = 0, yin = 0, tong = 0, jins = 0, yins = 0, tongs = 0;
+    i < n;
+    i++
+  ) {
+    jin = Number(prompt("jin"));
+    yin = Number(prompt("yin"));
+    tong = Number(prompt("tong"));
+    jins = jins + jin;
+    yins = yins + yin;
+    tongs = tongs + tong;
+  }
+  console.log(jins);
+  console.log(yins);
+  console.log(tongs);
+  console.log(jins + yins + tongs);
 </script>
 
 <script type="" id="ch0105/08">
   var n = Number(prompt("n"));
-  for (var i = 0, x = 0,s = 0; i < (n - 1); i++) {
-   x = Number(prompt("x"));
-   s = x + s;
+  for (var i = 0, x = 0, s = 0; i < n - 1; i++) {
+    x = Number(prompt("x"));
+    s = x + s;
   }
   console.log((n - 2) * 180 - s);
 </script>
@@ -469,28 +487,99 @@
 <script type="" id="ch0105/09">
   var m = Number(prompt("m"));
   var n = Number(prompt("n"));
-  for (var s = 0,odd = 0,odds =0; m <= n; m++) {
-     s = m;
-     if(s % 2 !== 0){
-       odd = s;
-       odds = odds + odd;
-     }
-  }
-  console.log(odds);
-  </script>
-
-<script type="" id="ch0105/10">
-  var m = Number(prompt("n"));
-  var n = Number(prompt("n"));
-  for (var s = 0,odd = 0,odds =0; m <= n; m++) {
+  for (var s = 0, odd = 0, odds = 0; m <= n; m++) {
     s = m;
-    if (s % 17 == 0) {
+    if (s % 2 !== 0) {
       odd = s;
-       odds = odds + odd;
+      odds = odds + odd;
     }
   }
   console.log(odds);
-  </script>
+</script>
 
-<script type="" id="ch0105/11"></script>
+<script type="" id="ch0105/10">
+  var m = Number(prompt("m"));
+  var n = Number(prompt("n"));
+  for (var s = 0, odd = 0, odds = 0; m <= n; m++) {
+    s = m;
+    if (s % 17 == 0) {
+      odd = s;
+      odds = odds + odd;
+    }
+  }
+  console.log(odds);
+</script>
 
+<script type="" id="ch0105/11">
+  var k = Number(prompt(""));
+  for (one = 0, five = 0, ten = 0, i = 0; i < k; i++) {
+    var n = Number(prompt("n"));
+    if (n == 1) {
+      ++one;
+    }
+    if (n == 5) {
+      ++five;
+    }
+    if (n == 10) {
+      ++ten;
+    }
+  }
+  console.log(one);
+  console.log(five);
+  console.log(ten);
+</script>
+
+<script type="" id="ch0105/12">
+  var n = Number(prompt(""));
+  var m = Number(prompt(""));
+  for (i = 0, s = 0; i < n; i++) {
+    var x = Number(prompt("x"));
+    if (x == m) {
+      ++s;
+    }
+  }
+  console.log(s);
+</script>
+
+<script type="" id="ch0105/13">
+  var a = Number(prompt("输入一个整数n"));
+  var n = Number(prompt("输入一个正整数n"));
+  var num = 1;
+  for (var i = 0; i < n; i++) {
+    num *= a;
+  }
+  console.log(num);
+</script>
+
+<script type="" id="ch0105/14">
+  var x = Number(prompt("输入一个数x"));
+  var n = Number(prompt("输入一个数n"));
+  for (var i = 0; i < n; i++) {
+    x = x + (x * 1) / 1000;
+  }
+  console.log(x.toFixed(4));
+</script>
+
+<script type="" id="ch0105/15">
+  var R = Number(prompt("请输入复合年利率"));
+  var M = Number(prompt("请输入金钱"));
+  var Y = Number(prompt("请输入年份"));
+  for (var i = 0; i < Y; i++) {
+    M = M + M * R / 100;
+  }
+  console.log(parseInt(M));
+</script>
+
+<script type="" id="ch0105/16">
+  var N = Number(prompt("请输每年年薪"));//50
+  var K = Number(prompt("请输入每年增长百分之K"));//10
+  for (var i = 1,price = 200,con = 0; i * N < price; i++) {
+    price = price + price * K / 100;
+  }
+  console.log(i);
+</script>
+
+<script type="" id="ch0105/17">
+  var k = Number(prompt("请输入"));
+
+</script>
