@@ -431,7 +431,7 @@
   console.log(Math.max(max));
 </script>
 
-<script type="" id="ch0105/06">
+<script type="xx" id="ch0105/06">
   var n = Number(prompt("n"));
   for (var i = 0, x = 0, max = 0, min = 0; i < n; i++) {
     x = Number(prompt("x"));
@@ -441,10 +441,10 @@
   console.log(max - min);
 </script>
 
-<script type="xx" id="ch0105/06">
+<script type="" id="ch0105/06">
   var n = Number(prompt("n"));
-  for (var i = 0, num = 0, max = 0, min = 0; i < n; i++) {
-    sum = Number(prompt("num"));
+  for (var i = 0, max = 0, min = 1000; i < n; i++) {
+    num = Number(prompt("num"));
     if (num > max) {
       max = num;
     }
@@ -454,6 +454,7 @@
   }
   console.log(max - min);
 </script>
+
 
 <script type="" id="ch0105/07">
   var n = Number(prompt("n"));
@@ -635,3 +636,114 @@
 </script>
 
 
+<script type="" id="ch0105/21">
+  var N = Number(prompt(""))
+  var M = N;
+  for (var i = 1; N > 1; i++) {
+    if (N % 2 !== 0) {
+      N = N * 3 + 1;
+      console.log(M+"*"+3+"+"+1+"="+N)
+  }
+  if (N % 2 === 0) {
+    N = N / 2;
+    console.log(2 * N+"/"+2+"="+N)
+  }
+  }
+  console.log("End")
+</script>
+
+<script type="" id="ch0105/22">
+  var money = 300;
+  var hand = 0;
+  var all = 0;
+  var a = 0;
+  for (var i = 0; i < 12; i++) {
+    var budget = Number(prompt("输入一个小于350的非负整数"));
+    if (budget > money) {
+        a = 1;
+        console.log("-"+(i + a));
+      }
+     else {
+      if (money - budget > 100) {
+        hand = hand + 100;
+      }
+      if (money - budget > 200) {
+        hand = hand + 200;
+      }
+      if (money - budget > 300) {
+        hand = hand + 300;
+      }
+    }
+  }
+  if (a == 0) {
+    console.log(hand + hand * 20 /100)
+  }
+</script>
+
+<script type="" id="ch0105/23">
+  var m = Number(prompt(""));
+  var n = Number(prompt(""));
+  var a = 0;
+  for (var i = 0; i < n; i++) {
+    var x = Number(prompt(""));
+    if (x < m){
+      m = m - x;
+    }
+    else if (x > m){
+     a = a + 1;
+    }
+  }
+  console.log(a)
+</script>
+
+<script type="" id="ch0105/24">
+  var n = Number(prompt(""));
+  var time = 0;
+  for(var i = 0; i < n; i++){
+    var a = Number(prompt("收缩压"));
+    var b = Number(prompt("舒张压"));
+    if((a >= 90 && a <= 140) && ((b >= 60) && (b <= 90))){
+       time += 1;
+    }
+    else {
+      time -= 1;
+    }
+  }
+  console.log(time);
+</script>
+
+
+<script type="" id="ch0105/25">
+ for(let i = 0;i <=728; i++){
+   let sysSeven = i.toString(7);
+   let sysNine = i.toString(9);
+   if(sysSeven.length == 3 && sysNine.length == 3 && sysSeven.split('').reverse().join('') == sysNine)
+   {
+     console.log(i)
+   }
+ }
+</script>
+
+<script type="" id="ch0105/26">
+  var n = Number(prompt(""));
+  var con = 0;
+  var ge = 0;
+  var shi = 0;
+  var bai = 0;
+  var q = 0;
+  for(var i= 0; i < n; i++){
+    var num = Number(prompt(""));
+    ge = num % 10;
+    shi = ((num % 100) - (num % 10)) / 10;
+    bai = ((num % 1000) - ((num % 100) - (num % 10)) - num % 10) / 100  ;
+    q =  (num -  ((num % 1000) - ((num % 100) - (num % 10)) - num % 10) - ((num % 100) - (num % 10)) - num % 10) / 1000;
+    if(ge - q - bai - shi > 0){
+      con += 1;
+    }
+  }
+  console.log(con);
+</script>
+
+<script type="" id="ch0105/27">
+  for
+</script>
