@@ -714,15 +714,18 @@
 
 
 <script type="" id="ch0105/25">
- for(let i = 0;i <=728; i++){
-   let sysSeven = i.toString(7);
-   let sysNine = i.toString(9);
-   if(sysSeven.length == 3 && sysNine.length == 3 && sysSeven.split('').reverse().join('') == sysNine)
-   {
-     console.log(i)
-   }
- }
-</script>
+  for(let i = 0;i <=728; i++){
+    let sysSeven = i.toString(7);
+    let sysNine = i.toString(9);
+    if(sysSeven.length == 3 && sysNine.length == 3 && sysSeven.split('').reverse().join('') == sysNine)
+    {
+      console.log(i);
+      console.log(i.toString(7));
+      console.log(i.toString(9));
+    }
+  }
+ </script>
+
 
 <script type="" id="ch0105/26">
   var n = Number(prompt(""));
