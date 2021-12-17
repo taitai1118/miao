@@ -455,7 +455,6 @@
   console.log(max - min);
 </script>
 
-
 <script type="" id="ch0105/07">
   var n = Number(prompt("n"));
   for (
@@ -623,7 +622,6 @@
   console.log(Math.ceil(mins));
 </script>
 
-
 <script type="" id="ch0105/20">
   var h = Number(prompt("输入球的初始高度"));
   var m = -h;
@@ -635,21 +633,20 @@
   console.log(h.toFixed(7));
 </script>
 
-
 <script type="" id="ch0105/21">
-  var N = Number(prompt(""))
+  var N = Number(prompt(""));
   var M = N;
   for (var i = 1; N > 1; i++) {
     if (N % 2 !== 0) {
       N = N * 3 + 1;
-      console.log(M+"*"+3+"+"+1+"="+N)
+      console.log(M + "*" + 3 + "+" + 1 + "=" + N);
+    }
+    if (N % 2 === 0) {
+      N = N / 2;
+      console.log(2 * N + "/" + 2 + "=" + N);
+    }
   }
-  if (N % 2 === 0) {
-    N = N / 2;
-    console.log(2 * N+"/"+2+"="+N)
-  }
-  }
-  console.log("End")
+  console.log("End");
 </script>
 
 <script type="" id="ch0105/22">
@@ -660,10 +657,9 @@
   for (var i = 0; i < 12; i++) {
     var budget = Number(prompt("输入一个小于350的非负整数"));
     if (budget > money) {
-        a = 1;
-        console.log("-"+(i + a));
-      }
-     else {
+      a = 1;
+      console.log("-" + (i + a));
+    } else {
       if (money - budget > 100) {
         hand = hand + 100;
       }
@@ -676,7 +672,7 @@
     }
   }
   if (a == 0) {
-    console.log(hand + hand * 20 /100)
+    console.log(hand + (hand * 20) / 100);
   }
 </script>
 
@@ -686,46 +682,45 @@
   var a = 0;
   for (var i = 0; i < n; i++) {
     var x = Number(prompt(""));
-    if (x < m){
+    if (x < m) {
       m = m - x;
-    }
-    else if (x > m){
-     a = a + 1;
+    } else if (x > m) {
+      a = a + 1;
     }
   }
-  console.log(a)
+  console.log(a);
 </script>
 
 <script type="" id="ch0105/24">
   var n = Number(prompt(""));
   var time = 0;
-  for(var i = 0; i < n; i++){
+  for (var i = 0; i < n; i++) {
     var a = Number(prompt("收缩压"));
     var b = Number(prompt("舒张压"));
-    if((a >= 90 && a <= 140) && ((b >= 60) && (b <= 90))){
-       time += 1;
-    }
-    else {
+    if (a >= 90 && a <= 140 && b >= 60 && b <= 90) {
+      time += 1;
+    } else {
       time -= 1;
     }
   }
   console.log(time);
 </script>
 
-
 <script type="" id="ch0105/25">
-  for(let i = 0;i <=728; i++){
+  for (let i = 0; i <= 728; i++) {
     let sysSeven = i.toString(7);
     let sysNine = i.toString(9);
-    if(sysSeven.length == 3 && sysNine.length == 3 && sysSeven.split('').reverse().join('') == sysNine)
-    {
+    if (
+      sysSeven.length == 3 &&
+      sysNine.length == 3 &&
+      sysSeven.split("").reverse().join("") == sysNine
+    ) {
       console.log(i);
       console.log(i.toString(7));
       console.log(i.toString(9));
     }
   }
- </script>
-
+</script>
 
 <script type="" id="ch0105/26">
   var n = Number(prompt(""));
@@ -734,26 +729,43 @@
   var shi = 0;
   var bai = 0;
   var q = 0;
-  for(var i= 0; i < n; i++){
+  for (var i = 0; i < n; i++) {
     var num = Number(prompt(""));
     ge = num % 10;
     shi = ((num % 100) - (num % 10)) / 10;
-    bai = ((num % 1000) - ((num % 100) - (num % 10)) - num % 10) / 100  ;
-    q =  (num -  ((num % 1000) - ((num % 100) - (num % 10)) - num % 10) - ((num % 100) - (num % 10)) - num % 10) / 1000;
-    if(ge - q - bai - shi > 0){
+    bai = ((num % 1000) - ((num % 100) - (num % 10)) - (num % 10)) / 100;
+    q =
+      (num -
+        ((num % 1000) - ((num % 100) - (num % 10)) - (num % 10)) -
+        ((num % 100) - (num % 10)) -
+        (num % 10)) /
+      1000;
+    if (ge - q - bai - shi > 0) {
       con += 1;
     }
   }
   console.log(con);
 </script>
 
-
 <script type="" id="ch0105/27">
   var K = Number(prompt(""));
   var Sn = 0;
-  for(var i = 1; Sn < K; i++){
-  Sn = Sn + 1 / i
+  for (var i = 1; Sn < K; i++) {
+    Sn = Sn + 1 / i;
   }
-  console.log(i)
+  console.log(i);
 </script>
 
+<script type="" id="ch0105/28">
+  var n = Number(prompt("输入一个整数"));
+  var y = 0;
+  for (var i = 1; n > 10; i++) {
+    if (i == 1) {
+      y = n % 10;
+      console.log(y);
+    }
+    y = parseInt(n / 10) % 10;
+    console.log(y);
+    n = parseInt(n / 10);
+  }
+</script>
