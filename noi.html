@@ -651,28 +651,25 @@
 
 <script type="" id="ch0105/22">
   var money = 300;
-  var hand = 0;
   var all = 0;
-  var a = 0;
-  for (var i = 0; i < 12; i++) {
+  var month = 0;
+  var save = 0;
+  var hand = 0;
+  for (var i = 1; i <= 12; i++) {
     var budget = Number(prompt("输入一个小于350的非负整数"));
-    if (budget > money) {
-      a = 1;
-      console.log("-" + (i + a));
+    save = money - budget + save;
+    if (save < 0) {
+      month = i;
     } else {
-      if (money - budget > 100) {
-        hand = hand + 100;
-      }
-      if (money - budget > 200) {
-        hand = hand + 200;
-      }
-      if (money - budget > 300) {
-        hand = hand + 300;
-      }
+      hand = 100 * Math.trunc(save / 100);
+      save = save - hand;
+      all = hand + all;
     }
   }
-  if (a == 0) {
-    console.log(hand + (hand * 20) / 100);
+  if (month != 0) {
+    console.log("-" + month);
+  } else {
+    console.log(save + all * 1.2);
   }
 </script>
 
@@ -769,3 +766,4 @@
     n = parseInt(n / 10);
   }
 </script>
+
