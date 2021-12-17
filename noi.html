@@ -768,15 +768,31 @@
 </script>
 
 <script type="" id="ch0105/29">
-  debugger
+  debugger;
   var n = prompt("请输入整数");
-  let res = parseInt(n.split('').reverse().join(''));
+  let res = parseInt(n.split("").reverse().join(""));
   if (n < 0) {
     res *= -1;
   }
   console.log(res);
 </script>
 
-
-
-
+<script type="" id="ch0105/30">
+  var m = prompt("输入一个正整数1<m<100000");
+  var k = prompt("输入一个正整数1<k<5");
+  var len = m.toString().length;
+  var con = 0;
+  var x = m;
+  for (var i = 0; i < len; i++) {
+    let num = m % 10;
+    m = (m - num) / 10;
+    if (num == k) {
+      con = con + 1;
+    }
+  }
+  if (x % 19 == 0 && con == k) {
+    console.log("YES");
+  } else {
+    console.log("NO");
+  }
+</script>
