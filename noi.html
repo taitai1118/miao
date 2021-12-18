@@ -767,7 +767,7 @@
   }
 </script>
 
-<script type="" id="ch0105/29">
+<script type="xx" id="ch0105/29">
   debugger;
   var n = prompt("请输入整数");
   let res = parseInt(n.split("").reverse().join(""));
@@ -795,4 +795,109 @@
   } else {
     console.log("NO");
   }
+</script>
+
+<script type="xx" id="ch0105/31">
+  var N = prompt("输入一个正整数");
+  var M = prompt("输入一个正整数");
+  var light = 1;
+  var result = "";
+  for (var i = 2; i <= N; i++) {
+    //灯
+    light = 1;
+    for (var m = 1; m <= M; m++) {
+      //人
+      if (i % m == 0) {
+        light = light * -1;
+      } else {
+        light = light;
+      }
+    }
+    if (light == -1) {
+      result += "," + i;
+    }
+  }
+  console.log(1 + result);
+</script>
+
+<script type="" id="ch0105/32">
+  var n = prompt("输入一个浮点数");
+  var a = 2;
+  var b = 1;
+  var c = a;
+  var num = a / b;
+  for (var i = 1; i < n; i++) {
+    a = b + a;
+    b = c;
+    c = a;
+    num = num + a / b;
+  }
+  console.log(num.toFixed(4));
+</script>
+
+<script type="" id="ch0105/33">
+  var n = prompt("输入一个正整数n");
+  let res = 1;
+  let num = 0;
+  for (var i = 1; i <= n; i++) {
+    if (i % 2 == 0) {
+      res = -1;
+    } else {
+      res = 1;
+    }
+    num = num + (1 / i) * res;
+  }
+  console.log(num.toFixed(4));
+</script>
+
+<script type="" id="ch0105/34">
+  var n = prompt("输入一个正整数n");
+  let sum = 0;
+  for (var i = 1; i <= n; i++) {
+    let num = 1;
+    for (var j = 1; j <= i; j++) {
+      num = num * j;
+    }
+    sum = sum + num;
+  }
+  console.log(sum);
+</script>
+
+<script type="" id="ch0105/35">
+  var n = prompt("输入一个正整数n");
+  let sum = 1;
+  for (var i = 1; i <= n; i++) {
+    let num = 1;
+    for (var j = 1; j <= i; j++) {
+      num = num * j;
+    }
+    sum = sum + 1 / num;
+  }
+  console.log((sum).toFixed(10));
+</script>
+
+<script type="" id="ch0105/36">
+var x = prompt("输入一个浮点数");
+var n = prompt("输入一个正整数");
+var num = 0;
+for (var i = 0; i <= n; i++) {
+   num = num + (x ** i)
+}
+console.log((num).toFixed(2));
+</script>
+
+
+<script type="xx" id='ch0105/37'>
+  var M = prompt() * 1
+  var N = prompt() * 1
+  var X = prompt() * 1
+  while(X > 0){
+    if(X * N < M) M = X * N
+    X = X - Math.ceil(M / N)
+    var n = N
+    for(var i = M; i > 0;i -= n){
+      if(i >= n)  N = N + 1
+    }
+  }
+  console.log(N)
 </script>
