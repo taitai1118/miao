@@ -887,7 +887,7 @@ console.log((num).toFixed(2));
 </script>
 
 
-<script type="xx" id='ch0105/37'>
+<script type="" id='ch0105/37'>
   var M = prompt() * 1
   var N = prompt() * 1
   var X = prompt() * 1
@@ -900,4 +900,31 @@ console.log((num).toFixed(2));
     }
   }
   console.log(N)
+</script>
+
+
+
+<script id='ch0105/39'>
+  var n = prompt()
+  var sum = 0
+  for(var i = 1;i <= n;i++){
+    if(i % 7 == 0 || (i - 7) % 10 == 0) continue
+    sum += i ** 2
+  }
+  console.log(sum)
+</script>
+
+
+<script  id="ch0105/40">
+  var n = Number(prompt('n'))
+  for (i = 0, a = 0, s = 0; i < n; i ++) {
+    var len = String(i + 1).length
+    for (j = 0; j < len; j ++) {
+      a = Math.trunc((i + 1) / 10 ** (j)) % 10
+      if (a == 1) {
+        s = s + 1
+      }
+    }
+  }
+  console.log(s)
 </script>
