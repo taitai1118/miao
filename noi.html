@@ -873,58 +873,125 @@
     }
     sum = sum + 1 / num;
   }
-  console.log((sum).toFixed(10));
+  console.log(sum.toFixed(10));
 </script>
 
 <script type="" id="ch0105/36">
-var x = prompt("输入一个浮点数");
-var n = prompt("输入一个正整数");
-var num = 0;
-for (var i = 0; i <= n; i++) {
-   num = num + (x ** i)
-}
-console.log((num).toFixed(2));
+  var x = prompt("输入一个浮点数");
+  var n = prompt("输入一个正整数");
+  var num = 0;
+  for (var i = 0; i <= n; i++) {
+    num = num + x ** i;
+  }
+  console.log(num.toFixed(2));
 </script>
 
-
-<script type="" id='ch0105/37'>
-  var M = prompt() * 1
-  var N = prompt() * 1
-  var X = prompt() * 1
-  while(X > 0){
-    if(X * N < M) M = X * N
-    X = X - Math.ceil(M / N)
-    var n = N
-    for(var i = M; i > 0;i -= n){
-      if(i >= n)  N = N + 1
+<script type="" id="ch0105/37">
+  var M = prompt() * 1;
+  var N = prompt() * 1;
+  var X = prompt() * 1;
+  while (X > 0) {
+    if (X * N < M) M = X * N;
+    X = X - Math.ceil(M / N);
+    var n = N;
+    for (var i = M; i > 0; i -= n) {
+      if (i >= n) N = N + 1;
     }
   }
-  console.log(N)
+  console.log(N);
 </script>
 
-
-
-<script id='ch0105/39'>
-  var n = prompt()
-  var sum = 0
-  for(var i = 1;i <= n;i++){
-    if(i % 7 == 0 || (i - 7) % 10 == 0) continue
-    sum += i ** 2
+<script id="ch0105/39">
+  var n = prompt();
+  var sum = 0;
+  for (var i = 1; i <= n; i++) {
+    if (i % 7 == 0 || (i - 7) % 10 == 0) continue;
+    sum += i ** 2;
   }
-  console.log(sum)
+  console.log(sum);
 </script>
 
+<script id="ch0105/40">
+  var n = prompt();
+  var con = 0;
+  for (var i = 0, sum = 0; i < n; i++) {
+    var len = (i + 1).toString().length;
+    for (var j = 0; j < len; j++) {
+      sum = Math.trunc((i + 1) / 10 ** j) % 10;
+      if (sum == 1) con = con + 1;
+    }
+  }
+  console.log(con);
+</script>
 
-<script  id="ch0105/40">
-  var n = Number(prompt('n'))
-  for (i = 0, a = 0, s = 0; i < n; i ++) {
-    var len = String(i + 1).length
-    for (j = 0; j < len; j ++) {
-      a = Math.trunc((i + 1) / 10 ** (j)) % 10
-      if (a == 1) {
-        s = s + 1
+<script id="ch0105/41">
+  var L = Number(prompt(""));
+  var R = Number(prompt(""));
+  var con = 0;
+  for (var i = 0, sum = 0; i < R; i++) {
+    var len = (i + 1).toString().length;
+    for (var j = 0; j < len; j++) {
+      sum = Math.trunc((i + 1) / 10 ** j) % 10;
+      if (sum == L) con = con + 1;
+    }
+  }
+  console.log(con);
+</script>
+
+<script type="">
+  let w = parseInt(prompt("请输入宽度w"));
+  let h = parseInt(prompt("请输入"));
+  let str = prompt("请输入字符串");
+  let prem = prompt("");
+  let s = w * h;
+  let pattern = "";
+  for (let i = 1; i <= s; i++) {
+    if (prem == 1) {
+      pattern = pattern + str;
+      if (i % w == 0) {
+        pattern = pattern + "\n";
+      }
+    } else {
+      if (i <= w || s - i <= w || i % w == 1 || i % w == 0) {
+        pattern = pattern + str;
+      } else {
+        pattern = pattern + " ";
+      }
+      if (i % w == 0) {
+        pattern = pattern + "\n";
       }
     }
   }
-  console.log(s)
+  console.log(pattern);
+</script>
+
+<script type="" id="ch0105/43">
+  var n = Number(prompt(""));
+  var a = 0;
+  var b = 0;
+  var num = 1;
+  for (var j = 2; j <= n; j++) {
+    for (c = 2; c <= j; c++) {
+      if (j % c !== 0) {
+        a = j;
+      }
+    }
+    for (var k = 2; k <= n; k++) {
+      if (num == -1) break;
+      for (d = 2; d <= k; d++) {
+        if (k % d !== 0) {
+          b = k;
+          if (a * b == 21) {
+            num = num * -1;
+            if (a > b) {
+              console.log(a);
+            } else {
+              console.log(b);
+            }
+            break;
+          }
+        }
+      }
+    }
+  }
 </script>
