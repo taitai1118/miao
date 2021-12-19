@@ -940,7 +940,6 @@
 
 
 <script type="" id="ch0105/42">
-
   let h = parseInt(prompt("请输入"));
   let w = parseInt(prompt("请输入宽度w"));
   let str = prompt("请输入字符串");
@@ -966,6 +965,7 @@
   }
   console.log(pattern);
   </script>
+
 
 <script type="" id="ch0105/43">
   var n = Number(prompt(""));
@@ -1000,22 +1000,34 @@
 
 
 <script  id="ch0105/44">
-
   var n = Number(prompt('n'))
-  var result = 0
-  for (var p = 0; p < 10000; p ++){
-    for (var i = 0, s = 0; i < (p + 1); i++){
-      if ((p + 1) % (i + 1) == 0){
+  var con = 0
+  for (var i = 0;con < n; i++){
+    for (var j = 0, s = 0; j < (i + 1); j++){
+      if ((i + 1) % (j + 1) == 0){
         s = s + 1
       }
     }
     if (s == 2){
-      result = result + 1
-      if (result == n){
-        console.log(p + 1)
+      con = con + 1
+      if (con == n){
+        console.log(i + 1)
         break
       }
     }
   }
 
 </script>
+
+<script id="ch0105/45">
+  var n = Number(prompt(""));
+  var num = 0;
+  var con = 1
+  for(var i = 1;con <= n; i++){
+     num = num + i * i
+     con = con + i
+
+  }
+  console.log(num);
+</script>
+
