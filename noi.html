@@ -889,19 +889,22 @@
 </script>
 
 <script type="" id="ch0105/37">
-  var M = prompt() * 1;
-  var N = prompt() * 1;
-  var X = prompt() * 1;
-  while (X > 0) {
-    if (X * N < M) M = X * N;
-    X = X - Math.ceil(M / N);
-    var n = N;
-    for (var i = M; i > 0; i -= n) {
-      if (i >= n) N = N + 1;
-    }
+  var M = Number(prompt("输入体力最大值")) ;
+  var N = Number(prompt("输入战斗力"));
+  var X = Number(prompt("能量元素")) ;
+  for(; X > 0;){
+      if(X * N < M){
+        M = X * N;
+      }
+      X = X - Math.ceil(M / N);
+      var n = N;
+      for(var j = 1; j <= M; j++)
+      if(j % n == 0){
+        N = N + 1;
+      }
   }
-  console.log(N);
-</script>
+  console.log(N)
+ </script>
 
 <script type="" id="ch0105/38">
   let x = Number(prompt("请输入样例数"));
