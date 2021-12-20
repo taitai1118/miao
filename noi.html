@@ -1025,19 +1025,21 @@
 <script id="ch0105/44">
   var n = Number(prompt("n"));
   var con = 0;
-  for (var i = 0; con < n; i++) {
-    for (var j = 0, s = 0; j < i + 1; j++) {
-      if ((i + 1) % (j + 1) == 0) {
-        s = s + 1;
-      }
+  for(var i = 2; ; i++){
+    var iIsPrompt = true;
+  for(var j = 2;j < i; j++){
+    if(i % j == 0){
+      iIsPrompt = false;
+      break;
     }
-    if (s == 2) {
-      con = con + 1;
-      if (con == n) {
-        console.log(i + 1);
-        break;
-      }
+  }
+  if(iIsPrompt){
+    con++;
+    if(con == n){
+      console.log(i)
+      break;
     }
+  }
   }
 </script>
 
