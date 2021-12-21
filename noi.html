@@ -1148,6 +1148,7 @@
 <script type="" id="weekday">
   // weekday: 输入年份与月份，输出这个月的第一天是周几（视具体设定，周一可以用1或0表示
   var weekday;
+  var year,month;
   function getDate(year, month) {
     var nowdate = new Date("" + year + "," + month + ",01");
     weekday = nowdate.getDay();
@@ -1166,9 +1167,14 @@
         sum += i; //也可以写作sum=sum+i;
       }
     }
-    return sum === n ? "YES" : "NO";
+   if(sum === n){
+     return "YES"
+   }
+   else{
+     return "NO"
+   }
   }
-  console.log(perfectNumber(n));
+  console.log(perfectNumber(22));
 </script>
 
 <script type="" id="complete-numbers">
