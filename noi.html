@@ -1272,12 +1272,13 @@
     return lc(a, a % b);
   }
   function lcm(a, b) {
-    return a * b;
+    return (a * b) / lc(a, a % b) ;
   }
 
-  console.log(lc(a, b)); //求出最小公倍数
-  console.log(lcm(a,b)); //最大公约数
+  console.log(lc(a, b));//最大公约数
+  console.log(lcm(a,b)); //求出最小公倍数
 </script>
+
 
 <!-- <script type="" id="sqrt">
   // sqrt: 输入一个数，求它的平方根，精确到小数点后3位，不能使用Math.sqrt
