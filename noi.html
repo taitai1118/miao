@@ -1211,6 +1211,7 @@
 
 <script type="" id="prime">
   // prime: 输入一个数，判断它是否是素数
+  var n = Number(prompt(""));
   function prime(n) {
     for (var i = 2; i * i <= n; i++) {
       if (n % i == 0 ){
@@ -1220,6 +1221,12 @@
         return 'YES'
       }
     }
+    if(n == 1){
+        return 'NO'
+      }
+      else if(n == 2){
+        return 'YES'
+      }
   }
   console.log(prime(n)); //是否质数
 </script>
@@ -1252,7 +1259,7 @@
   // itoa: 给定一个整数，将其转换为字符串：不能使用String等现成函数，但可以使用非此功能的其它函数，也不能利用任意运算符的自动类型转换
 </script>
 
-<script type="" id="lcf&lcm">
+<!-- <script type="" id="lcf&lcm">
   // lcf&lcm: 输入两个数，输出它们的最大公约数和最小公倍数
   var a = Number(prompt(""));
   var b = Number(prompt(""))
@@ -1265,10 +1272,11 @@
   }
   console.log(lcm(a,b)); //最大公约数
   console.log(lc(a, b)); //求出最小公倍数
-</script>
+</script> -->
 
-<script type="" id="sqrt">
+<!-- <script type="" id="sqrt">
   // sqrt: 输入一个数，求它的平方根，精确到小数点后3位，不能使用Math.sqrt
+  var n = Number(prompt(""));
   function sqrt(n) {
     var lo = 0,
       hi = n,
@@ -1286,4 +1294,4 @@
     return Math.floor(hi);
   }
   console.log(sqrt(n));
-</script>
+</script> -->
