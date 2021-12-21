@@ -1061,50 +1061,30 @@
 </script>
 
 <script type='' id="narcissistic">
-//  narcissistic: 输入一个数，判断是否是水仙花数
-  // narcissistic: 输入一个数，判断是否是水仙花数
-  <script type="" id="ch0105/">
-function narcissistic(n) {
+    var n = Number(prompt('n'))
   for (var i = 0, a = 0, s = 0;i < 3;i++){
     a = Math.trunc(n / 10 ** i) % 10
     s = s + a ** 3
   }
   if (s == n) {
-    return true;
+    console.log('YES')
   } else {
-    return false;
-  }
-}
-console.log(narcissistic(n))
-</script>
-  // var n = Number(prompt('n'))
-  // for (var i = 0, a = 0, s = 0;i < 3;i++){
-  //   a = Math.trunc(n / 10 ** i) % 10
-  //   s = s + a ** 3
-  // }
-  // if (s == n) {
-  //   console.log('YES')
-  // } else {
-  //   console.log('NO')
-  // }
-
-</script>
-// function narcissistic(n) {
-//     let len = n.toString().length;
-//     let sum = 0;
-//     let a = n;
-//     for (let i = 1; i <= len; i++) {
-//       let num = n % 10;
-//       n = (n - num) / 10;
-//       sum += num ** len
-//       if (sum == a) {
-//         return true;
-//       }
-//     }
+    console.log('NO')
+  }// narcissistic: 输入一个数，判断是否是水仙花数
+//   function narcissistic(n) {
+//   for (var i = 0, a = 0, s = 0;i < 3;i++){
+//     a = Math.trunc(n / 10 ** i) % 10
+//     s = s + a ** 3
+//   }
+//   if (s == n) {
+//     return true;
+//   } else {
 //     return false;
 //   }
-  console.log(narcissistic(n));
+// }
+// console.log(narcissistic(n))
 </script>
+
 <script type='' id="narcissistics">
   // narcissistics: 输出10000以内的水仙花数
   function narcissistics(){
@@ -1133,7 +1113,7 @@ function palindrom(n) {
 console.log(palindrom(n))
 </script>
 
-<script type="" id="weekday">
+<script type="" id="">
 // weekday: 输入年份与月份，输出这个月的第一天是周几（视具体设定，周一可以用1或0表示）
 
 </script>
