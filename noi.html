@@ -1254,15 +1254,16 @@
 
 <script type="" id="lcf&lcm">
   // lcf&lcm: 输入两个数，输出它们的最大公约数和最小公倍数
+  var a = Number(prompt(""));
+  var b = Number(prompt(""))
   function lc(a, b) {
-    var a,b;
     if (a % b == 0) return b;
     return lc(a, a % b);
   }
   function lcm(a, b) {
     return a * b;
   }
-  console.log(lcm(a, b)); //最大公约数
+  console.log(lcm(a,b)); //最大公约数
   console.log(lc(a, b)); //求出最小公倍数
 </script>
 
