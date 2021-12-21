@@ -1063,17 +1063,30 @@
 <script type='' id="narcissistic">
 //  narcissistic: 输入一个数，判断是否是水仙花数
   // narcissistic: 输入一个数，判断是否是水仙花数
-
-  var n = Number(prompt('n'))
+  <script type="" id="ch0105/">
+function narcissistic(n) {
   for (var i = 0, a = 0, s = 0;i < 3;i++){
     a = Math.trunc(n / 10 ** i) % 10
     s = s + a ** 3
   }
   if (s == n) {
-    console.log('YES')
+    return true;
   } else {
-    console.log('NO')
+    return false;
   }
+}
+console.log(narcissistic(n))
+</script>
+  // var n = Number(prompt('n'))
+  // for (var i = 0, a = 0, s = 0;i < 3;i++){
+  //   a = Math.trunc(n / 10 ** i) % 10
+  //   s = s + a ** 3
+  // }
+  // if (s == n) {
+  //   console.log('YES')
+  // } else {
+  //   console.log('NO')
+  // }
 
 </script>
 // function narcissistic(n) {
@@ -1094,8 +1107,8 @@
 </script>
 <script type='' id="narcissistics">
   // narcissistics: 输出10000以内的水仙花数
-
-    for (n = 0;n < 1000;n ++){
+  function narcissistics(){
+  for (n = 0;n < 1000;n ++){
       var N = String(n).length
       if (N == 3){
         for (i = 0, a = 0, s = 0;i < 3;i++){
@@ -1107,12 +1120,24 @@
         }
       }
     }
-
+}
+narcissistics()
   </script>
 
-<script type="" id="">
-//是回文数，如1223221
+<script type="" id="palindrom">
+//palindrom: 输入一个数，判断它数是否是回文数，如1223221
+function palindrom(n) {
+  var x = parseInt(n.toString().split(" ").reverse().join(""));
+  return x === n ? true : false
+  }
+console.log(palindrom(n))
+</script>
+
+<script type="" id="weekday">
 // weekday: 输入年份与月份，输出这个月的第一天是周几（视具体设定，周一可以用1或0表示）
+
+</script>
+<script>
 // complete-number: 输入一个数，判断它是否是完全数（自行查相关概念）
 // complete-numbers: 输出1000以内的完全数
 // prime: 输入一个数，判断它是否是素数
