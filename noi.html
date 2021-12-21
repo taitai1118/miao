@@ -1147,19 +1147,18 @@
 
 <script type="" id="weekday">
   // weekday: 输入年份与月份，输出这个月的第一天是周几（视具体设定，周一可以用1或0表示
-  var weekday;
-  var year,month;
   function getDate(year, month) {
+    var weekday;
+  var year,month;
     var nowdate = new Date("" + year + "," + month + ",01");
     weekday = nowdate.getDay();
     return weekday;
   }
-  console.log(getDate(year, month));
+  console.log(getDate(2018,6));
 </script>
 
 <script  id="complete-number">
   // complete-number: 输入一个数，判断它是否是完全数（自行查相关概念）
-
   var n = Number(prompt('n'))
   for (var i = 1, s = 0; i <= (n / 2) ; i ++){
     if (n % i == 0){
@@ -1171,7 +1170,6 @@
   } else {
     console.log('NO')
   }
-
 </script>
 
 <!-- <script type="" id="complete-number">
@@ -1197,18 +1195,16 @@
 <script type="" id="complete-numbers">
   // complete-numbers: 输出1000以内的完全数
   function perfectNumbers() {
-    for (var i = 0; i <= 1000; i++) {
-      let sum = 0;
-      for (let j = 1; j < i; j++) {
-        if (i % j == 0) {
-          //余数为0，即整除，也就是说i为num的因子
-          sum += j; //也可以写作sum=sum+i;
-          if (sum == i) {
-            console.log(i);
-          }
-        }
+    for (var n = 1; n < 1000; n++){
+    for (var i = 1, s = 0; i <= (n / 2) ; i++){
+      if (n % i == 0) {
+        s = s + i
       }
     }
+    if (s == n){
+      console.log(n)
+    }
+  }
   }
   perfectNumbers();
 </script>
@@ -1217,7 +1213,12 @@
   // prime: 输入一个数，判断它是否是素数
   function prime(n) {
     for (var i = 2; i * i <= n; i++) {
-      return n % i == 0 ? "YES" : "NO";
+      if (n % i == 0 ){
+        return 'NO'
+      }
+      else{
+        return 'YES'
+      }
     }
   }
   console.log(prime(n)); //是否质数
@@ -1254,6 +1255,7 @@
 <script type="" id="lcf&lcm">
   // lcf&lcm: 输入两个数，输出它们的最大公约数和最小公倍数
   function lc(a, b) {
+    var a,b;
     if (a % b == 0) return b;
     return lc(a, a % b);
   }
@@ -1282,5 +1284,5 @@
     }
     return Math.floor(hi);
   }
-  console.log(sqrt(100));
+  console.log(sqrt(n));
 </script>
