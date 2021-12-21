@@ -1107,8 +1107,8 @@ narcissistics()
 <script type="" id="palindrom">
 //palindrom: 输入一个数，判断它数是否是回文数，如1223221
 function palindrom(n) {
-  var x = parseInt(n.toString().split(" ").reverse().join(""));
-  return x === n ? 'YES' : 'NO'
+  let str = n.toString();
+  return str === str.split('').reverse().join('') ? 'YES' : 'NO';
   }
 console.log(palindrom(n))
 </script>
