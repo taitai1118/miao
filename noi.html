@@ -777,8 +777,6 @@
   console.log(res);
 </script>
 
-
-
 <script type="" id="ch0105/30">
   var m = prompt("输入一个正整数1<m<100000");
   var k = prompt("输入一个正整数1<k<5");
@@ -889,23 +887,22 @@
 </script>
 
 <script type="" id="ch0105/37">
-  var M = Number(prompt("输入体力最大值")) ;
+  var M = Number(prompt("输入体力最大值"));
   var N = Number(prompt("输入战斗力"));
-  var X = Number(prompt("能量元素")) ;
-  for(; X > 0;){
-      if(X * N < M){
-        M = X * N;
-      }
-      X = X - Math.ceil(M / N);
-      var n = N;
-      for(var j = 1; j <= M; j++)
-      if(j % n == 0){
+  var X = Number(prompt("能量元素"));
+  for (; X > 0; ) {
+    if (X * N < M) {
+      M = X * N;
+    }
+    X = X - Math.ceil(M / N);
+    var n = N;
+    for (var j = 1; j <= M; j++)
+      if (j % n == 0) {
         N = N + 1;
       }
   }
-  console.log(N)
- </script>
-
+  console.log(N);
+</script>
 
 <script type="" id="ch0105/38">
   let x = Number(prompt("请输入样例数"));
@@ -990,7 +987,6 @@
   console.log(pattern);
 </script>
 
-
 <script type="" id="ch0105/43">
   var n = Number(prompt(""));
   var a = 0;
@@ -1025,21 +1021,21 @@
 <script id="ch0105/44">
   var n = Number(prompt("n"));
   var con = 0;
-  for(var i = 2; ; i++){
+  for (var i = 2; ; i++) {
     var iIsPrompt = true;
-  for(var j = 2;j < i; j++){
-    if(i % j == 0){
-      iIsPrompt = false;
-      break;
+    for (var j = 2; j < i; j++) {
+      if (i % j == 0) {
+        iIsPrompt = false;
+        break;
+      }
     }
-  }
-  if(iIsPrompt){
-    con++;
-    if(con == n){
-      console.log(i)
-      break;
+    if (iIsPrompt) {
+      con++;
+      if (con == n) {
+        console.log(i);
+        break;
+      }
     }
-  }
   }
 </script>
 
@@ -1050,9 +1046,9 @@
   var coins = 1;
   for (var i = 1; i <= n; i++) {
     num += coins;
-    if(con < coins){
+    if (con < coins) {
       con++;
-    }else{
+    } else {
       con = 1;
       coins++;
     }
@@ -1060,70 +1056,187 @@
   console.log(num);
 </script>
 
-<script type='' id="narcissistic">
-    var n = Number(prompt('n'))
-  for (var i = 0, a = 0, s = 0;i < 3;i++){
-    a = Math.trunc(n / 10 ** i) % 10
-    s = s + a ** 3
+<script type="" id="narcissistic">
+  var n = Number(prompt("n"));
+  for (var i = 0, a = 0, s = 0; i < 3; i++) {
+    a = Math.trunc(n / 10 ** i) % 10;
+    s = s + a ** 3;
   }
   if (s == n) {
-    console.log('YES')
+    console.log("YES");
   } else {
-    console.log('NO')
-  }// narcissistic: 输入一个数，判断是否是水仙花数
-//   function narcissistic(n) {
-//   for (var i = 0, a = 0, s = 0;i < 3;i++){
-//     a = Math.trunc(n / 10 ** i) % 10
-//     s = s + a ** 3
-//   }
-//   if (s == n) {
-//     return true;
-//   } else {
-//     return false;
-//   }
-// }
-// console.log(narcissistic(n))
+    console.log("NO");
+  } // narcissistic: 输入一个数，判断是否是水仙花数
+  //   function narcissistic(n) {
+  //   for (var i = 0, a = 0, s = 0;i < 3;i++){
+  //     a = Math.trunc(n / 10 ** i) % 10
+  //     s = s + a ** 3
+  //   }
+  //   if (s == n) {
+  //     return true;
+  //   } else {
+  //     return false;
+  //   }
+  // }
+  // console.log(narcissistic(n))
 </script>
 
-<script type='' id="narcissistics">
+<script type="" id="narcissistics">
   // narcissistics: 输出10000以内的水仙花数
-  function narcissistics(){
-  for (n = 0;n < 1000;n ++){
-      var N = String(n).length
-      if (N == 3){
-        for (i = 0, a = 0, s = 0;i < 3;i++){
-          a = Math.trunc(n / 10 ** i) % 10
-          s = s + a ** 3
+  function narcissistics() {
+    for (n = 0; n < 1000; n++) {
+      var N = String(n).length;
+      if (N == 3) {
+        for (i = 0, a = 0, s = 0; i < 3; i++) {
+          a = Math.trunc(n / 10 ** i) % 10;
+          s = s + a ** 3;
         }
-        if (s == n){
-          console.log(n)
+        if (s == n) {
+          console.log(n);
         }
       }
     }
-}
-narcissistics()
-  </script>
+  }
+  narcissistics();
+</script>
 
 <script type="" id="palindrom">
-//palindrom: 输入一个数，判断它数是否是回文数，如1223221
-function palindrom(n) {
-  let str = n.toString();
-  return str === str.split('').reverse().join('') ? 'YES' : 'NO';
+  //palindrom: 输入一个数，判断它数是否是回文数，如1223221
+  function palindrom(n) {
+    let str = n.toString();
+    return str === str.split("").reverse().join("") ? "YES" : "NO";
   }
-console.log(palindrom(n))
+  console.log(palindrom(n));
 </script>
 
-<script type="" id="">
-// weekday: 输入年份与月份，输出这个月的第一天是周几（视具体设定，周一可以用1或0表示）
-
+<script type="" id="palindrom">
+  //palindrom: 输入一个数，判断它数是否是回文数，如1223221
+  function palindrom(n) {
+    let num = n;
+    let str = "";
+    while (n > 10) {
+      str += " " + (n % 10);
+      n = Math.floor(n / 10);
+    }
+    str += " " + n;
+    return parseInt(str) === num ? "YES" : "NO";
+  }
+  console.log(palindrom(n));
 </script>
-<script>
-// complete-number: 输入一个数，判断它是否是完全数（自行查相关概念）
-// complete-numbers: 输出1000以内的完全数
-// prime: 输入一个数，判断它是否是素数
-// primes: 输出100以内的素数
-// itoa: 给定一个整数，将其转换为字符串：不能使用String等现成函数，但可以使用非此功能的其它函数，也不能利用任意运算符的自动类型转换
-// lcf&lcm: 输入两个数，输出它们的最大公约数和最小公倍数
-// sqrt: 输入一个数，求它的平方根，精确到小数点后3位，不能使用Math.sqrt
+
+<script type="" id="weekday">
+  // weekday: 输入年份与月份，输出这个月的第一天是周几（视具体设定，周一可以用1或0表示
+  var weekday;
+  function getDate(year, month) {
+    var nowdate = new Date("" + year + "," + month + ",01");
+    weekday = nowdate.getDay();
+    return weekday;
+  }
+  console.log(getDate(year, month));
 </script>
 
+<script type="" id="complete-number">
+  // complete-number: 输入一个数，判断它是否是完全数（自行查相关概念）
+  function perfectNumber(num) {
+    let sum = 0;
+    for (let i = 1; i < num; i++) {
+      if (num % i == 0) {
+        //余数为0，即整除，也就是说i为num的因子
+        sum += i; //也可以写作sum=sum+i;
+      }
+    }
+    return sum === num ? "YES" : "NO";
+  }
+  console.log(perfectNumber(num));
+</script>
+
+<script type="" id="complete-numbers">
+  // complete-numbers: 输出1000以内的完全数
+  function perfectNumbers() {
+    for (var i = 0; i <= 1000; i++) {
+      let sum = 0;
+      for (let j = 1; j < i; j++) {
+        if (i % j == 0) {
+          //余数为0，即整除，也就是说i为num的因子
+          sum += j; //也可以写作sum=sum+i;
+          if (sum == i) {
+            console.log(i);
+          }
+        }
+      }
+    }
+  }
+  perfectNumbers();
+</script>
+
+<script type="" id="prime">
+  // prime: 输入一个数，判断它是否是素数
+  function prime(n) {
+    for (var i = 2; i * i <= n; i++) {
+      return n % i == 0 ? "NO" : "YES";
+    }
+  }
+  console.log(prime(n)); //是否质数
+</script>
+
+<script type="" id="primes">
+  // primes: 输出100以内的素数
+  function primes() {
+    //通过遍历遍历出100以内的从二开始的所有数
+    for (var i = 2; i <= 100; i++) {
+      var flag = true;
+      //获取2到 i开平方的所有数 如果i平方后小于二则不执行
+      for (var j = 2; j <= Math.sqrt(i); j++) {
+        //判断平方后的i是否能被j整除
+        if (i % j == 0) {
+          //如果能进入判断，就证明i不是质数
+          flag = false;
+          break;
+        }
+      }
+      //如果是质数  打印i
+      if (flag) {
+        console.log(i);
+      }
+    }
+  }
+  primes();
+</script>
+
+<script type="" id="itoa">
+  // itoa: 给定一个整数，将其转换为字符串：不能使用String等现成函数，但可以使用非此功能的其它函数，也不能利用任意运算符的自动类型转换
+</script>
+
+<script type="" id="lcf&lcm">
+  // lcf&lcm: 输入两个数，输出它们的最大公约数和最小公倍数
+  function lc(x, y) {
+    if (x % y == 0) return y;
+    return lc(y, x % y);
+  }
+  function lcm(x, y) {
+    return x * y;
+  }
+  console.log(lcm(x, y)); //最大公约数
+  console.log(lc(x, y)); //求出最小公倍数
+</script>
+
+<script type="" id="sqrt">
+  // sqrt: 输入一个数，求它的平方根，精确到小数点后3位，不能使用Math.sqrt
+  function sqrt(x) {
+    var lo = 0,
+      hi = x,
+      mid;
+    while (lo <= hi) {
+      mid = Math.ceil((lo + hi) / 2);
+      // console.log(lo,hi,mid,mid*mid)
+      if (mid * mid == x) return mid;
+      if (mid * mid < x) {
+        lo = mid + 1;
+      } else {
+        hi = mid - 1;
+      }
+    }
+    return Math.floor(hi);
+  }
+  console.log(sqrt(x));
+</script>
