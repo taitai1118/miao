@@ -1160,9 +1160,9 @@
 </script>
 
 
-<script  id="complete-number">
+<!-- <script  id="complete-number">
   // complete-number: 输入一个数，判断它是否是完全数（自行查相关概念）
-  var n = Number(prompt('n'))
+  var n = Number(prompt(""));
   for (var i = 1, s = 0; i <= (n / 2) ; i ++){
     if (n % i == 0){
       s = s + i
@@ -1173,9 +1173,10 @@
   } else {
     console.log('NO')
   }
-</script>
+</script> -->
 
-<!-- <script type="" id="complete-number">
+<script type="" id="complete-number">
+  var n = Number(prompt('n'))
   // complete-number: 输入一个数，判断它是否是完全数（自行查相关概念）
   function perfectNumber(n) {
     let sum = 0;
@@ -1192,8 +1193,8 @@
      return "NO"
    }
   }
-  console.log(perfectNumber(22));
-</script> -->
+  console.log(perfectNumber(n));
+</script>
 
 <script type="" id="complete-numbers">
   // complete-numbers: 输出1000以内的完全数
@@ -1262,7 +1263,7 @@
   // itoa: 给定一个整数，将其转换为字符串：不能使用String等现成函数，但可以使用非此功能的其它函数，也不能利用任意运算符的自动类型转换
 </script>
 
-<!-- <script type="" id="lcf&lcm">
+<script type="" id="lcf&lcm">
   // lcf&lcm: 输入两个数，输出它们的最大公约数和最小公倍数
   var a = Number(prompt(""));
   var b = Number(prompt(""))
@@ -1273,9 +1274,10 @@
   function lcm(a, b) {
     return a * b;
   }
-  console.log(lcm(a,b)); //最大公约数
+
   console.log(lc(a, b)); //求出最小公倍数
-</script> -->
+  console.log(lcm(a,b)); //最大公约数
+</script>
 
 <!-- <script type="" id="sqrt">
   // sqrt: 输入一个数，求它的平方根，精确到小数点后3位，不能使用Math.sqrt
