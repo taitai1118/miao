@@ -1173,7 +1173,7 @@
   // prime: 输入一个数，判断它是否是素数
   function prime(n) {
     for (var i = 2; i * i <= n; i++) {
-      return n % i == 0 ? "NO" : "YES";
+      return n % i == 0 ? "YES" : "NO";
     }
   }
   console.log(prime(n)); //是否质数
@@ -1209,28 +1209,28 @@
 
 <script type="" id="lcf&lcm">
   // lcf&lcm: 输入两个数，输出它们的最大公约数和最小公倍数
-  function lc(x, y) {
-    if (x % y == 0) return y;
-    return lc(y, x % y);
+  function lc(a, b) {
+    if (a % b == 0) return b;
+    return lc(a, a % b);
   }
-  function lcm(x, y) {
-    return x * y;
+  function lcm(a, b) {
+    return a * b;
   }
-  console.log(lcm(x, y)); //最大公约数
-  console.log(lc(x, y)); //求出最小公倍数
+  console.log(lcm(a, b)); //最大公约数
+  console.log(lc(a, b)); //求出最小公倍数
 </script>
 
 <script type="" id="sqrt">
   // sqrt: 输入一个数，求它的平方根，精确到小数点后3位，不能使用Math.sqrt
-  function sqrt(x) {
+  function sqrt(n) {
     var lo = 0,
-      hi = x,
+      hi = n,
       mid;
     while (lo <= hi) {
       mid = Math.ceil((lo + hi) / 2);
       // console.log(lo,hi,mid,mid*mid)
-      if (mid * mid == x) return mid;
-      if (mid * mid < x) {
+      if (mid * mid == n) return mid;
+      if (mid * mid < n) {
         lo = mid + 1;
       } else {
         hi = mid - 1;
@@ -1238,5 +1238,5 @@
     }
     return Math.floor(hi);
   }
-  console.log(sqrt(x));
+  console.log(sqrt(100));
 </script>
