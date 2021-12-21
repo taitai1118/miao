@@ -1109,9 +1109,10 @@
   console.log(palindrom(n));
 </script> -->
 
-<script type="" id="palindrom">
-  //palindrom: 输入一个数，判断它数是否是回文数，如1223221
-  function palindrom(n) {
+<script  id="palindrom">
+  // palindrom: 输入一个数，判断它数是否是回文数，如1223221
+
+  var n = Number(prompt('n'))
   var N = String(n).length
   var result = true
   for (var i = 0, a = 0, b = 0;i < N / 2;i++){
@@ -1122,12 +1123,11 @@
     }
   }
   if (result == true){
-    return 'YES'
+    console.log('YES')
   } else {
-    return 'NO'
+    console.log('NO')
   }
-}
-  console.log(palindrom(n));
+
 </script>
 
 <!-- <script type="" id="palindrom">
@@ -1157,7 +1157,24 @@
   console.log(getDate(year, month));
 </script>
 
-<script type="" id="complete-number">
+<script  id="complete-number">
+  // complete-number: 输入一个数，判断它是否是完全数（自行查相关概念）
+
+  var n = Number(prompt('n'))
+  for (var i = 1, s = 0; i <= (n / 2) ; i ++){
+    if (n % i == 0){
+      s = s + i
+    }
+  }
+  if (s == n){
+    console.log('YES')
+  } else {
+    console.log('NO')
+  }
+
+</script>
+
+<!-- <script type="" id="complete-number">
   // complete-number: 输入一个数，判断它是否是完全数（自行查相关概念）
   function perfectNumber(n) {
     let sum = 0;
@@ -1175,7 +1192,7 @@
    }
   }
   console.log(perfectNumber(22));
-</script>
+</script> -->
 
 <script type="" id="complete-numbers">
   // complete-numbers: 输出1000以内的完全数
