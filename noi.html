@@ -1062,20 +1062,34 @@
 
 <script type='' id="narcissistic">
 //  narcissistic: 输入一个数，判断是否是水仙花数
-function narcissistic(n) {
-    let len = n.toString().length;
-    let sum = 0;
-    let a = n;
-    for (let i = 1; i <= len; i++) {
-      let num = n % 10;
-      n = (n - num) / 10;
-      sum += num ** len
-      if (sum == a) {
-        return true;
-      }
-    }
-    return false;
+  // narcissistic: 输入一个数，判断是否是水仙花数
+
+  var n = Number(prompt('n'))
+  for (var i = 0, a = 0, s = 0;i < 3;i++){
+    a = Math.trunc(n / 10 ** i) % 10
+    s = s + a ** 3
   }
+  if (s == n) {
+    console.log('YES')
+  } else {
+    console.log('NO')
+  }
+
+</script>
+// function narcissistic(n) {
+//     let len = n.toString().length;
+//     let sum = 0;
+//     let a = n;
+//     for (let i = 1; i <= len; i++) {
+//       let num = n % 10;
+//       n = (n - num) / 10;
+//       sum += num ** len
+//       if (sum == a) {
+//         return true;
+//       }
+//     }
+//     return false;
+//   }
   console.log(narcissistic(n));
 </script>
 <script type='' id="narcissistics">
