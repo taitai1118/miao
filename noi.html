@@ -1057,28 +1057,24 @@
 </script>
 
 <script type="" id="narcissistic">
-  var n = Number(prompt("n"));
-  for (var i = 0, a = 0, s = 0; i < 3; i++) {
-    a = Math.trunc(n / 10 ** i) % 10;
-    s = s + a ** 3;
+   function narcissistic(n) {
+    let len = n.toString().length;
+    let sum = 0;
+    let m = n;
+    for (let i = 1; i <= len; i++) {
+      let num = n % 10;
+      n = (n - num) / 10;
+      sum += num ** len;
+      if (sum == m) {
+        return 'YES';
+      }else{
+        return 'NO';
+      }
+    }
   }
-  if (s == n) {
-    console.log("YES");
-  } else {
-    console.log("NO");
-  } // narcissistic: 输入一个数，判断是否是水仙花数
-  //   function narcissistic(n) {
-  //   for (var i = 0, a = 0, s = 0;i < 3;i++){
-  //     a = Math.trunc(n / 10 ** i) % 10
-  //     s = s + a ** 3
-  //   }
-  //   if (s == n) {
-  //     return true;
-  //   } else {
-  //     return false;
-  //   }
-  // }
-  // console.log(narcissistic(n))
+  console.log(narcissistic(153));
+  var n = Number(prompt(""));
+  narcissistic(n)
 </script>
 
 <script type="" id="narcissistics">
@@ -1259,9 +1255,53 @@
   primes();
 </script>
 
-<script type="" id="itoa">
+<script type="" id="itob">
   // itoa: 给定一个整数，将其转换为字符串：不能使用String等现成函数，但可以使用非此功能的其它函数，也不能利用任意运算符的自动类型转换
+  function digitToChar(n) {
+    if (n == 0) {
+      return  "0"
+    }
+    if (n == 1) {
+      return  "1"
+    }
+    if (n == 2) {
+      return  "2"
+    }
+    if (n == 3) {
+      return  "3"
+    }
+    if (n == 4) {
+      return  "4"
+    }
+    if (n == 5) {
+      return  "5"
+    }
+    if (n == 6) {
+      return  "6"
+    }
+    if (n == 7) {
+      return  "7"
+    }
+    if (n == 8) {
+      return  "8"
+    }
+    if (n == 9) {
+      return  "9"
+    }
+  }
+  function itoa(n) {
+    var result = "";
+    while (n > 0) {
+      var d = n % 10;
+      result = digitToChar(d) + result;
+      n = (n - d) / 10;
+    }
+    return result;
+  }
+  var n = Number(prompt(""))
+  console.log(itoa(n))
 </script>
+
 
 <script type="" id="lcf&lcm">
   // lcf&lcm: 输入两个数，输出它们的最大公约数和最小公倍数
