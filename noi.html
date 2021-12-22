@@ -1095,15 +1095,6 @@
   narcissistics();
 </script>
 
-<!-- <script type="" id="palindrom">
-  //palindrom: 输入一个数，判断它数是否是回文数，如1223221
-  function palindrom(n) {
-    let str = n.toString();
-    return str === str.split("").reverse().join("") ? "YES" : "NO";
-  }
-  console.log(palindrom(n));
-</script> -->
-
 <script  id="palindrom">
   // palindrom: 输入一个数，判断它数是否是回文数，如1223221
 
@@ -1155,20 +1146,6 @@
 </script>
 
 
-<!-- <script  id="complete-number">
-  // complete-number: 输入一个数，判断它是否是完全数（自行查相关概念）
-  var n = Number(prompt(""));
-  for (var i = 1, s = 0; i <= (n / 2) ; i ++){
-    if (n % i == 0){
-      s = s + i
-    }
-  }
-  if (s == n){
-    console.log('YES')
-  } else {
-    console.log('NO')
-  }
-</script> -->
 
 <script type="" id="complete-number">
   var n = Number(prompt('n'))
@@ -1254,53 +1231,49 @@
   primes();
 </script>
 
-<script type="" id="itob">
-  // itoa: 给定一个整数，将其转换为字符串：不能使用String等现成函数，但可以使用非此功能的其它函数，也不能利用任意运算符的自动类型转换
-  function digitToChar(n) {
-    if (n == 0) {
-      return  "0"
-    }
-    if (n == 1) {
-      return  "1"
-    }
-    if (n == 2) {
-      return  "2"
-    }
-    if (n == 3) {
-      return  "3"
-    }
-    if (n == 4) {
-      return  "4"
-    }
-    if (n == 5) {
-      return  "5"
-    }
-    if (n == 6) {
-      return  "6"
-    }
-    if (n == 7) {
-      return  "7"
-    }
-    if (n == 8) {
-      return  "8"
-    }
-    if (n == 9) {
-      return  "9"
-    }
-  }
-  function itoa(n) {
-    var result = "";
-    while (n > 0) {
-      var d = n % 10;
-      result = digitToChar(d) + result;
-      n = (n - d) / 10;
-    }
-    return result;
-  }
-  var n = Number(prompt(""))
-  console.log(itoa(n))
+<script type="" id="itoa">
+  //把数字转换成字符串
+ function itoa(){
+   var result = ''
+   while(n > 0){
+     var d = n % 10
+     if(d == 0){
+       result = '0' + result
+     }
+     if(d == 1){
+       result = '1' + result
+     }
+     if(d == 2){
+       result = '2' + result
+     }
+     if(d == 3){
+       result =  '3' + result
+     }
+     if(d == 4){
+       result = '0' + result
+     }
+     if(d == 5){
+       result = '1' + result
+     }
+     if(d == 6){
+       result = '2' + result
+     }
+     if(d == 7){
+       result =  '3' + result
+     }
+     if(d == 8){
+       result = '0' + result
+     }
+     if(d == 9){
+       result = '1' + result
+     }
+     n = (n - d) / 10
+   }
+   return result;
+ }
+ var n = Number(prompt('n'))
+ console.log(itoa())
 </script>
-
 
 <script type="" id="lcf&lcm">
   // lcf&lcm: 输入两个数，输出它们的最大公约数和最小公倍数
@@ -1319,24 +1292,16 @@
 </script>
 
 
-<!-- <script type="" id="sqrt">
+<script type="" id="sqrt">
+  //求平方根方法1
   // sqrt: 输入一个数，求它的平方根，精确到小数点后3位，不能使用Math.sqrt
-  var n = Number(prompt(""));
   function sqrt(n) {
-    var lo = 0,
-      hi = n,
-      mid;
-    while (lo <= hi) {
-      mid = Math.ceil((lo + hi) / 2);
-      // console.log(lo,hi,mid,mid*mid)
-      if (mid * mid == n) return mid;
-      if (mid * mid < n) {
-        lo = mid + 1;
-      } else {
-        hi = mid - 1;
+    for(var i = 0;i < n;i += 0.00001){
+      if(Math.abs(i * i - n) < 0.001){//math.abs取绝对值 变负为正
+        return i
       }
     }
-    return Math.floor(hi);
   }
-  console.log(sqrt(n));
-</script> -->
+  var n = Number(prompt(""));
+  console.log((sqrt(n)).toFixed(3));
+</script>
