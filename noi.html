@@ -1057,25 +1057,24 @@
 </script>
 
 <script type="" id="narcissistic">
-   function narcissistic(n) {
-    let len = n.toString().length;
-    let sum = 0;
-    let m = n;
-    for (let i = 1; i <= len; i++) {
-      let num = n % 10;
-      n = (n - num) / 10;
-      sum += num ** len;
-      if (sum == m) {
-        return 'YES';
-      }else{
-        return 'NO';
-      }
-    }
-  }
-  console.log(narcissistic(153));
-  var n = Number(prompt(""));
-  narcissistic(n)
+  function narcissistic(n) {
+   let len = n.toString().length;
+   let sum = 0;
+   let m = n;
+   for (let i = 1; i <= len; i++) {
+     let num = n % 10;
+     n = (n - num) / 10;
+     sum += num ** len;
+     if (sum == m) {
+       return 'YES';
+     }
+   }
+   return 'NO';
+ }
+ var n = Number(prompt(""));
+ console.log(narcissistic(n))
 </script>
+
 
 <script type="" id="narcissistics">
   // narcissistics: 输出10000以内的水仙花数
