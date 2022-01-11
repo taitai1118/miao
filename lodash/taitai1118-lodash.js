@@ -35,19 +35,22 @@ var taitai1118 = {
   }
 ,
    difference : function (array,values) {
-    let res = [];
-    if (!values) {
-      return array;
-    }
-    for (let i = 0; i < array.length; i++) {
-      if (values.includes(array[i])) {
-        continue;
-      }else{
-        res.push(array[i]);
+      let res = [],arr = [];
+      for(let key in arguments) {
+        if(key === '0'){
+          continue;
+        }
+        arr.push(...arguments[key]);
       }
+      for(let item of array){
+        if(arr.includes(item)){
+          continue;
+        }else{
+          res.push(item);
+        }
+      }
+      return res
     }
-    return res;
-  }
 ,
 drop : function  (array) {
   if(arguments["1"] == 0){
@@ -156,7 +159,17 @@ spread : function (array){
   }
 ,
 flattenDepth : function (array,depth){
-
+    function spread(array){
+      let tmp = []
+      for(let item of array){
+        if(Array.isArray(item)){
+          tmp.push(...item)
+        }else{
+          tmp.push(item);
+        }
+      }
+      return tmp;
+    }
   if(!depth){
     return array
   }
