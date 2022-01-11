@@ -328,7 +328,18 @@ intersection :  function (arrays){
   }
   return res
 }
+,
 
+fromPairs : function (pairs) {
+  let obj = {};
+  for(let i = 0; i < pairs.length; i++){
+    if(pairs[i].length != 0){
+      obj[pairs[i][0]] = pairs[i][1]
+    }
+  }
+  return obj;
+}
+,
 
 
 
