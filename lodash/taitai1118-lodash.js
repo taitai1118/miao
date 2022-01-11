@@ -271,6 +271,26 @@ lastIndexOf :  function (array,value,fromIndex = array.length - 1){
     return array;
   }
 ,
+reverse : function (array) {
+  let len = array.length;
+  for(let i = 0,j = len - 1; i < len; i++){
+    array.push(array[j]);
+
+    j--
+  }
+  array.splice(0,len)
+  return array;
+}
+,
+// function reverse(array) {
+//   let l = 0, r = array.length - 1;    // 左右指针遍历
+//   while (l < r) {
+//     [array[l], array[r]] = [array[r], array[l]]   // 左右指针交换值
+//     l++;
+//     r--;
+//   }
+//   return array
+// }
 
 
 
