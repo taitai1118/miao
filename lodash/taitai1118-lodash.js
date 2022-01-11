@@ -341,7 +341,7 @@ fromPairs : function (pairs) {
 }
 ,
 pull : function(array,values){
-  for(let i = 0; i  < array.length; i++){
+  for(let i = array.length - 1; i >= 0;i--){
     for(let key in arguments) {
       if(key === '0'){
         continue;
