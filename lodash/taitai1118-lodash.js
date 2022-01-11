@@ -134,18 +134,29 @@ dropRight : function (array){
     return res;
   }
   ,
-//   flattenDeep : function (array){
-//     let res = [];
-//     for(let item of array){
-//       if(Array.isArray(item)){
-//         res = [...res,...flattenDeep(item)]
-//       }else{
-//        res.push(item);
-//       }
-//     }
-//     return res
-//   }
-// ,
+  flattenDeep : function (array){
+    function  flattenDeep(array){
+      let res = [];
+      for(let item of array){
+        if(Array.isArray(item)){
+          res = [...res,...flattenDeep(item)]
+        }else{
+         res.push(item);
+        }
+      }
+      return res
+    }
+    let res = [];
+    for(let item of array){
+      if(Array.isArray(item)){
+        res = [...res,...flattenDeep(item)]
+      }else{
+       res.push(item);
+      }
+    }
+    return res
+  }
+,
 spread : function (array){
     let tmp = []
     for(let item of array){
@@ -208,6 +219,60 @@ lastIndexOf :  function (array,value,fromIndex = array.length - 1){
   }
   return -1;
  }
+,
+   nth : function (array,n = 0){
+      if(n >= 0){
+      return array[n];
+      }else{
+        return array[array.length + n]
+      }
+    }
+,
+   indexOf : function (array,value,fromIndex = 0){
+     for(let i = fromIndex;i < array.length;i++){
+       if(array[i] == value){
+         return i;
+       }
+     }
+     return -1;
+   }
+,
+    head : function (array){
+      var lenth = array == null ? 0 : array.length
+    return lenth ? array[0] : undefined;
+    }
+,
+  initial : function (array){
+    array.pop();
+    return array;
+  }
+,
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 }
