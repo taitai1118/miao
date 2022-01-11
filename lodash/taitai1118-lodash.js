@@ -48,26 +48,33 @@ var taitai1118 = {
   //   return res;
   // }
 ,
-  drop : function (array) {
-    if(!arguments["1"]){
-       array.shift(array[0])
-       return array
-    }
-    let n = arguments["1"];
-    let con = 0;
-    for (let i = array.length - 1; i >= 0; i--) {
-      if (con == n) {
-        break;
-      }
-      array.shift(array.length - i);
-      con++;
-    }
-    return array;
+drop : function  (array) {
+  if(arguments["1"] == 0){
+    return array
   }
+  if(!arguments["1"]){
+     array.shift(array[0])
+     return array
+  }
+  let n = arguments["1"];
+  let con = 0;
+  for (let i = array.length - 1; i >= 0; i--) {
+    if (con == n) {
+      break;
+    }
+    array.shift(array.length - i);
+    con++;
+  }
+  return array;
+}
+
 ,
 
 dropRight : function (array){
     let len = array.length
+    if(arguments["1"] == 0){
+      return array
+    }
     if(!arguments["1"]){
       array.splice(array[len - 1,1])
       return array
