@@ -1,5 +1,5 @@
 var taitai1118 = {
-  chunk:function (array,num = 1) {     //将数组中的元素分成长度为num的组，若不能均分，最后的组都是剩余元素
+  chunk:function (array,num = 1) {
     var result = []
     while (num) {
       result.push(array.splice(0,num))
@@ -33,20 +33,21 @@ var taitai1118 = {
     }
     return res;
   }
-
-  // function difference(array) {
-  //   let res = [];
-  //   if (!arguments["1"]) {
-  //     return array;
-  //   }
-  //   let arr = arguments["1"];
-  //   for (let i = 0; i < array.length; i++) {
-  //     if (!arr.includes(array[i])) {
-  //       res.push(array[i]);
-  //     }
-  //   }
-  //   return res;
-  // }
+,
+   difference : function (array,values) {
+    let res = [];
+    if (!values) {
+      return array;
+    }
+    for (let i = 0; i < array.length; i++) {
+      if (values.includes(array[i])) {
+        continue;
+      }else{
+        res.push(array[i]);
+      }
+    }
+    return res;
+  }
 ,
 drop : function  (array) {
   if(arguments["1"] == 0){
