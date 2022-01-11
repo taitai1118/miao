@@ -181,18 +181,7 @@ dropRight : function (array){
     return res
   }
 ,
-spread : function (array){
-    let tmp = []
-    for(let item of array){
-      if(Array.isArray(item)){
-        tmp.push(...item)
-      }else{
-        tmp.push(item);
-      }
-    }
-    return tmp;
-  }
-,
+
 flattenDepth : function (array,depth){
     function spread(array){
       let tmp = []
@@ -312,8 +301,33 @@ without : function (array,values) {
     }
     return res
   }
+,
 
-
+intersection :  function (arrays){
+  let res = [];
+  let flag = false
+  for(let i = 0; i < arguments['0'].length; i++){
+    for(let key in arguments) {
+      if(key == 0){
+        continue;
+      }
+      for(let item of arguments[key]){
+        if(arguments['0'][i] == item ){
+          flag = true;
+            break;
+        }
+      }
+      if(flag == false){
+        break;
+      }
+    }
+    if(flag == true){
+      res.push(arguments['0'][i])
+      flag = false;
+    }
+  }
+  return res
+}
 
 
 
