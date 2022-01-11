@@ -135,6 +135,17 @@ dropRight : function (array){
   }
   ,
   flattenDeep : function (array){
+    function flattenDeep (array){
+      let res = [];
+      for(let item of array){
+        if(Array.isArray(item)){
+          res = [...res,...flattenDeep(item)]
+        }else{
+         res.push(item);
+        }
+      }
+      return res
+    }
     let res = [];
     for(let item of array){
       if(Array.isArray(item)){
