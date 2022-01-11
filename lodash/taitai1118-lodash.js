@@ -191,4 +191,22 @@ flattenDepth : function (array,depth){
   }
   return res
   }
+  ,
+
+  join : function (array,separator = ',') {
+    let res = ''
+    for(let item of array) {
+      if(item == array[array.length - 1]){
+        res += item;
+        break;
+      }
+      res += item + separator
+    }
+    return res;
+  }
+,
+  last : function (array){
+    var lenth = array == null ? 0 : array.length
+    return lenth ? array[array.length - 1] : undefined;
+   }
 }
