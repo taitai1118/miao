@@ -200,7 +200,7 @@ flattenDepth : function (array,depth){
         res += item;
         break;
       }
-      res += item + separator
+      res += item + '' + separator
     }
     return res;
   }
