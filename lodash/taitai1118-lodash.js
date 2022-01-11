@@ -425,6 +425,40 @@ size :  function (collection){
 }
 ,
 
+tail : function (array){
+  let res = [];
+  for(let i = 1;i < array.length ; i++){
+    res.push(array[i])
+  }
+  return res
+}
+,
+
+take : function (array,n = 1){
+  res = [];
+  if(n > array.length){
+    n = array.length;
+  }
+   for(let i = 0; i < n;i ++){
+     res.push(array[i])
+   }
+   return res
+}
+,
+
+takeRight : function (array,n = 1){
+  let res = [];
+   if(n >= array.length){
+     return array;
+   }
+   if(n == 0){
+     return [];
+   }
+    for(let i = array.length - 1;i >= array.length - n;i--){
+       res.unshift(array[i])
+    }
+    return res
+ }
 
 
 
