@@ -9,6 +9,30 @@ var taitai1118 = {
     }
     return result
   },
+  // function chunk(array, size = 1) {
+  //   let len = array.length;
+  //   let res = [],s = []
+  //   if (len == size) {
+  //     return array;
+  //   }
+  //   if(size == 0){
+  //     return []
+  //   }
+  //   for (let i = 1; i <= len; i++) {
+  //     s.push(array[i - 1]);
+  //     if (i % size == 0) {
+  //       res.push(s);
+  //       s = [];
+  //     }
+  //   }
+  //   if(len % size == 0) {
+  //     return res;
+  //   }else{
+  //     res.push(s);
+  //     return res;
+  //   }
+  // }
+
 
   compact : function(array) {
     let res = [];
