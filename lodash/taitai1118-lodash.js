@@ -340,8 +340,20 @@ fromPairs : function (pairs) {
   return obj;
 }
 ,
-
-
+pull : function(array,values){
+  for(let i = 0; i  < array.length; i++){
+    for(let key in arguments) {
+      if(key === '0'){
+        continue;
+      }
+      if(array[i] == arguments[key]){
+        array.splice(i, 1);
+      }
+    }
+  }
+  return array
+  }
+,
 
 
 
