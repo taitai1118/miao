@@ -1,25 +1,13 @@
 var taitai1118 = {
-  chunk:function (array, size = 1) {
-    let len = array.length;
-    let res = [],
-      s = [];
-    let i = 1;
-    if (len == size) {
-      return [array];
-    }
-    for (; i <= len; i++) {
-      s.push(array[i - 1]);
-      if (i % size == 0) {
-        res.push(s);
-        s = [];
+  chunk:function (array,num = 1) {     //将数组中的元素分成长度为num的组，若不能均分，最后的组都是剩余元素
+    var result = []
+    while (num) {
+      result.push(array.splice(0,num))
+      if (array.length == 0) {
+        break
       }
     }
-    while (i <= len) {
-      i++;
-      s.push(array[i]);
-    }
-    res.push(s);
-    return res;
+    return result
   },
 
   compact : function(array) {
@@ -160,11 +148,15 @@ spread : function (array){
   }
 ,
 flattenDepth : function (array,depth){
-    let res = [];
-    for(let i = 0; i < depth; i++){
-      res = spread(array);
-      array = res;
-    }
-    return res
+
+  if(!depth){
+    return array
+  }
+  let res = [];
+  for(let i = 0; i < depth; i++){
+    res = spread(array);
+    array = res;
+  }
+  return res
   }
 }
