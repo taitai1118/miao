@@ -293,19 +293,25 @@ reverse : function (array) {
 // }
 
 without : function (array,values) {
-  let res = []
-  for(let i = 0; i  < array.length; i++){
-    for(let key in arguments) {
-      if(key === '0'){
-        continue;
+    let res = [];
+    let flag = true;
+    for(let i = 0; i  < array.length; i++){
+      for(let key in arguments) {
+        if(key === '0'){
+          continue;
+        }
+        if(array[i] == arguments[key]){
+          flag = false;
+          continue;
+        }
       }
-      if(array[i] !== arguments[key]){
+      if(flag == true){
         res.push(array[i]);
       }
+      flag = true
     }
+    return res
   }
-  return res
-}
 
 
 
