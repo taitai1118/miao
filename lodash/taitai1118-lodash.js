@@ -292,9 +292,20 @@ reverse : function (array) {
 //   return array
 // }
 
-
-
-
+without : function (array,values) {
+  let res = []
+  for(let i = 0; i  < array.length; i++){
+    for(let key in arguments) {
+      if(key === '0'){
+        continue;
+      }
+      if(array[i] !== arguments[key]){
+        res.push(array[i]);
+      }
+    }
+  }
+  return res
+}
 
 
 
