@@ -370,11 +370,60 @@ pullAll : function (array,values){
   }
   return array
 }
+,
 
+max : function(array){
+  if(!array){
+    return undefined;
+  }
+  let max = array[0]
+for(let item of array){
+   if(max < item){
+     max = item
+   }
+}
+return max;
+}
+,
+sum : function(array){
+  let sum = 0 ;
+  for(let item of array){
+    sum += item;
+  }
+  return sum;
+  }
+,
 
+repeat : function (string = '', n = 1){
+  res = ''
+   for(i = 0;i < n;i++){
+    res += string
+   }
+   return res
+  }
+  ,
 
+  uniq : function (array){
+    let res = [];
+    for(let item of array){
+      if(res.includes(item)){
+        continue;
+      }else{
+        res.push(item);
+      }
+    }
+    return res;
+   }
+,
 
-
+size :  function (collection){
+  let con = 0;
+  for(let key in collection){
+    con++
+  }
+  return con
+}
+,
 
 
 
