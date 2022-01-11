@@ -355,7 +355,21 @@ pull : function(array,values){
   }
 ,
 
-
+pullAll : function (array,values){
+  let res = [],arr = [];
+  for(let key in arguments) {
+    if(key === '0'){
+      continue;
+    }
+    arr.push(...arguments[key]);
+  }
+  for(let i = array.length - 1 ; i >= 0; i--){
+    if(arr.includes(array[i])){
+      array.splice(i,1)
+    }
+  }
+  return array
+}
 
 
 
