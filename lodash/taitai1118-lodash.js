@@ -1,38 +1,38 @@
 var taitai1118 = {
   chunk:function (array,num = 1) {
-    var result = []
-    while (num) {
-      result.push(array.splice(0,num))
-      if (array.length == 0) {
-        break
-      }
-    }
-    return result
-  },
-  // function chunk(array, size = 1) {
-  //   let len = array.length;
-  //   let res = [],s = []
-  //   if (len == size) {
-  //     return array;
-  //   }
-  //   if(size == 0){
-  //     return []
-  //   }
-  //   for (let i = 1; i <= len; i++) {
-  //     s.push(array[i - 1]);
-  //     if (i % size == 0) {
-  //       res.push(s);
-  //       s = [];
+  //   var result = []
+  //   while (num) {
+  //     result.push(array.splice(0,num))
+  //     if (array.length == 0) {
+  //       break
   //     }
   //   }
-  //   if(len % size == 0) {
-  //     return res;
-  //   }else{
-  //     res.push(s);
-  //     return res;
-  //   }
-  // }
-
+  //   return result
+  // },
+  // // function chunk(array, size = 1) {
+    let len = array.length;
+    let res = [],s = []
+    if (len == num) {
+      return array;
+    }
+    if(num == 0){
+      return []
+    }
+    for (let i = 1; i <= len; i++) {
+      s.push(array[i - 1]);
+      if (i % num == 0) {
+        res.push(s);
+        s = [];
+      }
+    }
+    if(len % num == 0) {
+      return res;
+    }else{
+      res.push(s);
+      return res;
+    }
+  }
+,
 
   compact : function(array) {
     let res = [];
