@@ -134,29 +134,18 @@ dropRight : function (array){
     return res;
   }
   ,
-  flattenDeep : function (array){
-    function flattenDeep (array){
-      let res = [];
-      for(let item of array){
-        if(Array.isArray(item)){
-          res = [...res,...flattenDeep(item)]
-        }else{
-         res.push(item);
-        }
-      }
-      return res
-    }
-    let res = [];
-    for(let item of array){
-      if(Array.isArray(item)){
-        res = [...res,...flattenDeep(item)]
-      }else{
-       res.push(item);
-      }
-    }
-    return res
-  }
-,
+//   flattenDeep : function (array){
+//     let res = [];
+//     for(let item of array){
+//       if(Array.isArray(item)){
+//         res = [...res,...flattenDeep(item)]
+//       }else{
+//        res.push(item);
+//       }
+//     }
+//     return res
+//   }
+// ,
 spread : function (array){
     let tmp = []
     for(let item of array){
@@ -209,4 +198,16 @@ flattenDepth : function (array,depth){
     var lenth = array == null ? 0 : array.length
     return lenth ? array[array.length - 1] : undefined;
    }
+,
+
+lastIndexOf :  function (array,value,fromIndex = array.length - 1){
+  for(let i = fromIndex; i >= 0; i--){
+    if(array[i] == value){
+      return i;
+    }
+  }
+  return -1;
+ }
+
+
 }
