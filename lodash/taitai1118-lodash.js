@@ -470,7 +470,7 @@ var taitai1118 = {
     }
     return res;
   },
-  sampl: function e(collection) {
+  sample: function e(collection) {
     let arr = [];
     if (Array.isArray(collection)) {
       return collection[~~(Math.random() * collection.length)];
