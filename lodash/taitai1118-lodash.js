@@ -462,6 +462,17 @@ var taitai1118 = {
     }
     return res;
   },
+  sampl : function e(collection) {
+    let arr = [];
+    if (Array.isArray(collection)) {
+      return collection[~~(Math.random() * collection.length)];
+    } else if (typeof collection == "object") {
+      for (let key in collection) {
+        arr.push([key, collection[key]]);
+      }
+      return arr[~~(Math.random() * arr.length)][1];
+    }
+  },
 
 
 
@@ -511,5 +522,4 @@ var taitai1118 = {
 
 
 
-  
 };
