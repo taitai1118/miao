@@ -459,8 +459,33 @@ takeRight : function (array,n = 1){
     }
     return res
  }
+,
 
-
+range : function(start = 0, end,step = 1) {
+  if(start < 0){
+    if(!arguments['1'] || !arguments['2'] ){
+      step = -1;
+    }
+  }
+  if(!arguments['1']){
+   end = start;start = 0;
+ }
+ if(end <start && !step){
+   return [];
+ }
+  let res = [];
+  if(start > end){
+    for(i = start; i > end; i+=step) {
+      res.push(i)
+    }
+  }else{
+    for(i = start; i < end; i+=step) {
+      res.push(i)
+    }
+  }
+  return res
+  }
+,
 
 
 
