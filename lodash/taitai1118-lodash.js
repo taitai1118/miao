@@ -419,30 +419,37 @@ var taitai1118 = {
     return res;
   },
   range: function (start = 0, end, step = 1) {
-    if (start < 0) {
-      if (!arguments["1"] || !arguments["2"]) {
+    if(start < 0){
+      if(!arguments['1'] || !arguments['2'] ){
         step = -1;
       }
     }
-    if (!arguments["1"]) {
-      end = start;
-      start = 0;
-    }
-    if (end < start && !step) {
-      return [];
-    }
+    if(!arguments['1']){
+     end = start;start = 0;
+   }
+   if(end <start && !step){
+     return [];
+   }
     let res = [];
-    if (start > end) {
-      for (i = start; i > end; i += step) {
-        res.push(i);
+    let con = 0;
+    if(start > end){
+      for(i = start; i > end; i+=step) {
+        if(con == start - end){
+          break;
+        }
+        res.push(i)
       }
-    } else {
-      for (i = start; i < end; i += step) {
-        res.push(i);
+    }else{
+      for(i = start; i < end; i+=step) {
+        if(con == end - start){
+          break;
+        }
+        res.push(i)
+        con ++
       }
     }
-    return res;
-  },
+    return res
+    },
 
   zip: function (arrays) {
     let res = [],
