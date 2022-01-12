@@ -419,37 +419,38 @@ var taitai1118 = {
     return res;
   },
   range: function (start = 0, end, step = 1) {
-    if(start < 0){
-      if(!arguments['1'] || !arguments['2'] ){
+    if (start < 0) {
+      if (!arguments["1"] || !arguments["2"]) {
         step = -1;
       }
     }
-    if(!arguments['1']){
-     end = start;start = 0;
-   }
-   if(end <start && !step){
-     return [];
-   }
+    if (!arguments["1"]) {
+      end = start;
+      start = 0;
+    }
+    if (end < start && !step) {
+      return [];
+    }
     let res = [];
     let con = 0;
-    if(start > end){
-      for(i = start; i > end; i+=step) {
-        if(con == start - end){
+    if (start > end) {
+      for (i = start; i > end; i += step) {
+        if (con == start - end) {
           break;
         }
-        res.push(i)
+        res.push(i);
       }
-    }else{
-      for(i = start; i < end; i+=step) {
-        if(con == end - start){
+    } else {
+      for (i = start; i < end; i += step) {
+        if (con == end - start) {
           break;
         }
-        res.push(i)
-        con ++
+        res.push(i);
+        con++;
       }
     }
-    return res
-    },
+    return res;
+  },
 
   zip: function (arrays) {
     let res = [],
@@ -469,7 +470,7 @@ var taitai1118 = {
     }
     return res;
   },
-  sampl : function e(collection) {
+  sampl: function e(collection) {
     let arr = [];
     if (Array.isArray(collection)) {
       return collection[~~(Math.random() * collection.length)];
@@ -480,41 +481,33 @@ var taitai1118 = {
       return arr[~~(Math.random() * arr.length)][1];
     }
   },
+  isBoolean: function (value) {
+    if(value == null){
+      return false;
+    }
+   return typeof (value) == 'boolean' || typeof value == 'object'
+  },
 
+  union : function (arrays){
+    let res = [];
+    for(let item of arguments){
+      for(let i = 0; i < item.length; i++){
+        if(!res.includes(item[i])){
+          res.push(item[i])
+        }
+      }
+    }
+    return res
+  },
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  toArray : function (value){
+    res = [];
+    for(let key in value){
+      res.push(value[key])
+    }
+    return res
+  }
+,
 
 
 
