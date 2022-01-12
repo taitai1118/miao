@@ -508,11 +508,44 @@ var taitai1118 = {
     return res
   }
 ,
+isNumber :  function (value){
+  return typeof value === 'number'
+},
 
-
-
-
-
+parseInt : function (string,radix = 10){
+  let n = 0;
+    let sum = 0;
+    if(!arguments['1']){
+      return string * 1
+    }
+    let con = 0;
+    if(!isNaN(string)){
+      for(let i = string.length - 1; i >= 0; i--){
+        n = string[i] * (radix ** con)
+        sum += n
+        con++
+      }
+    }else{
+      function strToNum(str){
+        if(Number.isNaN(Number(str))){
+          return str.toLowerCase().charCodeAt() - 87;
+        }else{
+          return Number(str);
+        }
+      }
+      let str = 0;
+      for(let i = string.length - 1; i >= 0; i--){
+        if(!isNaN(string[i])){
+          str = string[i]
+        }
+        else(str = strToNum(string[i]))
+        n = str * (radix ** con)
+        sum += n
+        con++
+    }
+    }
+    return sum
+    }
 
 
 
