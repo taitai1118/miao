@@ -550,13 +550,19 @@ parseInt : function (string,radix = 10){
 ceil: function (number,precision=0){
   let index = (~~number).toString().length;
   let con = number.toString().length - index - 1
-  let num = precision >=0 ? number * 10 ** con : ~~number;
+  let num = precision >0 ? number * 10 ** con : ~~number;
   let sum = num;
   let arr = [];
   while(num){
     let n= num % 10;
     arr.unshift(n);
     num = (num - n) / 10;
+  }
+  if(precision == 0){
+    if(number.toString().length > index){
+      return sum + 1
+    }
+      return sum
   }
   if(precision < 0){
     return res = (~~(sum / 10 ** Math.abs(precision)) + 1 ) * 10 ** Math.abs(precision)
