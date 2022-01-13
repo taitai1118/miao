@@ -546,8 +546,31 @@ parseInt : function (string,radix = 10){
     }
     return sum
     }
-
-
+,
+ceil: function (number,precision=0){
+  let index = (~~number).toString().length;
+  let con = number.toString().length - index - 1
+  let num = precision >=0 ? number * 10 ** con : ~~number;
+  let sum = num;
+  let arr = [];
+  while(num){
+    let n= num % 10;
+    arr.unshift(n);
+    num = (num - n) / 10;
+  }
+  if(precision < 0){
+    return res = (~~(sum / 10 ** Math.abs(precision)) + 1 ) * 10 ** Math.abs(precision)
+  }else{
+    for(let i=0; i<arr.length; i ++){
+      if(i === (index + precision - 1) && arr[i + 1]){
+      arr[i]++
+      arr[i + 1] = 0
+      }
+   }
+  }
+  return Number(arr.join('')) / 10 ** con
+}
+,
 
 
 
