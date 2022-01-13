@@ -548,6 +548,12 @@ parseInt : function (string,radix = 10){
     }
 ,
 ceil :  function (number,precision = 0){
+  let ride = 10 ** (-precision)
+  let remain = number % ride
+  return  remain ? number - remain + ride : number
+}
+,
+ceil :  function (number,precision = 0){
   if(precision == 0){
      return ~~number == number ? ~~number : ~~number + 1
   }else if(precision < 0){
