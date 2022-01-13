@@ -588,7 +588,7 @@ ceil :  function (number,precision = 0){
 //   }
 //   return Number(arr.join('')) / 10 ** con
 // }
-,
+// ,
 
 
 
