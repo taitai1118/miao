@@ -596,28 +596,27 @@ ceil :  function (number,precision = 0){
 // }
 // ,
 map :function (collection,iteratee = identity) {
-    let res = [];
-    if(typeof iteratee == 'string'){
-      for(let item of collection){
-        if(iteratee.includes('.')){
-          let obj = item, tmp;//取得数组里的每一个对象
-          for (let str of iteratee) {
-            if (str === '.') {
-              continue;
-            }
+  let res = [];
+  if(typeof iteratee == 'string'){
+    for(let item of collection){
+      if(iteratee.includes('.')){
+        let obj = item, tmp;//取得数组里的每一个对象
+        for (let str of iteratee) {
+          if (str  !== '.') {
             tmp = obj[str];
             obj = tmp;
           }
-          res.push(tmp)
-       }else{res.push((item[iteratee]))}
-      }
-    }else if(typeof iteratee == 'function'){
-       for(let key in collection){
-         res.push(iteratee(collection[key],Number(key),collection))
-       }
+        }
+        res.push(tmp)
+     }else{res.push((item[iteratee]))}
     }
-    return res
+  }else if(typeof iteratee == 'function'){
+     for(let key in collection){
+       res.push(iteratee(collection[key],Number(key),collection))
+     }
   }
+  return res
+}
 ,
 
 
