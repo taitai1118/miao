@@ -595,10 +595,20 @@ ceil :  function (number,precision = 0){
 //   return Number(arr.join('')) / 10 ** con
 // }
 // ,
-
-
-
-
+map :function (collection,iteratee = identity) {
+  let res = [];
+  if(typeof iteratee == 'string'){
+    for(let item of collection){
+      res.push((item[iteratee]))
+    }
+  }else if(typeof iteratee == 'function'){
+     for(let key in collection){
+       res.push(iteratee(collection[key],key,collection))
+     }
+  }
+  return res
+}
+,
 
 
 
