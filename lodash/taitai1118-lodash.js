@@ -439,8 +439,7 @@ var taitai1118 = function() {
     }
     return res;
   }
-  function range(start = 0, end, step) {
-    if(!step) step = 1;
+  function range(start = 0, end, step = 1) {
     if (start < 0) {
       if (!arguments["1"] || !arguments["2"]) {
         step = -1;
