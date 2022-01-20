@@ -669,6 +669,15 @@ function dropWhile(array, predicate){
   return array
 }
 
+function pad(string = '',length = 0,chars = ' ') {
+  if(string.length >= length){return string}
+  while(string.length < length){
+     string = string + chars
+     if(string.length >= length)break
+     string = chars + string
+  }
+ return string.length > length ? string = string.substring(0, length ) : string
+}
   return {
     dropRightWhile: dropRightWhile,
     chunk: chunk,
