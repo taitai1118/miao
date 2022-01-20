@@ -680,6 +680,8 @@ function pad(string = '',length = 0,chars = ' ') {
 }
   return {
     dropRightWhile: dropRightWhile,
+    dropWhile: dropWhile,
+    pad: pad,
     chunk: chunk,
     compact: compact,
     drop: drop,
