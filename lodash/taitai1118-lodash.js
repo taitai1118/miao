@@ -246,6 +246,7 @@ var taitai1118 = function() {
     }
   }
   function indexOf(array, value, fromIndex) {
+     if(!fromIndex) fromIndex = 0
     for (let i = fromIndex; i < array.length; i++) {
       if (array[i] == value) {
         return i;
@@ -439,6 +440,7 @@ var taitai1118 = function() {
     return res;
   }
   function range(start = 0, end, step) {
+    if(!step) step = 1;
     if (start < 0) {
       if (!arguments["1"] || !arguments["2"]) {
         step = -1;
@@ -568,12 +570,14 @@ function parseInt(string,radix = 10){
     }
 
     function ceil (number,precision ){
+      if(!precision)precision = 0
   let ride = 10 ** (-precision)
   let remain = number % ride
   return  remain ? number - remain + ride : number
 }
 
 function ceil(number,precision){
+  if(!precision)precision = 0
   if(precision == 0){
      return ~~number == number ? ~~number : ~~number + 1
   }else if(precision < 0){
@@ -651,6 +655,20 @@ function dropRightWhile(array, predicate){
     array.pop()
   }
 }
+
+function dropWhile(array, predicate){
+  let res = array
+  if(typeof predicate !== 'function'){
+    predicate =convertToFunction(predicate)
+  }
+  for(let i = array.length - 1; i >= 0; i--){
+    if(!predicate(array[0],0,array)){return array}
+    else{array.shift()}
+
+  }
+  return array
+}
+
   return {
     dropRightWhile: dropRightWhile,
     chunk: chunk,
