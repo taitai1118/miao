@@ -680,12 +680,23 @@ function pad(string = '',length = 0,chars = ' ') {
 
 function kebabCase(string = ''){
   let res = ''
-  for(let i = 0,j = 1; i < string.length,j < string.length + 1;i++,j++){
-    if(string[j] && res && (string[i].toLowerCase() == string[i].toUpperCase())  && string[j].toUpperCase() !== string[j].toLowerCase()){
+  for(let i = 0,j = 1,k = -1; i < string.length,j < string.length + 1;i++,j++,k++){
+    if(string[j]){
+      if(res && (string[i].toLowerCase() == string[i].toUpperCase())  && string[j].toUpperCase() !== string[j].toLowerCase()){
      res += '-'
+     continue
+   }
     }
   if((string[i].toLowerCase() !== string[i].toUpperCase())){
-    res += string[i].toLowerCase()
+    if(res && string[k] && string[i] !== string[i].toLowerCase() && string[k].toLowerCase() == string[k] ){
+      if(string[k].toLowerCase() == string[k].toUpperCase()){
+        res += string[i].toLowerCase()
+      }else{
+        res =res + '-' + string[i].toLowerCase()
+      }
+    }else{
+      res += string[i].toLowerCase()
+    }
   }
   }
   return res
