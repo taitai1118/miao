@@ -677,7 +677,21 @@ function pad(string = '',length = 0,chars = ' ') {
   }
  return string.length > length ? string = string.substring(0, length ) : string
 }
+
+function kebabCase(string = ''){
+  let res = ''
+  for(let i = 0,j = 1; i < string.length,j < string.length + 1;i++,j++){
+    if(string[j] && res && (string[i].toLowerCase() == string[i].toUpperCase())  && string[j].toUpperCase() !== string[j].toLowerCase()){
+     res += '-'
+    }
+  if((string[i].toLowerCase() !== string[i].toUpperCase())){
+    res += string[i].toLowerCase()
+  }
+  }
+  return res
+}
   return {
+    kebabCase,
     dropRightWhile: dropRightWhile,
     dropWhile: dropWhile,
     pad: pad,
