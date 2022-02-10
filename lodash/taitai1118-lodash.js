@@ -1,4 +1,28 @@
 var taitai1118 = function() {
+  function shorthand(predicate) {
+    let val = predicate
+    if (typeof(val) == "object") {
+      if (Array.isArray(val)) {
+        let t = {}
+        t[val[0]] = val[1]
+        val = t
+      }
+      predicate = function(it) {
+        for (let key in val) {
+          var flag = true
+          if (val[key] != it[key]) {
+            flag = false
+            break
+          }
+        }
+        return flag
+      }
+    } else {
+      predicate = it => it[val]
+    }
+  return predicate
+  }
+
   function convertToFunction(predicate){
     let val = predicate
     if (typeof(val) == "object") {
@@ -701,7 +725,79 @@ function kebabCase(string = ''){
   }
   return res
 }
+
+function differenceBy(array,values,iteratee = identity) {
+  let res = []
+  let flag = true
+   if(typeof iteratee !== 'function'){
+    iteratee = shorthand(iteratee)
+   }
+   for(let item of array){
+     for(let i of values){
+       if(iteratee(item) == iteratee(i)){
+         flag = false
+         break
+       }
+     }
+      res.push(item)
+   }
+   return res
+  }
+
+function differenceWith(array,value,comparator) {
+  if(typeof comparator !== 'function'){
+    return shorthand(comparator)
+  }
+  for(let key in array){
+    for(let item of value){
+      if(!isEqual(array[key],item)){
+        array.splice(key,1)
+      }
+  }
+}
+  return array
+}
+
+function findIndex(array,predicate = identity,fromIndex =0){
+  if(typeof predicate !== 'function'){predicate =  shorthand(predicate)}
+  for(let key in array){
+    if(predicate(array[key])){
+      return key
+    }
+  }
+  return -1
+}
+function findLastIndex(array,predicate = identity,fromIndex = array.length - 1){
+  if(typeof predicate !== 'function'){predicate =  shorthand(predicate)}
+  for(let i = fromIndex; i >= 0; i--){
+    if(predicate(array[i])){
+      return i
+    }
+  }
+  return -1
+}
+function intersectionBy(array,value,iteratee = identity){
+  let res = []
+   if(typeof iteratee !== 'function'){iteratee = shorthand(iteratee)}
+   for(let item of array){
+     for(let i of value){
+       if(iteratee(item) == iteratee(i)){
+         res.push(item)
+       }
+     }
+   }
+   return res
+
+   111
+}
+
+
   return {
+    intersectionBy,
+    findLastIndex,
+    findIndex,
+    differenceBy,
+    differenceWith,
     kebabCase,
     dropRightWhile: dropRightWhile,
     dropWhile: dropWhile,
@@ -740,6 +836,7 @@ function kebabCase(string = ''){
     tail: tail,
     take: take,
     takeRight: takeRight,
-
+    union,
+    
   }
 }()
