@@ -867,7 +867,7 @@ function pullAllWith(array,values,comparator) {
 function sortedIndex(array,value){
   for(let key in array){
     if(array[key] > value || array[key] === value){
-      return key
+      return Number(key)
     }
   }
 }
@@ -878,7 +878,7 @@ function sortedIndex(array,value){
         for(let i in value){
             let item2 = value[i]
             if(iteratee(item) >= (item2)){
-                return key
+                return Number(key)
             }
         }
     }
