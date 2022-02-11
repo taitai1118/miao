@@ -1,6 +1,9 @@
 var taitai1118 = function() {
   function shorthand(predicate) {
     let val = predicate
+    if(typeof(val) == "function"){
+        return predicate
+    }
     if (typeof(val) == "object") {
       if (Array.isArray(val)) {
         let t = {}
@@ -21,6 +24,9 @@ var taitai1118 = function() {
       predicate = it => it[val]
     }
   return predicate
+  }
+  function identity(value){
+  return value
   }
 
   function convertToFunction(predicate){
