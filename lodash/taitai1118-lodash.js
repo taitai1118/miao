@@ -883,7 +883,23 @@ function sortedIndex(array,value){
         }
     }
   }
-
+  function sortedIndexOf(array,value){
+    let left = 0,right = array.length - 1
+    while(right >= left){
+      let mid = Math.floor((left + right) / 2)
+      if(array[mid] > value){
+        right = mid - 1;
+      }else if(array[mid] < value){
+        left = mid + 1
+      }else{
+        while(array[mid] === array[mid - 1]){
+         mid--
+        }
+      }
+      return mid
+    }
+    return -1
+ }
 
 
 
@@ -967,6 +983,7 @@ function identity(value){
 }
 
   return {
+    sortedIndexOf,
     sortedIndexBy,
     sortedIndex,
     pullAllBy,
