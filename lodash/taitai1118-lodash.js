@@ -738,9 +738,7 @@ function kebabCase(string = ''){
   return res
 }
 
-function identity(value){
-  return value
-}
+
 function differenceBy(array,values,iteratee = identity) {
   let res = [];
   let value = []
@@ -779,16 +777,7 @@ function differenceBy(array,values,iteratee = identity) {
    }
    return res
   }
-  function identity(value){
-    return value
-  }
-  function isEqual(value, other) {
-    let tmp = shorthand(other)
-    if(tmp(value) == tmp(other)){
-      return true
-    }
-    return false
- }
+
 
  function differenceWith(array,value,comparator) {
   if(typeof comparator !== 'function'){
@@ -847,8 +836,102 @@ function intersectionWith(arrays, comparator) {
   return res;
 }
 
+function pullAllBy(array,values,iteratee = identity){
+  iteratee = shorthand1(iteratee)
+  for(let i = 0;i < array.length; i++){
+    let item = array[i]
+    for(let j in values){
+      let item2 = values[j]
+      if(iteratee(item) == iteratee(item2)){
+        array.splice(i,1)
+        i--
+      }
+    }
+  }
+  return array
+}
+
+
+
+function isEqual(value, other) {
+  if (value === other) {
+      return true
+  }
+  if (value == null || typeof value != "object" ||
+  other == null || typeof other != "object") {
+      return false
+  }
+  var con1 = 0,con2 = 0
+  for (var key in value)
+      con1++
+  for (var key in value) {
+      con2++
+      if (!(key in value) || !isEqual(value[key], other[key]))
+          return false;
+  }
+  return con1 === con2
+}
+
+function isArray(val) {
+  return Object.prototype.toString.call(val) == '[object Array]'
+}
+
+function isBoolean(val) {
+  return Object.prototype.toString.call(val) == '[object Boolean]'
+}
+
+function isDate(val) {
+  return val instanceof Date
+}
+
+function isFunction(val) {
+  return Object.prototype.toString.call(val) == '[object Function]'
+}
+
+function isObject(val) {
+  return (typeof val) == "object"
+}
+
+function property(str) {
+  return function(obj) {
+      return obj[str]
+  }
+}
+function matchesProperty(array) {
+  return function(obj) {
+      return isEqual(obj[array[0]], array[1])
+  }
+}
+function matches(source) {
+  return function(obj) {
+      for (var pro in source) {
+          if (!isEqual(source[pro], obj[pro])) {
+              return false
+          }
+      }
+      return true
+  }
+}
+
+function shorthand1(predicate) {
+  if (typeof predicate == 'string') {
+      return property(predicate)
+  } else if (isArray(predicate)) {
+      return matchesProperty(predicate)
+  } else if (isObject(predicate)) {
+      return matches(predicate)
+  } else {
+      return predicate
+  }
+}
+
+function identity(value){
+  return value
+}
 
   return {
+    isDate,
+    isFunction,
     intersectionWith,
     floor,
     intersectionBy,
@@ -895,6 +978,8 @@ function intersectionWith(arrays, comparator) {
     take: take,
     takeRight: takeRight,
     union,
-    
+    parseInt,
+    isNumber,
+    map,
   }
 }()
