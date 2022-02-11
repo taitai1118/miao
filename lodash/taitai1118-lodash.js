@@ -864,6 +864,28 @@ function pullAllWith(array,values,comparator) {
   }
   return array
 }
+function sortedIndex(array,value){
+  for(let key in array){
+    if(array[key] > value || array[key] === value){
+      return key
+    }
+  }
+}
+  function sortedIndexBy(array, value, iteratee = identity){
+     iteratee = shorthand1(iteratee)
+    for(let key in array){
+        let item = array[key]
+        for(let i in value){
+            let item2 = value[i]
+            if(iteratee(item) >= (item2)){
+                return key
+            }
+        }
+    }
+  }
+
+
+
 
 
 
@@ -945,6 +967,8 @@ function identity(value){
 }
 
   return {
+    sortedIndexBy,
+    sortedIndex,
     pullAllBy,
     pullAllWith,
     isDate,
