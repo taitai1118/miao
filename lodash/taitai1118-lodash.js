@@ -599,6 +599,12 @@ function parseInt(string,radix = 10){
   return  remain ? number - remain + ride : number
 }
 
+function floor(number,precision=0){
+  let ride = 10 ** (-precision)
+  let remain = number % ride
+  return number - remain
+}
+
 function ceil(number,precision){
   if(!precision)precision = 0
   if(precision == 0){
@@ -726,31 +732,65 @@ function kebabCase(string = ''){
   return res
 }
 
+function identity(value){
+  return value
+}
 function differenceBy(array,values,iteratee = identity) {
-  let res = []
-  let flag = true
-   if(typeof iteratee !== 'function'){
+  let res = [];
+  let value = []
+  let flag = true;
+  if(Array.isArray(arguments[arguments.length - 1])) {
+    iteratee = identity
+    if(arguments.length > 2) {
+        for(let i = 1;i < arguments.length;i++){
+        for(let item of arguments[i]){
+            value.push(item)
+        }
+        values = value
+      }
+    }
+  }else{
+    iteratee = arguments[arguments.length - 1]
     iteratee = shorthand(iteratee)
-   }
+    if(arguments.length > 3) {
+        for(let i = 1;i < arguments.length - 1;i++){
+        for(let item of arguments[i]){
+            value.push(item)
+        }
+        values = value
+      }
+    }
+  }
    for(let item of array){
      for(let i of values){
        if(iteratee(item) == iteratee(i)){
          flag = false
-         break
        }
      }
-      res.push(item)
+     if(flag == true){
+       res.push(item)
+     }else{flag = true}
    }
    return res
   }
+  function identity(value){
+    return value
+  }
+  function isEqual(value, other) {
+    let tmp = shorthand(other)
+    if(tmp(value) == tmp(other)){
+      return true
+    }
+    return false
+ }
 
-function differenceWith(array,value,comparator) {
+ function differenceWith(array,value,comparator) {
   if(typeof comparator !== 'function'){
     return shorthand(comparator)
   }
   for(let key in array){
     for(let item of value){
-      if(!isEqual(array[key],item)){
+      if(isEqual(array[key],item)){
         array.splice(key,1)
       }
   }
@@ -762,7 +802,7 @@ function findIndex(array,predicate = identity,fromIndex =0){
   if(typeof predicate !== 'function'){predicate =  shorthand(predicate)}
   for(let key in array){
     if(predicate(array[key])){
-      return key
+      return Number(key)
     }
   }
   return -1
@@ -788,11 +828,12 @@ function intersectionBy(array,value,iteratee = identity){
    }
    return res
 
-   111
+   
 }
 
 
   return {
+    floor,
     intersectionBy,
     findLastIndex,
     findIndex,
