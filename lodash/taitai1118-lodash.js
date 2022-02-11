@@ -850,6 +850,21 @@ function pullAllBy(array,values,iteratee = identity){
   }
   return array
 }
+function pullAllWith(array,values,comparator) {
+  iteratee = shorthand1(comparator)
+  for(let i = 0;i < array.length; i++){
+    let item = array[i]
+    for(let j in values){
+      let item2 = values[j]
+      if(iteratee(item,item2)){
+        array.splice(i,1)
+        i--
+      }
+    }
+  }
+  return array
+}
+
 
 
 
@@ -930,6 +945,8 @@ function identity(value){
 }
 
   return {
+    pullAllBy,
+    pullAllWith,
     isDate,
     isFunction,
     intersectionWith,
