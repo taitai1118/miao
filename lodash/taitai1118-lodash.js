@@ -833,12 +833,23 @@ function intersectionBy(array,value,iteratee = identity){
      }
    }
    return res
-
-   
+}
+function intersectionWith(arrays, comparator) {
+  let value = comparator;
+  let res = [];
+  for (let i of arrays) {
+    for (let item of value) {
+      if (JSON.stringify(i) == JSON.stringify(item)) {
+        res.push(i);
+      }
+    }
+  }
+  return res;
 }
 
 
   return {
+    intersectionWith,
     floor,
     intersectionBy,
     findLastIndex,
