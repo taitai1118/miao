@@ -900,6 +900,49 @@ function sortedIndex(array,value){
     }
     return -1
  }
+ function sortedLastIndex(array,value){
+  if(array.length === 0){return 0}
+  if(array.length == 1){return array[0] >= value ? 0 : 1}
+  let left = 0,right = array.length - 1
+  while(right > left){
+    let mid = Math.floor((left + right)/2)
+    if(array[mid] > value){
+      right = mid - 1;
+    }else if(array[mid] < value){
+      left = mid + 1
+    }else{
+      while(array[mid] === array[mid + 1]){
+       mid++
+      }
+    }
+    return mid + 1
+  }
+  return -1
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

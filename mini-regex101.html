@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Regex 101</title>
+    <style>
+      strong:nth-child(odd) {
+            background-color:#d5ebff;
+        }
+        strong:nth-child(even) {
+            background-color:#9fcfff;
+        }
+    </style>
+</head>
+<body>
+    <div>REGULAR EXPRESSION</div>
+    <input type="text" id="reInput" value="f.." onkeyup="run()">
+    <button onclick="run()">Run</button>
+    <div>
+        <label>g<input type="checkbox" id="reFlagGlobal" checked="checked"></label>
+        <label>m<input type="checkbox" id="reFlagMultline"></label>
+        <label>i<input type="checkbox" id="reFlagIgnorecase"></label>
+
+    </div>
+    <div>TEST STRING</div>
+    <textarea name="" id="testStringInput" cols="30" rows="5">asdasdfasdfasdfasdf</textarea>
+    <pre id="resultShow"></pre>
+
+
+    <script>
+        //可以用元素的id做为变量名访问到这个元素
+      function run(){
+          var reStr = reInput.value;
+          var flags = getFlags();
+          var re = new RegExp(reStr,flags)
+          console.log(re);
+          var testString = testStringInput.value;
+
+          var resultHTML='';
+          var startIdx = 0;
+          var match
+
+          while(match = re.exec(testString)){
+              resultHTML += testString.slice(startIdx,match.index)
+              resultHTML += '<strong>' + match[0] + '</strong>';
+              if(!re.global){
+                  break;
+              }
+          }
+          resultHTML += testString.slice(startIdx)
+          resultShow.innerHTML = resultHTML
+      }
+
+
+      function getFlags(str){
+          var flags =""
+          if(reFlagGlobal.checked){
+              flags +='g'
+          }
+          if(reFlagMultline.checked){
+              flags +='m'
+          }
+          if(reFlagIgnorecase.checked){
+              flags +='i'
+          }
+          return flags
+      }
+    </script>
+</body>
+</html>
