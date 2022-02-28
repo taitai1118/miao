@@ -6,18 +6,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mini Regex 101</title>
     <style>
-      strong:nth-child(odd) {
+        strong:nth-child(odd) {
             background-color:#d5ebff;
         }
         strong:nth-child(even) {
             background-color:#9fcfff;
         }
+        #string:empty{
+            display: inline-block;
+            width: 2px;
+            margin-left: -1px;
+            margin-right: -1px;
+            height: 1.2em;
+            background-color:color;
+        }
+        #string {
+         width: 400px;
+         position: relative;
+        }
+        pre, textarea {
+            margin:0px;
+         position: absolute;
+         width: 100%;
+         height:150px;
+         font-size: 24px;
+         font-family:consolas;
+         padding:10px;
+         border:1px solid;
+         overflow:auto;
+         background-color:transparent;
+      }
     </style>
 </head>
 <body>
     <div>REGULAR EXPRESSION</div>
-    <input type="text" id="reInput" value="f.." onkeyup="run()">
-    <button onclick="run()">Run</button>
+    <input type="text" id="reInput" value="f." oninput="run()">
+    <button onclick="run()">runrun</button>
     <div>
         <label>g<input type="checkbox" id="reFlagGlobal" checked="checked"></label>
         <label>m<input type="checkbox" id="reFlagMultline"></label>
@@ -25,26 +49,29 @@
 
     </div>
     <div>TEST STRING</div>
-    <textarea name="" id="testStringInput" cols="30" rows="5">asdasdfasdfasdfasdf</textarea>
-    <pre id="resultShow"></pre>
+    <div id="string">
+        <pre id="resultShow"></pre>
+        <textarea onscroll = 'scrollSync()' id="testStringInput" spellcheck="false" oninput="run()" >dwndeifooehiohcdfdasdw</textarea>
+      </div>
+  
 
-
-    <script>
-        //可以用元素的id做为变量名访问到这个元素
-      function run(){
-          var reStr = reInput.value;
-          var flags = getFlags();
-          var re = new RegExp(reStr,flags)
-          console.log(re);
-          var testString = testStringInput.value;
-
-          var resultHTML='';
-          var startIdx = 0;
-          var match
-
-          while(match = re.exec(testString)){
+<script>
+    function run() {
+        var reStr = reInput.value;
+        var flags = getFlags();
+        var re = new RegExp(reStr,flags)
+        console.log(flags);
+        var testString = testStringInput.value;
+        var resultHTML = ''
+        var startIdx = 0;
+        var match
+        while(match = re.exec(testString)){
               resultHTML += testString.slice(startIdx,match.index)
               resultHTML += '<strong>' + match[0] + '</strong>';
+              if(match[0] == ''){
+                  re.lastIndex++
+              }
+              startIdx = re.lastIndex
               if(!re.global){
                   break;
               }
@@ -54,19 +81,22 @@
       }
 
 
-      function getFlags(str){
-          var flags =""
-          if(reFlagGlobal.checked){
-              flags +='g'
-          }
-          if(reFlagMultline.checked){
-              flags +='m'
-          }
-          if(reFlagIgnorecase.checked){
-              flags +='i'
-          }
-          return flags
-      }
-    </script>
+    function getFlags(){
+        var flags = '';
+        if(reFlagGlobal.checked) {
+            flags +='g'
+        }
+        if(reFlagMultline.checked) {
+            flags +='m'
+        }
+        if(reFlagIgnorecase.checked) {
+            flags +='i'
+        }
+        return flags;
+    }
+    function scrollSync(){
+        resultShow.scrollTop = testStringInput.scrollTop
+    }
+</script>
 </body>
 </html>
