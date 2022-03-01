@@ -26,7 +26,7 @@
         }
         pre, textarea {
             margin:0px;
-         position: absolute;
+         /* position: absolute; */
          width: 100%;
          height:150px;
          font-size: 24px;
@@ -43,17 +43,17 @@
     <input type="text" id="reInput" value="f." oninput="run()">
     <!-- <button onclick="run()">runrun</button> -->
     <div>
-        <label>g<input type="checkbox" id="reFlagGlobal" checked="checked"></label>
-        <label>m<input type="checkbox" id="reFlagMultline"></label>
-        <label>i<input type="checkbox" id="reFlagIgnorecase"></label>
+        <label>g<input type="checkbox" id="reFlagGlobal" checked="checked" onclick="run()"></label>
+        <label>m<input type="checkbox" id="reFlagMultline" onclick="run()"></label>
+        <label>i<input type="checkbox" id="reFlagIgnorecase" onclick="run()"></label>
 
     </div>
     <div>TEST STRING</div>
     <div id="string">
-        <pre id="resultShow"></pre>
-        <textarea onscroll = 'scrollSync()' id="testStringInput" spellcheck="false" oninput="run()" ></textarea>
+        <pre contenteditable id="testStringInput" oninput="run()" ></pre>
+  <!-- <textarea onscroll = 'scrollSync()' id="testStringInput" spellcheck="false" oninput="run()" ></textarea>       -->
       </div>
-  
+   
 
 <script>
     function run() {
@@ -61,7 +61,7 @@
         var flags = getFlags();
         var re = new RegExp(reStr,flags)
         console.log(flags);
-        var testString = testStringInput.value;
+        var testString = testStringInput.textContent;
         var resultHTML = ''
         var startIdx = 0;
         var match
@@ -77,7 +77,7 @@
               }
           }
           resultHTML += testString.slice(startIdx)
-          resultShow.innerHTML = resultHTML
+          testStringInput.innerHTML = resultHTML
       }
 
 
