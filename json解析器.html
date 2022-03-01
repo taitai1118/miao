@@ -9,234 +9,357 @@
   </head>
   <body>
     <script>
-                var ParseJSON = (function ()  {
+      var ParseJSON = (function () {
+        var str =
+          '{"xxxx":[1,1,1,{"a":1,"b":[2,2,2]},1],"y":2,"a":null,"b":false,"c":[1,2,null,{"a":1,"b":2},true,[4,5,6]],"d":{"z":{"y":1,"x":33}}}';
+        var i = 0; //     i
 
-          var str = '{"xxxx":[1,1,1,{"a":1,"b":[2,2,2]},1],"y":2,"a":null,"b":false,"c":[1,2,null,{"a":1,"b":2},true,[4,5,6]],"d":{"z":{"y":1,"x":33}}}'
-          var i = 0   //     i
+        return function ParseJSON(input) {
+          i = 0;
+          str = input;
+          return parseValue();
+        };
+        //思路：用一个指针指向当前解析的位置，根据当前位置的符号就能确定出解析出何种值
+        //对于每种值 写出解析其值的一个函数
+        //解析完成将指针移动到解析完成解析的后一位
+        //json几种值：{}[]"" 2(数字) null false true
+        //递归下降
 
-          return function ParseJSON(input) {
-            i = 0
-            str = input
-            return parseValue()
+        function parseSpace() {}
+
+        //从某个位置开始解析出一个值
+        //解析出什么类型取决于当前符号
+
+        function parseValue() {
+          if (str[i] == '"') {
+            return parseString();
           }
-                //思路：用一个指针指向当前解析的位置，根据当前位置的符号就能确定出解析出何种值
-                //对于每种值 写出解析其值的一个函数
-                //解析完成将指针移动到解析完成解析的后一位
-                //json几种值：{}[]"" 2(数字) null false true
-                //递归下降
-
-                function parseSpace(){
-
-                }
-
-
-                //从某个位置开始解析出一个值
-                //解析出什么类型取决于当前符号
-
-                function parseValue() {
-                  if (str[i] == '"') {
-                    return parseString();
-                  }
-                  if (str[i] == "t") {
-                    return parseTrue();
-                  }
-                  if (str[i] == "f") {
-                    return parseFalse();
-                  }
-                  if (str[i] == "n") {
-                    return parseNull();
-                  }
-                  if (str[i] >= "0" && str[i] <= "9") {
-                    return parseNumber();
-                  }
-                  if (str[i] == "[") {
-                    return parseArray();
-                  }
-                  if (str[i] == "{") {
-                    return parseObject();
-                  }
-                }
-
-                function parseObject() {
-                  var obj = {}
-                i++
-                if (str[i] == '}') {
-                  i++
-                  return obj
-                }
-                while(true) {
-                  var key = parseString()
-                  i++ // skip ':'
-                  var val = parseValue()
-                  obj[key] = val
-
-                  if (str[i] == ',') {
-                    i++ // skip this ,
-                    continue
-                  }
-                  if (str[i] == '}') {
-                    i++ // skip '}'
-                    return obj
-                  }
-                }
-              }
-
-                function parseArray() {
-                  var ary = []
-                i++ // skip [
-                if (str[i] == ']') {
-                  i++ // skip ]
-                  return ary
-                }
-                while(true) {
-                  var value = parseValue()
-                  ary.push(value)
-                  if (str[i] == ',') {
-                    i++ // skip this ,
-                    continue
-                  }
-                  if (str[i] == ']') {
-                    i++ // skip ']'
-                    return ary
-                  }
-                }
-              }
-
-                //此时i指向字符串的开始
-                function parseString() {
-                i++ // skip first "
-                var start = i
-                while (str[i] !== '"') {
-                  i++
-                }
-                // 此时i指向第二个"
-                var s = str.slice(start, i)
-                i++
-                return s
-              }
-
-                // function parseNumber() {
-                //   //解析数字
-                //   var numStr = "";
-                //   while (str[i] >= "0" && str[i] <= "9") {
-                //     numStr += str[i++];
-                //   }
-                //   return parseInt(numStr, 10);
-                // }
-
-                // function parseTrue() {
-                //   i += 4;
-                //   return true;
-                // }
-                // function parseFalse() {
-                //   i += 5;
-                //   return false;
-                // }
-                // function parseNull() {
-                //   i += 4;
-                //   return null;
-                // }
-                function parseNumber() {
-          var numStr = ''
-          while(str[i] >= '0' && str[i] <= '9') {
-            numStr += str[i++]
+          if (str[i] == "t") {
+            return parseTrue();
           }
-          return parseInt(numStr, 10)
+          if (str[i] == "f") {
+            return parseFalse();
+          }
+          if (str[i] == "n") {
+            return parseNull();
+          }
+          if (str[i] >= "0" && str[i] <= "9") {
+            return parseNumber();
+          }
+          if (str[i] == "[") {
+            return parseArray();
+          }
+          if (str[i] == "{") {
+            return parseObject();
+          }
+        }
+
+        function parseObject() {
+          var obj = {};
+          i++;
+          if (str[i] == "}") {
+            i++;
+            return obj;
+          }
+          while (true) {
+            var key = parseString();
+            i++; // skip ':'
+            var val = parseValue();
+            obj[key] = val;
+
+            if (str[i] == ",") {
+              i++; // skip this ,
+              continue;
+            }
+            if (str[i] == "}") {
+              i++; // skip '}'
+              return obj;
+            }
+          }
+        }
+
+        function parseArray() {
+          var ary = [];
+          i++; // skip [
+          if (str[i] == "]") {
+            i++; // skip ]
+            return ary;
+          }
+          while (true) {
+            var value = parseValue();
+            ary.push(value);
+            if (str[i] == ",") {
+              i++; // skip this ,
+              continue;
+            }
+            if (str[i] == "]") {
+              i++; // skip ']'
+              return ary;
+            }
+          }
+        }
+
+        //此时i指向字符串的开始
+        function parseString() {
+          i++; // skip first "
+          var start = i;
+          while (str[i] !== '"') {
+            i++;
+          }
+          // 此时i指向第二个"
+          var s = str.slice(start, i);
+          i++;
+          return s;
+        }
+
+        // function parseNumber() {
+        //   //解析数字
+        //   var numStr = "";
+        //   while (str[i] >= "0" && str[i] <= "9") {
+        //     numStr += str[i++];
+        //   }
+        //   return parseInt(numStr, 10);
+        // }
+
+        // function parseTrue() {
+        //   i += 4;
+        //   return true;
+        // }
+        // function parseFalse() {
+        //   i += 5;
+        //   return false;
+        // }
+        // function parseNull() {
+        //   i += 4;
+        //   return null;
+        // }
+        function parseNumber() {
+          var numStr = "";
+          while (str[i] >= "0" && str[i] <= "9") {
+            numStr += str[i++];
+          }
+          return parseInt(numStr, 10);
         }
 
         function parseTrue() {
-          i += 4
-          return true
+          i += 4;
+          return true;
         }
         function parseFalse() {
-          i += 5
-          return false
+          i += 5;
+          return false;
         }
         function parseNull() {
-          i += 4
-          return null
+          i += 4;
+          return null;
         }
-      })()
+      })();
 
-    //   {
-    //       fname:'|',
-    //       parameters:[,true,...]
-    //   }
-    //   {
-    //       fname:'|',
-    //       parameters:[false]
-    //   }
-      var str = '|(!(f),&(t,|(t,f)),t,t,t,t)'
-      var i = 0
-      
-      function evaluate(syntaxTree){
-          if(typeof syntaxTree == 'object'){
-              if(syntaxTree.fname == '!'){
-                  return !evaluate(syntaxTree.parameters[0])
-              }
-              if(syntaxTree.fname == '|'){
-                  for(var parameter of syntaxTree.parameters){
-                      if(evaluate(parameter == true)){
-                          return true
-                      }
-                  }
-                  return false
-              }
-              if(syntaxTree.fname == '&'){
-                for(var parameter of syntaxTree.parameters){
-                      if(evaluate(parameter == false)){
-                          return false
-                      }
-                  }
-                  return true
-              }
+      //   {
+      //       fname:'|',
+      //       parameters:[,true,...]
+      //   }
+      //   {
+      //       fname:'|',
+      //       parameters:[false]
+      //   }
+      var str = "|(!(f),&(t,|(t,f)),t,t,t,t)";
+      var i = 0;
 
-          }else{
-              return syntaxTree
+      function toJS(syntaxTree) {
+        if (typeof syntaxTree == "object") {
+          if (syntaxTree.fname == "&") {
+            return syntaxTree.parameters
+              .map((it) => "(" + toJS(it) + ")")
+              .join("&&");
           }
+          if (syntaxTree.fname == "|") {
+            return syntaxTree.parameters
+              .map((it) => "(" + toJS(it) + ")")
+              .join("||");
+          }
+          if (syntaxTree.fname == "!") {
+            return "!" + "(" + toJS(syntaxTree.parameters[0]) + ")";
+          }
+        } else {
+          return String(syntaxTree);
+        }
       }
 
-     //解析出来的对象 语法树
+      function toLisp(syntaxTree) {
+        if (typeof syntaxTree == "object") {
+          return (
+            "(" +
+            syntaxTree.fname +
+            " " +
+            syntaxTree.parameters.map(toLisp).join(" ") +
+            ")"
+          );
+        } else {
+          return String(syntaxTree);
+        }
+      }
+
+      function evaluate(syntaxTree) {
+        if (typeof syntaxTree == "object") {
+          if (syntaxTree.fname == "!") {
+            return !evaluate(syntaxTree.parameters[0]);
+          }
+          if (syntaxTree.fname == "|") {
+            for (var parameter of syntaxTree.parameters) {
+              if (evaluate(parameter) == true) {
+                return true;
+              }
+            }
+            return false;
+          }
+          if (syntaxTree.fname == "&") {
+            for (var parameter of syntaxTree.parameters) {
+              if (evaluate(parameter) == false) {
+                return false;
+              }
+            }
+            return true;
+          }
+        } else {
+          return syntaxTree;
+        }
+      }
+
       function parseExpression() {
-          if(str[i] == 't'||str[i] == 'f') {
-              return parseValue()
+        if (str[i] == "t" || str[i] == "f") {
+          return parseValue();
+        }
+        return parseFcall();
+      }
+
+      function parseFcall() {
+        var obj = {
+          fname: str[i],
+          parameters: [],
+        };
+        i++; // skip 函数名
+        i++; // skip (
+
+        while (str[i] !== ")") {
+          var parameter = parseExpression();
+          obj.parameters.push(parameter);
+          if (str[i] == ",") {
+            i++;
+            continue;
           }
-          return parseFcall()
+        }
+        i++;
+        return obj;
       }
 
-      function parseFcall() {//
-       var obj = {
-           fname:str[i],
-           parameters:[]
-       }
-       i++ // skip函数名
-       i++ // skip (
-       if(str[i] == ')'){
-           i++ // skip
-           return obj
-       }
-       while(str[i] !== ')'){
-         var parameter = parseExpression()
-         obj.parameters.push(parameter)
-         if(str[i] == ','){
-             i++
-             continue
-         }
-       }
-       i++ // skip
-       return obj
+      function parseValue() {
+        if (str[i] == "t") {
+          i++;
+          return true;
+        }
+        if (str[i] == "f") {
+          i++;
+          return false;
+        }
       }
+  
+      //   function toLisp(syntaxTree) {
+      //     if(typeof syntaxTree == 'object'){
+      //         return '(' + syntaxTree.fname + ' ' + syntaxTree.parameters.map(toLisp).join(' ') + ')'
 
-      function parseValue(){
-        if(str[i] == 't'){
-            i++
-            return true
-        }
-        if(str[i] == 'f'){
-            i++
-            return false
-        }
-      }
+      //   }else{
+      //       return String(syntaxTree)
+      //   }
+      // }
+
+      //   //方法2 用语法树
+      //   function toJS(syntaxTree) {
+      //     if(typeof syntaxTree == 'object'){
+      //      if(syntaxTree.fname == '&'){
+      //          return syntaxTree.parameters.map(it =>'(' + toJS(it)+')').join('&&')
+      //      }
+      //      if(syntaxTree.fname == '|'){
+      //          return syntaxTree.parameters.map(it =>'(' + toJS(it)+')').join('||')
+      //      }
+      //      if(syntaxTree.fname == '!'){
+      //          return '!'+'('+toJS(syntaxTree.parameters[0])+')'
+      //      }
+      //   }else{
+      //       return String(syntaxTree)
+      //   }
+      // }
+
+      //  //方法1 用语法树
+      //   function evaluate(syntaxTree){
+      //       if(typeof syntaxTree == 'object'){
+      //           if(syntaxTree.fname == '!'){
+      //               return !evaluate(syntaxTree.parameters[0])
+      //           }
+      //           if(syntaxTree.fname == '|'){
+      //               for(var parameter of syntaxTree.parameters){
+      //                   if(evaluate(parameter == true)){
+      //                       return true
+      //                   }
+      //               }
+      //               return false
+      //           }
+      //           if(syntaxTree.fname == '&'){
+      //             for(var parameter of syntaxTree.parameters){
+      //                   if(evaluate(parameter == false)){
+      //                       return false
+      //                   }
+      //               }
+      //               return true
+      //           }
+
+      //       }else{
+      //           return syntaxTree
+      //       }
+      //   }
+
+      //  //解析出来的对象 语法树//栈溢出
+      //   function parseExpression() {
+      //       if(str[i] == 't'||str[i] == 'f') {
+      //           return parseValue()
+      //       }
+      //       return parseFcall()
+      //   }
+
+      //   function parseFcall() {//
+      //    var obj = {
+      //        fname:str[i],
+      //        parameters:[]
+      //    }
+      //    i++ // skip函数名
+      //    i++ // skip (
+      //    if(str[i] == ')'){
+      //        i++ // skip
+      //        return obj
+      //    }
+      //    while(str[i] !== ')'){
+      //      var parameter = parseExpression()
+      //      obj.parameters.push(parameter)
+      //      if(str[i] == ','){
+      //          i++
+      //          continue
+      //      }
+      //    }
+      //    i++ // skip
+      //    return obj
+      //   }
+
+      //   function parseValue(){
+      //     if(str[i] == 't'){
+      //         i++
+      //         return true
+      //     }
+      //     if(str[i] == 'f'){
+      //         i++
+      //         return false
+      //     }
+      //   }
+      //
     </script>
   </body>
 </html>
