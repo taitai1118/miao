@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>移动小游戏</title>
+    <style>
+      span {
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        background-color: violet;
+      }
+      body {
+        position: relative;
+      }
+    </style>
+  </head>
+  <body>
+    <span style="left: 0; top: 0"></span>
+    <script>
+      //需要自己记录是否松手
+      var span = document.querySelector("span");
+      var vx = 0; //平行速度
+      var vy = 0; //上下速度
+      var d = 100; //速度移动像素
+      var leftDown = false;
+      var rightDown = false;
+      var upDown = false;
+      var downDown = false;
+
+      window.addEventListener("keydown", function (event) {
+        console.log(event.code);
+        if(event.code.startsWith('Shift')){
+            d = 250
+            if(vx < 0){
+                vx = -d
+            }else if(vx > 0){
+                vx = d
+            }
+            if(vy < 0){
+                vy = -d
+            }else if(vy > 0){
+                vy = d
+            }
+        }
+        if (event.code == "ArrowLeft") {
+            //  var x = parseInt(span.style.left)
+            //  x--;
+            //  span.style.left = x + "px"
+           leftDown = true;
+           vx = -d
+        }
+        if (event.code == "ArrowRight") {
+            //  var x = parseInt(span.style.left)
+            //  x++;
+            //  span.style.left = x + "px"
+          rightDown = true;
+          vx = d
+          
+        }
+        if (event.code == "ArrowUp") {
+            //  var y = parseInt(span.style.top)
+            //  y--;
+            //  span.style.top = y + "px"
+            upDown = true;
+           vy =  -d
+        }
+        if (event.code == "ArrowDown") {
+            //  var y = parseInt(span.style.top)
+            //  y++;
+            //  span.style.top = y + "px"
+            downDown = true;
+            vy = d
+        }
+       
+      });
+      window.addEventListener("keyup", function (event) {
+        console.log(event.code);
+        if(event.code.startsWith('Shift')){//有bug
+          d = 100
+            if(vx < 0){
+                vx = -d
+            }else if(vx > 0){
+                vx = d
+            }
+            if(vy < 0){
+                vy = -d
+            }else if(vy > 0){
+                vy = d
+            }
+        }
+        if (event.code == "ArrowLeft") {
+          leftDown = false;
+          if(rightDown){
+              vx = d;
+          }else{
+              vx = 0
+          }
+        }
+        if (event.code == "ArrowRight") {
+          rightDown = false;
+          if(leftDown) {
+              vx = -d;
+          }else{
+              vx = 0
+          }
+        }
+        if (event.code == "ArrowUp") {
+            upDown = false;
+            if(downDown){
+                vy = -d
+            }else{
+               vy = 0
+            }
+          
+        }
+        if (event.code == "ArrowDown") {
+          downDown = false;
+          if(upDown){
+              vy = d;
+          }else{
+              vy = 0
+          }
+        }
+
+      });
+      
+      var lastTime = null
+
+      requestAnimationFrame(function ani(time){
+          var timeDiff = 0
+     if(lastTime !== null){
+        var timeDiff = (time - lastTime)/1000
+     }else{
+         timeDiff = 0
+     }
+     var dx = timeDiff * vx
+     span.style.left = parseInt(span.style.left)+dx + "px"
+
+     var dy = timeDiff * vy
+     span.style.top = parseInt(span.style.top)+dy+'px'
+     
+     lastTime = time
+     requestAnimationFrame(ani)
+     
+    
+
+      })
+  </script>
+  </body>
+</html>
