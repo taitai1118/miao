@@ -651,6 +651,8 @@ function dropRightWhile(array, predicate){
     array.pop()
   }
 }
+
+
   return {
     dropRightWhile: dropRightWhile,
     chunk: chunk,

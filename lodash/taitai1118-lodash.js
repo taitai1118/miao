@@ -1025,7 +1025,16 @@ function identity(value){
   return value
 }
 
+function sortedLastIndex(array,value){
+  for(let key in array){
+    if(array[key] > value){
+      return key
+    }
+  }
+}
+
   return {
+    sortedLastIndex,
     sortedIndexOf,
     sortedIndexBy,
     sortedIndex,
