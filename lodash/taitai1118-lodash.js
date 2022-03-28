@@ -1032,8 +1032,310 @@ function sortedLastIndex(array,value){
     }
   }
 }
+function isMatch(object, source) {
+  for(var key in source){
+    if(source[key] && typeof source[key] == 'object'){//判断存在 因为nul也会被判断为对象
+      if(!isMatch(object[key], source[key])){
+        return false
+      }
+    }else{
+      if(source[key]!==object[key]){
+        return false
+      }
+    }
+  }
+  return true
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function identity(val) {
+  return val
+}
+
+function get(obj, path) {//第一种写法
+  var names = toPath(path)
+  for (var name of names) {
+      obj = obj[name]//转一圈得到下一个内部属性
+      if (obj == null) {
+          return obj
+      }
+  }
+  return obj
+}
+
+//   function get(obj, path) {//第二种写法 reduce
+//       var names = toPath(path)
+//       return names.reduce((obj, name) => {
+//           return obj ?? obj[name]//？？左边为空或者undefined走右边
+//       }, obj) //如果是&&左边只要是假就走右边
+//   }
+
+//   function get(obj, path) {//第三种写法 递归写法
+//     path = toPath(path)
+//     if (obj == null) {//如果对象为空
+//         return obj
+//     }
+//     if (path.length == 0) {//如果路径到头了
+//         return obj
+//     }
+//     return get(obj[path[0]], path.slice(1))
+//   }
+
+function toPath(path) {//把一个路径 分割成一个数组
+  if (typeof path == 'string') {
+    return path.split('[')
+      .flatMap(it => it.split(']'))//先map再split
+      .flatMap(it => it.split('.'))
+      .filter(it => it)
+  }
+  return path
+}
+
+
+//   console.log(toPath('a[0].b.c'))
+
+
+function isEqual(value, other) {
+  if (value === other) {
+      return true
+  }
+  if (value == null || typeof value != "object" ||
+  other == null || typeof other != "object") {
+      return false
+  }
+  var con1 = 0,con2 = 0
+  for (var key in value)
+      con1++
+  for (var key in value) {
+      con2++
+      if (!(key in value) || !isEqual(value[key], other[key]))
+          return false;
+  }
+  return con1 === con2
+}
+
+
+
+
+function property(name) {
+  return function(obj) {
+    return get(obj, name)
+  }
+}
+function matchesProperty(path, val) {
+  return function(obj) {
+    return isEqual(get(obj, path), val)
+  }
+}
+function matches(target) {
+  return function(obj) {
+    for (var key in target) {
+      if (obj[key] !== target[key]) {
+        return false
+      }
+    }
+    return true
+  }
+}
+
+function iteratee(predicate){
+  if(typeof predicate === 'string'){
+    predicate = property(predicate)
+  }
+  if(Array.isArray(predicate)){
+    predicate = matchesProperty(...predicate)
+  }
+  if(predicate && typeof predicate === 'object'){
+    predicate = matches(predicate)
+  }
+  return predicate
+}
+
+function sortedLastIndexBy(array,value,iteratees = identity){
+    for(let i = 0; i < array.length; i++){
+        if(iteratee(array[i]) >= iteratee(value)){
+            return i+1
+        }
+    }
+}
+ 
+function sortedLastIndexOf(array,value){
+    for(let i in array){
+        if(array[i] > value){
+           return i-1
+        }
+    }
+    return -1
+}
+//   console.log(sortedLastIndexOf([4, 5, 5, 5, 6], 5))
+
+function sortedUniq(array){
+   let res =[]
+   for(let item of array){
+     if(!(res.includes((item)))){
+        res.push(item)
+     }
+   }
+    return res
+}
+//   console.log(sortedUniq([1,1,2,2,2,2,2,2,2]))
+
+
+ function takeRightWhile(array,predicate = identity){
+     if(typeof predicate == 'string'){
+          predicate = function(obj){
+              for(let key in obj){
+                  if(key == 'string'){
+                      return true;
+                  }
+              }
+          }
+     }else{
+      predicate = iteratee(predicate)
+     }
+      for(i = array.length - 1; i >= 0; i--){
+          if(!predicate(array[i])){
+              array.splice(i,1)
+          }
+      }
+      return array
+ }
+
+//   console.log(takeRightWhile([{"user":"barney","active":true},{"user":"fred","active":false},{"user":"pebbles","active":false}],{"user":"pebbles","active":false}))
+
+ function takeWhile(array, predicate = identity){
+     predicate = iteratee(predicate)
+     for(let i in array){
+      if(!predicate(array[i])){
+         return array.slice(0,i)
+      }
+     }
+ }
+ var users = [
+  { 'user': 'barney',  'active': false },
+  { 'user': 'fred',    'active': false},
+  { 'user': 'pebbles', 'active': true }
+];
+//    console.log(takeWhile(users, 'active'))
+
+
+function sortedUniq(array,iteratee){
+  let ary = [],res =[]
+ for(let item of array){
+   if(!(ary.includes(iteratee(item)))){
+      ary.push(iteratee(item))
+      res.push(item)
+   }
+ }
+  return res
+}
+// console.log(sortedUniq([1.1, 1.2, 2.3, 2.4], Math.floor))
+
+function unionBy(arrays,iteratees = identity){
+  let fun = arguments[arguments.length - 1]
+  fun = iteratee(fun)
+  let res = [];
+  for(let i=0;i < arguments.length -1; i++){
+    let a = arguments[i]
+      res = ([...res,...a])
+  }
+  return sortedUniq(res, fun)
+}
+debugger
+// console.log(unionBy([{ 'x': 1 }], [{ 'x': 2 }, { 'x': 1 }], 'x'))
+
+function unionWith(array,comparator){
+  let fun = arguments[arguments.length - 1]
+  fun = iteratee(fun)
+  let res = [];
+  for(let i=0;i < arguments.length -1; i++){
+    let a = arguments[i]
+      res = ([...res,...a])
+  }
+  let flag = true;
+  let ans = []
+  
+  for(let i=0;i<res.length;i++){
+      console.log(res[i])
+    for(let j = i+1;j <res.length;j++){
+      if(isEqual(res[i],res[j])){
+         flag = false;
+      }
+    }
+    if(flag){
+        console.log(res[i])
+        ans.push(res[i])
+    }else{
+      flag = true;
+    }
+  }
+  return ans
+}
+
+
+// var objects = [{ 'x': 1, 'y': 2 }, { 'x': 2, 'y': 1 }];
+// var others = [{ 'x': 1, 'y': 1 }, { 'x': 1, 'y': 2 }];
+// console.log(unionWith(objects, others, isEqual))
+
+
+
+function zip(arrays){
+   let res = []
+   let maxlen = 0
+   for(let i=0;i< arguments.length; i++){
+      if(arguments[i].length > maxlen){
+          maxlen = arguments[i].length
+      }
+   }
+   for(let i = 0; i < maxlen; i++){
+      res[i] = [];
+       for(let j = 0; j <arguments.length; j++){
+           res[i].push(arguments[j][i])
+       }
+   }
+  return res
+}
+
+
+
+function unzip(array){
+  let maxlen = 0,res = [];
+  for(let item of array){
+     maxlen = Math.max(maxlen, item.length)
+  } 
+  for(let i = 0; i < maxlen; i++){
+      let target = []
+      for(let j = 0; j < array.length; j++){
+         target.push( array[j][i])
+      }
+      res.push(target)
+  }
+  return res
+}
+//  console.log(unzip([['fred', 30, true,'name'], ['barney', 40, false]]))
 
   return {
+    takeRightWhile,
+    takeWhile,
+    unionBy,
+    unionWith,
+    zip,
+    unzip,
+    sortedLastIndexBy,
+    sortedLastIndexOf,
+    isMatch,
     sortedLastIndex,
     sortedIndexOf,
     sortedIndexBy,
