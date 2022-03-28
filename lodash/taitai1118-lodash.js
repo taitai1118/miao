@@ -1028,7 +1028,7 @@ function identity(value){
 function sortedLastIndex(array,value){
   for(let key in array){
     if(array[key] > value){
-      return key
+      return Number(key)
     }
   }
 }
