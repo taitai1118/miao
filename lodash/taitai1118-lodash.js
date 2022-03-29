@@ -871,18 +871,8 @@ function sortedIndex(array,value){
     }
   }
 }
-  function sortedIndexBy(array, value, iteratee = identity){
-     iteratee = shorthand1(iteratee)
-    for(let key in array){
-        let item = array[key]
-        for(let i in value){
-            let item2 = value[i]
-            if(iteratee(item) >= (item2)){
-                return Number(key)
-            }
-        }
-    }
-  }
+
+
   function sortedIndexOf(array,value){
     let left = 0,right = array.length - 1
     while(right >= left){
@@ -1194,17 +1184,9 @@ function sortedUniq(array){
 
 
  function takeRightWhile(array,predicate = identity){
-     if(typeof predicate == 'string'){
-          predicate = function(obj){
-              for(let key in obj){
-                  if(key == 'string'){
-                      return true;
-                  }
-              }
-          }
-     }else{
+    
       predicate = iteratee(predicate)
-     }
+    
       for(i = array.length - 1; i >= 0; i--){
           if(!predicate(array[i])){
               array.splice(i,1)
@@ -1213,7 +1195,7 @@ function sortedUniq(array){
       return array
  }
 
-//   console.log(takeRightWhile([{"user":"barney","active":true},{"user":"fred","active":false},{"user":"pebbles","active":false}],{"user":"pebbles","active":false}))
+  // console.log(takeRightWhile([{"user":"barney","active":true},{"user":"fred","active":false},{"user":"pebbles","active":false}],{"user":"pebbles","active":false}))
 
  function takeWhile(array, predicate = identity){
      predicate = iteratee(predicate)
@@ -1223,11 +1205,11 @@ function sortedUniq(array){
       }
      }
  }
- var users = [
-  { 'user': 'barney',  'active': false },
-  { 'user': 'fred',    'active': false},
-  { 'user': 'pebbles', 'active': true }
-];
+//  var users = [
+//   { 'user': 'barney',  'active': false },
+//   { 'user': 'fred',    'active': false},
+//   { 'user': 'pebbles', 'active': true }
+// ];
 //    console.log(takeWhile(users, 'active'))
 
 
@@ -1326,7 +1308,22 @@ function unzip(array){
 }
 //  console.log(unzip([['fred', 30, true,'name'], ['barney', 40, false]]))
 
+
+function sortedIndexBy(array, value, iteratees){
+  iteratees = iteratee(iteratees)
+ for(let key in array){
+     let item = array[key]
+     for(let i in value){
+         let item2 = value[i]
+         if(iteratees(item) >= (item2)){
+             return Number(key)
+         }
+     }
+ }
+}
+console.log(sortedIndexBy([{'x':4},{'x':5}],{'x':4},'x'))
   return {
+    sortedUniq,
     takeRightWhile,
     takeWhile,
     unionBy,
